@@ -236,6 +236,8 @@ return [
          */
         'AdminLTE' => Acacha\AdminLTETemplateLaravel\Facades\AdminLTE::class,
 
+        'Menu' => 'Facades\App\Menu',
+        'OptionMenu' => 'Facades\App\Option',
     ],
 
 ];
