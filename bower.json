@@ -1,0 +1,18 @@
+{
+  "name": "sysbase",
+  "description": "sistema base",
+  "main": "webpack.mix.js",
+  "authors": [
+    "Esdras Altamirano <altamiranoesdras@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "public/bower",
+    "test",
+    "tests"
+  ]
+}
