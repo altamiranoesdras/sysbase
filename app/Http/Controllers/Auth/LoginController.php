@@ -57,7 +57,7 @@ class LoginController extends Controller
      */
     public function username()
     {
-        return config('auth.providers.users.field','email');
+        return config('auth.providers.users.field','username');
     }
 
     /**
