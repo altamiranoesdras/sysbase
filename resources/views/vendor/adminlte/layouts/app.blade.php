@@ -29,7 +29,7 @@ desired effect
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-blue sidebar-mini">
+<body class="skin-blue sidebar-mini sidebar-collapse">
 <div id="app" v-cloak>
     <div class="wrapper">
 
@@ -40,16 +40,19 @@ desired effect
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
 
-        @include('adminlte::layouts.partials.contentheader')
+        {{--@include('adminlte::layouts.partials.contentheader')--}}
 
-        <!-- Main content -->
-        <section class="content">
-            <!-- Your Page Content Here -->
-            @yield('main-content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
+        {{--<!-- Main content -->--}}
+        {{--<section class="content">--}}
+            {{--<!-- Your Page Content Here -->--}}
+            {{--@yield('main-content')--}}
+        {{--</section><!-- /.content -->--}}
+        @yield('content')
+        {{  $slot or ''}}
+    </div>
+    <!-- /.content-wrapper -->
 
-    @include('adminlte::layouts.partials.controlsidebar')
+    {{--@include('adminlte::layouts.partials.controlsidebar')--}}
 
     @include('adminlte::layouts.partials.footer')
 

@@ -10,7 +10,7 @@
     <div id="app">
         <div class="login-box">
             <div class="login-logo">
-                <a href="{{ url('/home') }}"><b>{{config('app.nombre_negocio')}}</b></a>
+                <a href="{{ url('/home') }}"><b>{{config('app.name')}}</b></a>
             </div><!-- /.login-logo -->
 
             @if (count($errors) > 0)
