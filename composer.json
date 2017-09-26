@@ -9,7 +9,13 @@
         "acacha/admin-lte-template-laravel": "^5.0",
         "fideloper/proxy": "~3.3",
         "laravel/framework": "5.5.*",
-        "laravel/tinker": "~1.0"
+        "laravel/tinker": "~1.0",
+        "infyomlabs/laravel-generator": "5.5.x-dev",
+        "laravelcollective/html": "^5.5.0",
+        "infyomlabs/adminlte-templates": "5.5.x-dev",
+        "infyomlabs/swagger-generator": "dev-master",
+        "jlapp/swaggervel": "dev-master",
+        "doctrine/dbal": "~2.3"
     },
     "require-dev": {
         "filp/whoops": "~2.0",
