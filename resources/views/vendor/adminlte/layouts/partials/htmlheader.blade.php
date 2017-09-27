@@ -26,7 +26,20 @@
 <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('bower/iCheck/skins/square/_all.css') }}">
 
+    <!--App css-->
+    @yield('css')
+    @stack('css')
+    {{ $css or ''}}
 
+    <!--App css -->
+    <style>
+        .select2-container--default .select2-selection--multiple .select2-selection__choice{
+            color: #0A0A0A;
+        }
+        .alert {
+            margin-bottom: 10px;
+        }
+    </style>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

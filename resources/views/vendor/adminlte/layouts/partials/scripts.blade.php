@@ -9,9 +9,10 @@
       fixed layout. -->
 
 
-<!-- jQuery 2.2.3 -->
+<!-- jQuery v3.2.1 -->
 <script src="{{ asset('bower/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
-{{--<script src="plugins/jQuery/jquery-2.2.3.min.js"></script>--}}
+<!-- jQuery 2.2.3 -->
+{{--<script src="plugins/jquery-2.2.3.min.js"></script>--}}
 
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('bower/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
@@ -39,3 +40,12 @@
 {{--<script src="dist/js/pages/dashboard2.js"></script>--}}
 {{--<!-- AdminLTE for demo purposes -->--}}
 {{--<script src="dist/js/demo.js"></script>--}}
+
+<!-- Ocultar alertas flash -->
+<script>
+    $('div.alert').not('.alert-important').delay({{config('app.delay_fade_out_div_alert',3000)}}).fadeOut(350);
+</script>
+
+@stack('scripts')
+@yield('scripts')
+{{$scripts or ''}}
