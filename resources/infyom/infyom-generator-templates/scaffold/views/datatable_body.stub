@@ -7,4 +7,15 @@
 @section('scripts')
     @include('layouts.datatables_js')
     {!! $dataTable->scripts() !!}
+    <script>
+        $(function () {
+            var dt = window.LaravelDataTables["dataTableBuilder"];
+
+            //Cuando dibuja la tabla
+            dt.on( 'draw.dt', function () {
+                $(this).addClass('table-condensed table-striped table-bordered table-hover');
+            });
+
+        })
+    </script>
 @endsection

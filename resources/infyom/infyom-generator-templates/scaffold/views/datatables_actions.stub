@@ -8,12 +8,12 @@
 </a>
 
 <span data-toggle="tooltip" title="Eliminar">
-    <a href="#modal-delete-{{$id}}" data-toggle="modal" class='btn btn-danger btn-xs'>
+    <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-xs'>
         <i class="glyphicon glyphicon-remove"></i>
     </a>
 </span>
 
-<div class="modal fade modal-warning" id="modal-delete-{{$id}}">
+<div class="modal fade modal-warning" id="modal-delete-{{$id}}" tabindex='-1'>
     <div class="modal-dialog">
         <div class="modal-content">
             {!! Form::open(['route' => ['$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.destroy', $id], 'method' => 'delete']) !!}
@@ -22,7 +22,7 @@
                 <h4 class="modal-title">Eliminar!</h4>
             </div>
             <div class="modal-body">
-                Seguro que desea eliminar el $MODEL_NAME_HUMAN$?
+                Seguro desea eliminar el registro?
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
