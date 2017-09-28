@@ -30,5 +30,5 @@ Route::group(['middleware' => 'auth'], function () {
 
 
 Route::resource('admin/configurations', 'ConfigurationController');
-
 Route::resource('admin/rols', 'RolController');
+Route::resource('admin/users', 'UserController');
