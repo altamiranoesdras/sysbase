@@ -13,7 +13,8 @@
 <script src="{{ asset('bower/jquery/dist/jquery.min.js') }}" type="text/javascript"></script>
 <!-- jQuery 2.2.3 -->
 {{--<script src="plugins/jquery-2.2.3.min.js"></script>--}}
-
+<!-- jQuery UI 1.11.4 -->
+<script src="{{asset("bower/jquery-ui/jquery-ui.min.js")}}"></script>
 <!-- Bootstrap 3.3.6 -->
 <script src="{{ asset('bower/bootstrap/dist/js/bootstrap.min.js') }}" type="text/javascript"></script>
 {{--<script src="bootstrap/js/bootstrap.min.js"></script>--}}
