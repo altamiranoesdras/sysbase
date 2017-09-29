@@ -36,7 +36,7 @@ class OptionsTableSeeder extends Seeder
                 'id' => 2,
                 'padre' => 1,
                 'nombre' => 'Usuarios',
-                'ruta' => 'admin/user',
+                'ruta' => 'admin/users',
                 'descripcion' => 'Administración de usuarios',
                 'icono_l' => 'fa-circle-o',
                 'icono_r' => '',
