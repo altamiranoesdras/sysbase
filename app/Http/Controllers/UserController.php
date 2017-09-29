@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\DataTables\UserDataTable;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\Rol;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Facades\App\Menu;
@@ -41,7 +42,10 @@ class UserController extends AppBaseController
      */
     public function create()
     {
-        return view('users.create');
+        $rols = Rol::all();
+        $rolsUser= [];
+        $create =1;
+        return view('users.create',compact('rols','rolsUser','create'));
     }
 
     /**
@@ -54,8 +58,13 @@ class UserController extends AppBaseController
     public function store(CreateUserRequest $request)
     {
         $input = $request->all();
+        $input['password'] = bcrypt($input['password']);
 
         $user = $this->userRepository->create($input);
+
+        if($user && $request->rols){
+            $user->rols()->sync($request->rols);
+        }
 
         Flash::success('User saved successfully.');
 
@@ -99,7 +108,10 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        return view('users.edit')->with('user', $user);
+        $rols = Rol::all();
+        $rolsUser = array_pluck($user->rols->toArray(),"id");
+
+        return view('users.edit',compact('user','rolsUser','rols'));
     }
 
     /**
@@ -120,7 +132,21 @@ class UserController extends AppBaseController
             return redirect(route('users.index'));
         }
 
-        $user = $this->userRepository->update($request->all(), $id);
+//        dd($user->toArray(),$request->toArray());
+//
+        $user->name = $request->name;
+        $user->username = $request->username;
+        $user->email = $request->email;
+
+
+        if(!is_null($request->password) && !is_null($request->password_confirmation)){
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        $rols = $request->rols ? $request->rols : [];
+        $user->rols()->sync($rols);
 
         Flash::success('User updated successfully.');
 

@@ -25,6 +25,11 @@ class UpdateUserRequest extends FormRequest
      */
     public function rules()
     {
-        return User::$rules;
+        $id = $this->user;
+        $rules = User::$rules;
+        $rules['username'] = $rules['username'] . ',username,' . $id;
+        unset($rules['password']);
+
+        return $rules;
     }
 }
