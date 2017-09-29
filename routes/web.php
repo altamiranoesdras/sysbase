@@ -32,3 +32,5 @@ Route::group(['middleware' => 'auth'], function () {
 Route::resource('admin/configurations', 'ConfigurationController');
 Route::resource('admin/rols', 'RolController');
 Route::resource('admin/users', 'UserController');
+Route::get('/admin/user/{user}/menu', 'UserController@menu')->name('user.menu');;
+Route::patch('/admin/user/menu/{user}', 'UserController@menuStore')->name('users.menuStore');

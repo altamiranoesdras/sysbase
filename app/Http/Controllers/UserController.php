@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\DataTables\UserDataTable;
-use App\Http\Requests;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
+use App\Models\User;
 use App\Repositories\UserRepository;
+use Facades\App\Menu;
+use App\Option;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -147,5 +149,37 @@ class UserController extends AppBaseController
         Flash::success('User deleted successfully.');
 
         return redirect(route('users.index'));
+    }
+
+    /**
+     * Muestra al vista para poder asignar opciones del menu a un usuario
+     *
+     * @param $id id del usuario
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function menu(User $user){
+
+        $opciones= Option::all();
+        $menu= Menu::renderUser($opciones,0,$user);
+
+        return view("users.menu",compact('user','menu'));
+    }
+
+    /**
+     * Guarda lsa opciones de menu que se decidieron asignar al usuario
+     *
+     * @param Request $request
+     * @param $id usuario
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function menuStore(User $user){
+
+        $opciones = is_null(request()->opciones) ? array() : request()->opciones;
+
+        $user->opciones()->sync($opciones);
+
+        Flash::success('Menu del usuario actualizado!')->important();
+
+        return redirect("admin/user/{$user->id}/menu");
     }
 }

@@ -7,6 +7,10 @@
     <i class="glyphicon glyphicon-edit"></i>
 </a>
 
+<a href="{{ route('user.menu',$id) }}" class="btn btn-xs btn-default">
+    <span class="glyphicon glyphicon-list-alt" data-toggle="tooltip" title="Menu"></span>
+</a>
+
 <span data-toggle="tooltip" title="Eliminar">
     <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-xs'>
         <i class="glyphicon glyphicon-remove"></i>

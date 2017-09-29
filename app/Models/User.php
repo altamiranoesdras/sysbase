@@ -69,9 +69,9 @@ class User extends Model
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
-    public function options()
+    public function opciones()
     {
-        return $this->belongsToMany(\App\Models\Option::class, 'option_user');
+        return $this->belongsToMany(\App\Option::class, 'option_user');
     }
 
     /**
