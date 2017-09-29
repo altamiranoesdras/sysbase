@@ -1,5 +1,9 @@
 @extends('adminlte::layouts.app')
 
+@section('htmlheader_title')
+	Editar $MODEL_NAME_HUMAN$
+@endsection
+
 @section('content')
     <section class="content-header">
         <h1>
