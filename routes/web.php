@@ -34,3 +34,8 @@ Route::resource('admin/rols', 'RolController');
 Route::resource('admin/users', 'UserController');
 Route::get('/admin/user/{user}/menu', 'UserController@menu')->name('user.menu');;
 Route::patch('/admin/user/menu/{user}', 'UserController@menuStore')->name('users.menuStore');
+
+Route::get('/admin/option/create/{padre}', 'OptionMenuController@create');
+Route::get('/admin/option/orden', 'OptionMenuController@updateOrden');
+Route::post('/admin/option/orden', 'OptionMenuController@updateOrden');
+Route::resource('/admin/option',"OptionMenuController");
