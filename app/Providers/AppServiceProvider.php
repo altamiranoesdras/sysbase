@@ -29,8 +29,14 @@ class AppServiceProvider extends ServiceProvider
             }
         }
 
+        //si usuario es admin
         Blade::if('useradmin', function () {
             return in_array(1,array_pluck(Auth::user()->rols->toArray(),"id"));
+        });
+
+        //si user no tiene opciones
+        Blade::if('usernoops', function () {
+            return Auth::user()->opciones->count()==0 ? true : false;
         });
     }
 
