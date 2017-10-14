@@ -7,7 +7,7 @@
 @section('content')
     <section class="content-header">
         <h1>
-            $MODEL_NAME_HUMAN$
+            Crear $MODEL_NAME_HUMAN$
         </h1>
     </section>
     <div class="content">

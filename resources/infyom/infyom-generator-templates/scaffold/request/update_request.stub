@@ -23,8 +23,11 @@ class Update$MODEL_NAME$Request extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        return $MODEL_NAME$::$rules;
+    public function rules(){
+        $id = $this->$MODEL_NAME_CAMEL$;
+        $rules = $MODEL_NAME$::$rules;
+        //$rules['campo'] = $rules['campo'] . ',campo,' . $id;
+
+        return $rules;
     }
 }
