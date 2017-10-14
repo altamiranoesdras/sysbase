@@ -5,9 +5,7 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
-    <!-- Bootstrap 3.3.6 -->
-    <link rel="stylesheet" href="{{ asset('bower/bootstrap/dist/css/bootstrap.min.css') }}">
-{{--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">--}}
+
 <!-- Font Awesome -->
     <link rel="stylesheet" href="{{ asset('bower/font-awesome/css/font-awesome.min.css') }}">
 {{--<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.5.0/css/font-awesome.min.css">--}}
@@ -25,6 +23,13 @@
 {{--<link rel="stylesheet" href="dist/css/skins/_all-skins.min.css">--}}
 <!-- iCheck -->
     <link rel="stylesheet" href="{{ asset('bower/iCheck/skins/square/_all.css') }}">
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="{{ asset('bower/bootstrap/dist/css/bootstrap.min.css') }}">
+{{--<link rel="stylesheet" href="bootstrap/css/bootstrap.min.css">--}}
+
+    <!-- bootstrap-toggle -->
+    <link rel="stylesheet" href="{{ asset('bower/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
+    {{--<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">--}}
 
     <!--App css-->
     @yield('css')
@@ -39,7 +44,10 @@
         .alert {
             margin-bottom: 10px;
         }
+        .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
+        .toggle.ios .toggle-handle { border-radius: 20px; }
     </style>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->

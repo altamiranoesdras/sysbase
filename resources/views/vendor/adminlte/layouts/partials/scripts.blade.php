@@ -26,6 +26,10 @@
 <!-- icheck -->
 <script src="{{ asset('bower/iCheck/icheck.min.js') }}" type="text/javascript"></script>
 
+<!-- bootstrap-toggle -->
+<script src="{{ asset('bower/bootstrap-toggle/js/bootstrap-toggle.min.js') }}" type="text/javascript"></script>
+{{--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>--}}
+
 {{--<!-- FastClick -->--}}
 {{--<script src="plugins/fastclick/fastclick.js"></script>--}}
 {{--<!-- Sparkline -->--}}
