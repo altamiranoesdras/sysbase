@@ -26,6 +26,8 @@
     "AdminLTE": "admin-lte#2.3.11",
     "Ionicons": "ionicons#^2.0.1",
     "jvectormap": "^2.0.4",
-    "iCheck": "^1.0.2"
+    "iCheck": "^1.0.2",
+    "jquery-ui": "^1.12.1",
+    "bootstrap-toggle": "^2.2.2"
   }
 }
