@@ -14,10 +14,8 @@ class CreateTableOptions extends Migration
     public function up()
     {
         Schema::create('options', function (Blueprint $table) {
-            $table->engine = 'InnoDB';
-
-            $table->increments('id');
-            $table->integer('padre')->unsigned()->nullable();;
+            $table->integer('id',true);
+            $table->integer('padre')->nullable();;
             $table->string('nombre');
             $table->string('ruta')->nullable();
             $table->string('descripcion')->nullable();

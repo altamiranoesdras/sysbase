@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTableRols extends Migration
+class CambiarCampoBlobTablasArchivos extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,7 @@ class CreateTableRols extends Migration
      */
     public function up()
     {
-        Schema::create('rols', function (Blueprint $table) {
-            $table->integer('id',true);
-            $table->string('descripcion','45');
-            $table->timestamps();
-            $table->softDeletes();
-        });
+        DB::statement('ALTER TABLE `uimages` CHANGE COLUMN `data` `data` MEDIUMBLOB NOT NULL AFTER `user_id`;');
     }
 
     /**
@@ -28,6 +23,6 @@ class CreateTableRols extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('rols');
+        //
     }
 }
