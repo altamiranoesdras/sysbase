@@ -1,54 +1,31 @@
-<!-- Id Field -->
+
 <div class="form-group">
+    <!-- Id Field -->
     {!! Form::label('id', 'Id:') !!}
-    <p>{!! $user->id !!}</p>
-</div>
+    {!! $user->id !!}<br>
 
-<!-- Username Field -->
-<div class="form-group">
+    <!-- Username Field -->
     {!! Form::label('username', 'Username:') !!}
-    <p>{!! $user->username !!}</p>
-</div>
+    {!! $user->username !!}<br>
 
-<!-- Name Field -->
-<div class="form-group">
+    <!-- Name Field -->
     {!! Form::label('name', 'Name:') !!}
-    <p>{!! $user->name !!}</p>
-</div>
+    {!! $user->name !!}<br>
 
-<!-- Email Field -->
-<div class="form-group">
+    <!-- Email Field -->
     {!! Form::label('email', 'Email:') !!}
-    <p>{!! $user->email !!}</p>
-</div>
+    {!! $user->email !!}<br>
 
-<!-- Password Field -->
-<div class="form-group">
-    {!! Form::label('password', 'Password:') !!}
-    <p>{!! $user->password !!}</p>
-</div>
-
-<!-- Remember Token Field -->
-<div class="form-group">
-    {!! Form::label('remember_token', 'Remember Token:') !!}
-    <p>{!! $user->remember_token !!}</p>
-</div>
-
-<!-- Created At Field -->
-<div class="form-group">
+    <!-- Created At Field -->
     {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $user->created_at !!}</p>
-</div>
+    {!! $user->created_at !!}<br>
 
-<!-- Updated At Field -->
-<div class="form-group">
+    <!-- Updated At Field -->
     {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $user->updated_at !!}</p>
-</div>
+    {!! $user->updated_at !!}<br>
 
-<!-- Deleted At Field -->
-<div class="form-group">
-    {!! Form::label('deleted_at', 'Deleted At:') !!}
-    <p>{!! $user->deleted_at !!}</p>
+    {{--<!-- Deleted At Field -->--}}
+    {{--{!! Form::label('deleted_at', 'Deleted At:') !!}--}}
+    {{--{!! $user->deleted_at !!}<br>--}}
 </div>
 

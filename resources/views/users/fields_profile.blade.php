@@ -1,9 +1,3 @@
-<!-- Username Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('username', 'Username:') !!}
-    {!! Form::text('username', null, ['class' => 'form-control']) !!}
-</div>
-
 <!-- Name Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('name', 'Name:') !!}
@@ -14,20 +8,6 @@
 <div class="form-group col-sm-6">
     {!! Form::label('email', 'Email:') !!}
     {!! Form::email('email', null, ['class' => 'form-control']) !!}
-</div>
-
-<!-- Rols Field -->
-<div class="form-group col-sm-6">
-    {!! Form::label('rols', 'Roles:') !!}
-    <select name="rols[]" id="rols" class="form-control" multiple="multiple">
-        <option value=""> -- Select One -- </option>
-        @foreach($rols as $rol)
-            <option value="{{$rol->id}}" {{ in_array($rol->id,$rolsUser) ? "selected" : ""}}>{{$rol->descripcion}}</option>
-        @endforeach
-    </select>
-</div>
-
-<div class="form-group col-sm-12" style="padding: 0px; margin: 0px">
 </div>
 
 @if(!isset($create))
@@ -73,7 +53,7 @@
         var $input = $("#files");
         $input.fileinput({
             {{--uploadUrl: "{{route('api.temp_files.multi_store',Auth::user()->id)}}", // server upload action--}}
-//            uploadAsync: false,
+            //            uploadAsync: false,
             showUpload: false, // hide upload button
             showRemove: false, // hide remove button
 //            minFileCount: 1,

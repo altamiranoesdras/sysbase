@@ -2,18 +2,17 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class User
  * @package App\Models
- * @version September 28, 2017, 5:47 pm CST
+ * @version October 6, 2017, 11:40 am CST
  *
- * @property \Illuminate\Database\Eloquent\Collection carreraGrado
- * @property \Illuminate\Database\Eloquent\Collection cursos
  * @property \Illuminate\Database\Eloquent\Collection optionUser
  * @property \Illuminate\Database\Eloquent\Collection rolUser
+ * @property \Illuminate\Database\Eloquent\Collection Uimage
  * @property string username
  * @property string name
  * @property string email
@@ -80,5 +79,13 @@ class User extends Model
     public function rols()
     {
         return $this->belongsToMany(\App\Models\Rol::class, 'rol_user');
+    }
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function uimages()
+    {
+        return $this->hasMany(\App\Models\Uimage::class);
     }
 }

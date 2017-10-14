@@ -29,14 +29,28 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
-    public function opciones(){
-        return $this->belongsToMany(Option::class);
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     **/
+    public function opciones()
+    {
+        return $this->belongsToMany(\App\Option::class, 'option_user');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     **/
     public function rols()
     {
-      return $this->belongsToMany(Rol::class);
+        return $this->belongsToMany(\App\Models\Rol::class, 'rol_user');
     }
 
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasMany
+     **/
+    public function uimages()
+    {
+        return $this->hasMany(\App\Models\Uimage::class);
+    }
 
 }

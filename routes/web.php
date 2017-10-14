@@ -28,6 +28,8 @@ Route::group(['middleware' => 'auth'], function () {
     #adminlte_routes
 });
 
+Route::get('user/profile/{user}', 'UserController@editProfile')->name('user.edit.profile');;
+Route::patch('user/profile/{user}', 'UserController@updateProfile')->name('user.update.profile');;
 
 Route::resource('admin/configurations', 'ConfigurationController');
 Route::resource('admin/rols', 'RolController');

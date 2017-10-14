@@ -1,5 +1,9 @@
 @extends('adminlte::layouts.app')
 
+@section('htmlheader_title')
+	Users
+@endsection
+
 @section('content')
     <section class="content-header">
         <h1 class="pull-left">Users</h1>

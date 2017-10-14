@@ -6,12 +6,14 @@ use App\DataTables\UserDataTable;
 use App\Http\Requests\CreateUserRequest;
 use App\Http\Requests\UpdateUserRequest;
 use App\Models\Rol;
+use App\Models\Uimage;
 use App\Models\User;
 use App\Repositories\UserRepository;
 use Facades\App\Menu;
 use App\Option;
 use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
 use Response;
 
 class UserController extends AppBaseController
@@ -21,6 +23,7 @@ class UserController extends AppBaseController
 
     public function __construct(UserRepository $userRepo)
     {
+        $this->middleware('auth');
         $this->userRepository = $userRepo;
     }
 
@@ -66,7 +69,11 @@ class UserController extends AppBaseController
             $user->rols()->sync($request->rols);
         }
 
-        Flash::success('User saved successfully.');
+        if ($user && $request->imagen){
+            $this->saveImage($user,$request);
+        }
+
+        Flash::success('User guardado exitosamente.');
 
         return redirect(route('users.index'));
     }
@@ -83,7 +90,7 @@ class UserController extends AppBaseController
         $user = $this->userRepository->findWithoutFail($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User no encontrado');
 
             return redirect(route('users.index'));
         }
@@ -103,7 +110,7 @@ class UserController extends AppBaseController
         $user = $this->userRepository->findWithoutFail($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User no encontrado');
 
             return redirect(route('users.index'));
         }
@@ -127,7 +134,7 @@ class UserController extends AppBaseController
         $user = $this->userRepository->findWithoutFail($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User no encontrado');
 
             return redirect(route('users.index'));
         }
@@ -148,7 +155,11 @@ class UserController extends AppBaseController
         $rols = $request->rols ? $request->rols : [];
         $user->rols()->sync($rols);
 
-        Flash::success('User updated successfully.');
+        if ($user && $request->imagen){
+            $this->saveImage($user,$request);
+        }
+
+        Flash::success('User actualizado exitosamente.');
 
         return redirect(route('users.index'));
     }
@@ -165,14 +176,14 @@ class UserController extends AppBaseController
         $user = $this->userRepository->findWithoutFail($id);
 
         if (empty($user)) {
-            Flash::error('User not found');
+            Flash::error('User no encontrado');
 
             return redirect(route('users.index'));
         }
 
         $this->userRepository->delete($id);
 
-        Flash::success('User deleted successfully.');
+        Flash::success('User eliminado exitosamente.');
 
         return redirect(route('users.index'));
     }
@@ -207,5 +218,78 @@ class UserController extends AppBaseController
         Flash::success('Menu del usuario actualizado!')->important();
 
         return redirect("admin/user/{$user->id}/menu");
+    }
+
+    public function saveImage(User $user,Request $request)
+    {
+        $file = $request->file('imagen');
+
+        $imagen = New Uimage([
+            'user_id' => $user->id,
+            'data' => fileToBinary($file),
+//            'data' => null,
+            'name' => $file->getClientOriginalName(),
+            'type' => $file->getMimeType(),
+            'size' => $file->getSize(),
+            'extension' => $file->extension()
+        ]);
+
+        $user->uimages()->delete();
+        $user->uimages()->save($imagen);
+    }
+
+    /**
+     * Muestra form para editar el perfil de usuario
+     *
+     * @param  int $id
+     *
+     * @return Response
+     */
+    public function editProfile($id)
+    {
+        $user = $this->userRepository->findWithoutFail($id);
+
+        if (empty($user)) {
+            Flash::error('User no encontrado');
+
+            return redirect(route('users.index'));
+        }
+
+        return view('users.edit_profile',compact('user'));
+    }
+
+    /**
+     * Update the specified User in storage.
+     *
+     * @param  int              $id
+     * @param UpdateUserRequest $request
+     *
+     * @return Response
+     */
+    public function updateProfile(User $user, UpdateUserRequest $request)
+    {
+
+        if (empty($user)) {
+            Flash::error('User no encontrado');
+
+            return redirect()->back();
+        }
+
+        $user->name = $request->name;
+        $user->email = $request->email;
+
+        if(!is_null($request->password) && !is_null($request->password_confirmation)){
+            $user->password = bcrypt($request->password);
+        }
+
+        $user->save();
+
+        if ($user && $request->imagen){
+            $this->saveImage($user,$request);
+        }
+
+        Flash::success('Perfil actualizado exitosamente.');
+
+        return redirect()->back()->with('user',$user);
     }
 }

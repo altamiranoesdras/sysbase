@@ -1,5 +1,11 @@
 @extends('adminlte::layouts.app')
 @include('layouts.plugins.select2')
+@include('layouts.plugins.bootstrap_fileinput')
+
+@section('htmlheader_title')
+	Crear User
+@endsection
+
 @section('content')
     <section class="content-header">
         <h1>
@@ -12,7 +18,7 @@
 
             <div class="box-body">
                 <div class="row">
-                    {!! Form::open(['route' => 'users.store']) !!}
+                    {!! Form::open(['route' => 'users.store','enctype' => "multipart/form-data"]) !!}
 
                         @include('users.fields')
 

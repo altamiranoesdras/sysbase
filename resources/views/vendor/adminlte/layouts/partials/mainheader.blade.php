@@ -115,14 +115,26 @@
                         <!-- Menu Toggle Button -->
                         <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                             <!-- The user image in the navbar-->
-                            <img src="{{ $user->email ? Gravatar::get($user->email) : asset('img/avatar_none.png') }}" class="user-image" alt="User Image"/>
+                            @if($user->uimages->count()>0)
+                                @foreach($user->uimages as $key => $image)
+                                    <img src="{{srcImgBynary($image)}}" alt="{{$image->name}}" class="user-image">
+                                @endforeach
+                            @else
+                                <img src="{{ $user->email ? Gravatar::get($user->email) : asset('img/avatar_none.png') }}" class="user-image" alt="User Image"/>
+                            @endif
                             <!-- hidden-xs hides the username on small devices so only the image appears. -->
                             <span class="hidden-xs">{{ Auth::user()->name }}</span>
                         </a>
                         <ul class="dropdown-menu">
                             <!-- The user image in the menu -->
                             <li class="user-header">
-                                <img src="{{ $user->email ? Gravatar::get($user->email) : asset('img/avatar_none.png') }}" class="img-circle" alt="User Image" />
+                                @if($user->uimages->count()>0)
+                                    @foreach($user->uimages as $key => $image)
+                                        <img src="{{srcImgBynary($image)}}" alt="{{$image->name}}" class="img-circle">
+                                    @endforeach
+                                @else
+                                    <img src="{{ $user->email ? Gravatar::get($user->email) : asset('img/avatar_none.png') }}" class="img-circle" alt="User Image" />
+                                @endif
                                 <p>
                                     {{ Auth::user()->name }}
 {{--                                    <small>{{ trans('adminlte_lang::message.login') }} Nov. 2012</small>--}}
@@ -143,7 +155,7 @@
                             <!-- Menu Footer-->
                             <li class="user-footer">
                                 <div class="pull-left">
-                                    <a href="{{ url('/user/profile') }}" class="btn btn-default btn-flat">{{ trans('adminlte_lang::message.profile') }}</a>
+                                    <a href="{{ route('user.edit.profile',Auth::user()->id) }}" class="btn btn-default btn-flat">{{ trans('adminlte_lang::message.profile') }}</a>
                                 </div>
                                 <div class="pull-right">
                                     <a href="{{ url('/logout') }}" class="btn btn-default btn-flat" id="logout"
