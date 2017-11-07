@@ -62,6 +62,9 @@ class OptionMenuController extends Controller{
         'fa-bar-chart',
         'fa-barcode',
         'fa-bars',
+        'fa-book',
+        'fa-bookmark',
+        'fa-bookmark-o',
 
     ];
 
