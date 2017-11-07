@@ -17,7 +17,7 @@ class CreateNotasTable extends Migration
             $table->increments('id');
             $table->string('titulo');
             $table->string('descripcion');
-            $table->integer('user_id')->unsigned()->index('fk_notas_users1_idx');
+//            $table->integer('user_id')->unsigned()->index('fk_notas_users1_idx');
             $table->timestamps();
             $table->softDeletes();
         });
