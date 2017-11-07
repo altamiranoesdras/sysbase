@@ -14,8 +14,8 @@ class CreateUimagesTable extends Migration {
 	{
 		Schema::create('uimages', function(Blueprint $table)
 		{
-			$table->integer('id', true);
-			$table->integer('user_id')->index('fk_uimages_users1_idx');
+			$table->increments('id');
+			$table->integer('user_id')->unsigned()->index('fk_uimages_users1_idx');
 			$table->binary('data', 16777215);
 			$table->string('name');
 			$table->string('type');
