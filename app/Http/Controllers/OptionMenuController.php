@@ -65,6 +65,7 @@ class OptionMenuController extends Controller{
         'fa-book',
         'fa-bookmark',
         'fa-bookmark-o',
+        'fa-file-pdf-o'
 
     ];
 

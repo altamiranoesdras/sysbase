@@ -8,6 +8,7 @@
         "php": ">=7.0.0",
         "acacha/admin-lte-template-laravel": "^5.0",
         "barryvdh/laravel-snappy": "^0.4.0",
+        "codedge/laravel-fpdf": "^1.2",
         "doctrine/dbal": "~2.3",
         "fideloper/proxy": "~3.3",
         "infyomlabs/adminlte-templates": "5.5.x-dev",

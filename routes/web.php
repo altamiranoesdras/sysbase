@@ -41,3 +41,11 @@ Route::get('/admin/option/create/{padre}', 'OptionMenuController@create');
 Route::get('/admin/option/orden', 'OptionMenuController@updateOrden');
 Route::post('/admin/option/orden', 'OptionMenuController@updateOrden');
 Route::resource('/admin/option',"OptionMenuController");
+
+Route::get('prueba/pdf', function (\App\Extensiones\Fpdf $fpdf) {
+    $fpdf->AddPage();
+    $fpdf->SetFont('Courier', 'B', 18);
+    $fpdf->Cell(50, 25, 'Hello World!');
+    $fpdf->Output();
+    exit();
+});
