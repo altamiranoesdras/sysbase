@@ -129,6 +129,20 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2017-11-07 16:42:44',
                 'deleted_at' => NULL,
             ),
+            8 => 
+            array (
+                'id' => 9,
+                'padre' => NULL,
+                'nombre' => 'Prueba pdf',
+                'ruta' => 'prueba/pdf',
+                'descripcion' => NULL,
+                'icono_l' => 'fa-file-pdf-o',
+                'icono_r' => NULL,
+                'orden' => 0,
+                'created_at' => '2017-11-14 16:55:51',
+                'updated_at' => '2017-11-14 16:55:51',
+                'deleted_at' => NULL,
+            ),
         ));
         
         
