@@ -26,6 +26,9 @@
   
  Listo
  
+   ### Puedes probar el generador de formularios con el siguiente comando
+    php artisan infyom:api_scaffold --fromTable --tableName=notas Nota
+ 
  ## Programas recomendados
 
   ### Laragon
