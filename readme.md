@@ -2,23 +2,23 @@
   ### Clonar repositorio
     git clone https://github.com/altamiranoesdras/sysbase.git
 
-  ### Acceder al repo clonado
+  ### Acceder a la carpeta del repositorio clonado
     cd sysbase
-    
-  ### Generar clave de encryptacio para la app
-    php artisan key:generate
     
   ### Descargar dependencias 
     npm install -g bower (si no tienes instalado bower)
     composer install 		
     bower install
     
-  ### Crear base de datos copiar archivo de entornos y editar 
-    cp .env.example .env
-    Colocar base de datos en archivo .env
+  ### Copiar archivo de entornos y editar 
+    cp .env.example .env 
+      (Colocar base de datos en archivo .env)
+    
+  ### Generar clave de encryptacio para la app
+    php artisan key:generate
   
   ### Crear tablas y datos
-    php artisan migrate --seed
+    o
     
   ### Credenciales de acceso
     Usuario : admin
@@ -36,3 +36,4 @@
       
   ### Sublime text
     https://www.sublimetext.com/3
+
