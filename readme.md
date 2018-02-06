@@ -18,7 +18,7 @@
     php artisan key:generate
   
   ### Crear tablas y datos
-    o
+    php artisan migrate --seed
     
   ### Credenciales de acceso
     Usuario : admin
@@ -36,4 +36,5 @@
       
   ### Sublime text
     https://www.sublimetext.com/3
+
 
