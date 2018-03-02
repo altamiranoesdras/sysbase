@@ -1,13 +1,9 @@
-@extends('adminlte::layouts.app')
-
-@section('htmlheader_title')
-	Crear $MODEL_NAME_HUMAN$
-@endsection
+@extends('layouts.app')
 
 @section('content')
     <section class="content-header">
         <h1>
-            Crear $MODEL_NAME_HUMAN$
+            $MODEL_NAME_HUMAN$
         </h1>
     </section>
     <div class="content">

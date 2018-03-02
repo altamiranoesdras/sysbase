@@ -46,9 +46,8 @@ class $MODEL_NAME$DataTable extends DataTable
             ->parameters([
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
-                'responsive'   => true,
-                'language' => ['url' => asset('plugins/DataTables/Spanish.json')],
                 'buttons' => [
+                    'create',
                     'export',
                     'print',
                     'reset',
