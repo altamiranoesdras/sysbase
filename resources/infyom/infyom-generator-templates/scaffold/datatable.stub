@@ -46,6 +46,9 @@ class $MODEL_NAME$DataTable extends DataTable
             ->parameters([
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
+                'language' => ['url' => asset('js/SpanishDataTables.json')],
+                'scrollX' => false,
+                'responsive' => true,
                 'buttons' => [
                     'create',
                     'export',
