@@ -52,7 +52,7 @@ class $MODEL_NAME$APIController extends InfyOmBaseController
 
         $$MODEL_NAME_PLURAL_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->create($input);
 
-        return $this->sendResponse($$MODEL_NAME_PLURAL_CAMEL$->toArray(), '$MODEL_NAME$ saved successfully');
+        return $this->sendResponse($$MODEL_NAME_PLURAL_CAMEL$->toArray(), '$MODEL_NAME$ guardado exitosamente');
     }
 
     $DOC_SHOW$
@@ -62,10 +62,10 @@ class $MODEL_NAME$APIController extends InfyOmBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return Response::json(ResponseUtil::makeError('$MODEL_NAME$ not found'), 400);
+            return Response::json(ResponseUtil::makeError('$MODEL_NAME$ no encontrado'), 400);
         }
 
-        return $this->sendResponse($$MODEL_NAME_CAMEL$->toArray(), '$MODEL_NAME$ retrieved successfully');
+        return $this->sendResponse($$MODEL_NAME_CAMEL$->toArray(), '$MODEL_NAME$ recuperado con éxito');
     }
 
     $DOC_UPDATE$
@@ -77,12 +77,12 @@ class $MODEL_NAME$APIController extends InfyOmBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return Response::json(ResponseUtil::makeError('$MODEL_NAME$ not found'), 400);
+            return Response::json(ResponseUtil::makeError('$MODEL_NAME$ no encontrado'), 400);
         }
 
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->update($input, $id);
 
-        return $this->sendResponse($$MODEL_NAME_CAMEL$->toArray(), '$MODEL_NAME$ updated successfully');
+        return $this->sendResponse($$MODEL_NAME_CAMEL$->toArray(), '$MODEL_NAME$ actualizado exitosamente');
     }
 
     $DOC_DESTROY$
@@ -92,11 +92,11 @@ class $MODEL_NAME$APIController extends InfyOmBaseController
         $$MODEL_NAME_CAMEL$ = $this->$MODEL_NAME_CAMEL$Repository->find($id);
 
         if (empty($$MODEL_NAME_CAMEL$)) {
-            return Response::json(ResponseUtil::makeError('$MODEL_NAME$ not found'), 400);
+            return Response::json(ResponseUtil::makeError('$MODEL_NAME$ no encontrado'), 400);
         }
 
         $$MODEL_NAME_CAMEL$->delete();
 
-        return $this->sendResponse($id, '$MODEL_NAME$ deleted successfully');
+        return $this->sendResponse($id, '$MODEL_NAME$ eliminado exitosamente');
     }
 }
