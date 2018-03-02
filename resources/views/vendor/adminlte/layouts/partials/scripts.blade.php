@@ -30,6 +30,8 @@
 <script src="{{ asset('bower/bootstrap-toggle/js/bootstrap-toggle.min.js') }}" type="text/javascript"></script>
 {{--<script src="https://gitcdn.github.io/bootstrap-toggle/2.2.2/js/bootstrap-toggle.min.js"></script>--}}
 
+<script src="{{asset("/bower/toastr/toastr.min.js")}}"></script>
+
 {{--<!-- FastClick -->--}}
 {{--<script src="plugins/fastclick/fastclick.js"></script>--}}
 {{--<!-- Sparkline -->--}}

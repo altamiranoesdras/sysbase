@@ -31,10 +31,7 @@
     <link rel="stylesheet" href="{{ asset('bower/bootstrap-toggle/css/bootstrap-toggle.min.css') }}">
     {{--<link href="https://gitcdn.github.io/bootstrap-toggle/2.2.2/css/bootstrap-toggle.min.css" rel="stylesheet">--}}
 
-    <!--App css-->
-    @yield('css')
-    @stack('css')
-    {{ $css or ''}}
+    <link rel="stylesheet" href="{{asset("/bower/toastr/toastr.min.css")}}">
 
     <!--App css -->
     <style>
@@ -44,9 +41,17 @@
         .alert {
             margin-bottom: 10px;
         }
+        #toast-container > div {
+            opacity:1;
+        }
         .toggle.ios, .toggle-on.ios, .toggle-off.ios { border-radius: 20px; }
         .toggle.ios .toggle-handle { border-radius: 20px; }
     </style>
+
+    <!--App css-->
+    @yield('css')
+    @stack('css')
+    {{ $css or ''}}
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
