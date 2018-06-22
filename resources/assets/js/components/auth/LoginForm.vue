@@ -1,16 +1,17 @@
 <template>
+
  <form method="post" @submit.prevent="submit" @keydown="clearErrors($event.target.name)">
   <div class="alert alert-success text-center" v-show="form.succeeded" id="result"> {{ trans('adminlte_lang_message.loggedin') }} <i class="fa fa-refresh fa-spin"></i> {{ trans('adminlte_lang_message.entering') }}</div>
 
-  <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('email') }" v-if="type === 'email'">
-   <input type="email" class="form-control" :placeholder="placeholder" :name="name" value="" v-model="form.email" @change="adddomain" autofocus/>
-   <span class="glyphicon form-control-feedback" :class="[icon]"></span>
-   <transition name="fade">
-    <span class="help-block" v-if="form.errors.has('email')" v-text="form.errors.get('email')" id="validation_error_email"></span>
-   </transition>
-  </div>
+  <!--<div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('email') }" v-if="type === 'email'">-->
+   <!--<input type="email" class="form-control" :placeholder="placeholder" :name="name" value="" v-model="form.email" @change="adddomain" autofocus/>-->
+   <!--<span class="glyphicon form-control-feedback" :class="[icon]"></span>-->
+   <!--<transition name="fade">-->
+    <!--<span class="help-block" v-if="form.errors.has('email')" v-text="form.errors.get('email')" id="validation_error_email"></span>-->
+   <!--</transition>-->
+  <!--</div>-->
 
-  <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('username') }" v-else>
+  <div class="form-group has-feedback" :class="{ 'has-error': form.errors.has('username') }" >
    <input type="text" class="form-control" :placeholder="placeholder" :name="name" v-model="form.username" @change="adddomain" autofocus/>
    <span class="glyphicon form-control-feedback" :class="[icon]"></span>
    <transition name="fade">
@@ -26,6 +27,7 @@
     <span class="help-block" v-if="form.errors.has('password')" v-text="form.errors.get('password')" id="validation_error_password"></span>
    </transition>
   </div>
+
   <div class="row">
    <div class="col-xs-8">
     <div class="checkbox icheck">
@@ -34,20 +36,24 @@
      </label>
     </div>
    </div>
+
    <div class="col-xs-4">
-    <button type="submit" class="btn btn-primary btn-block btn-flat" v-text="trans('adminlte_lang_message.buttonsign')" :disabled="form.errors.any()"><i v-if="form.submitting" class="fa fa-refresh fa-spin"></i></button>
+    <button type="submit" class="btn btn-outline-primary" v-text="trans('adminlte_lang_message.buttonsign')" :disabled="form.errors.any()"><i v-if="form.submitting" class="fa fa-refresh fa-spin"></i></button>
    </div>
   </div>
  </form>
 </template>
 
-<style src="./fade.css"></style>
+<style src="./fade.css">
+
+</style>
 
 <script>
 
   import Form from 'acacha-forms'
   import initialitzeIcheck from './InitializeIcheck'
   import redirect from './redirect'
+
 
   export default {
     mixins: [initialitzeIcheck, redirect],
@@ -100,7 +106,7 @@
             var component = this;
             setTimeout(function(){
               component.redirect(response)
-            }, 2500);
+            }, 500);
           })
           .catch(error => {
             console.log(this.trans('adminlte_lang_message.loginerror') + ':' + error)

@@ -19,6 +19,8 @@
 
     <!--App css-->
     @yield('css')
+    @stack('css')
+    {{ $css or ''}}
 
     <script>
         //See https://laracasts.com/discuss/channels/vue/use-trans-in-vuejs
