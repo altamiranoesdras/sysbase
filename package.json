@@ -44,6 +44,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "bootstrap-fileinput": "^4.4.8"
+    "bootstrap-fileinput": "^4.4.8",
+    "select2": "^4.0.6-rc.1"
   }
 }

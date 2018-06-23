@@ -12,21 +12,25 @@ const { mix } = require('laravel-mix')
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-//.sourceMaps()
-    .combine(
-        [
-            'node_modules/font-awesome/css/font-awesome.min.css',
-            'node_modules/ionicons/dist/css/ionicons.min.css',
-            'node_modules/admin-lte/dist/css/adminlte.min.css',
-            'node_modules/icheck/skins/square/blue.css',
-        ]
-        , 'public/css/all.css'
-    )
+    // .sourceMaps()
+    // .combine(
+    //     [
+    //         'node_modules/font-awesome/css/font-awesome.min.css',
+    //         'node_modules/ionicons/dist/css/ionicons.min.css',
+    //         'node_modules/admin-lte/dist/css/adminlte.min.css',
+    //         'node_modules/icheck/skins/square/blue.css',
+    //     ]
+    //     , 'public/css/all.css'
+    // )
 
     //Plugin bootstrap-fileinput
     .copy('node_modules/bootstrap-fileinput/css','public/plugins/bootstrap-fileinput/css/')
     .copy('node_modules/bootstrap-fileinput/js','public/plugins/bootstrap-fileinput/js/')
     .copy('node_modules/bootstrap-fileinput/img','public/plugins/bootstrap-fileinput/img/')
+
+    //Plugin Select2
+    .copy('node_modules/select2/dist','public/plugins/select2/dist/')
+
 
 //FONTS
 // .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
