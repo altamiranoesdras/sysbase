@@ -1,4 +1,4 @@
-const { mix } = require('laravel-mix');
+const { mix } = require('laravel-mix')
 
 /*
  |--------------------------------------------------------------------------
@@ -12,34 +12,30 @@ const { mix } = require('laravel-mix');
  */
 
 mix.js('resources/assets/js/app.js', 'public/js')
-//.js('resources/assets/js/app-landing.js', 'public/js/app-landing.js')
-    //.sourceMaps()
+//.sourceMaps()
     .combine(
         [
-            'resources/assets/css/font-awesome.min.css',
-            'resources/assets/css/ionicons.min.css',
-            'node_modules/admin-lte/dist/css/AdminLTE.min.css',
-            'node_modules/admin-lte/dist/css/skins/_all-skins.css',
+            'node_modules/font-awesome/css/font-awesome.min.css',
+            'node_modules/ionicons/dist/css/ionicons.min.css',
+            'node_modules/admin-lte/dist/css/adminlte.min.css',
             'node_modules/icheck/skins/square/blue.css',
-            'node_modules/bootstrap/dist/css/bootstrap.min.css'
         ]
         , 'public/css/all.css'
     )
-    //.combine([
-    //'resources/assets/css/bootstrap.min.css',
-    //'resources/assets/css/pratt_landing.min.css'
-    //], 'public/css/all-landing.css')
-    // PACKAGE (ADMINLTE-LARAVEL) RESOURCES
-    // .copy('resources/assets/img/*.*','public/img/')
-    //VENDOR RESOURCES
-    // .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
-    // .copy('node_modules/ionicons/dist/fonts/*.*','public/fonts/')
-    // .copy('node_modules/bootstrap/fonts/*.*','public/fonts/')
-    // .copy('node_modules/admin-lte/dist/css/skins/*.*','public/css/skins')
-    // .copy('node_modules/admin-lte/dist/img','public/img')
-    // .copy('node_modules/admin-lte/plugins','public/plugins')
-    // .copy('node_modules/icheck/skins/square/blue.png','public/css')
-    // .copy('node_modules/icheck/skins/square/blue@2x.png','public/css');
+
+    //Plugin bootstrap-fileinput
+    .copy('node_modules/bootstrap-fileinput/css','public/plugins/bootstrap-fileinput/css/')
+    .copy('node_modules/bootstrap-fileinput/js','public/plugins/bootstrap-fileinput/js/')
+    .copy('node_modules/bootstrap-fileinput/img','public/plugins/bootstrap-fileinput/img/')
+
+//FONTS
+// .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
+// .copy('node_modules/ionicons/dist/fonts/*.*','public/fonts/')
+
+//AdminLTE DIST Y PLUGINS
+// .copy('node_modules/admin-lte/dist','public/dist')
+// .copy('node_modules/admin-lte/plugins','public/plugins')
+
 
 // if (mix.config.inProduction) {
 //     mix.version();
@@ -49,4 +45,4 @@ mix.js('resources/assets/js/app.js', 'public/js')
 mix.browserSync({
     proxy: 'http://tracking.local',
     open: false
-});
+})
