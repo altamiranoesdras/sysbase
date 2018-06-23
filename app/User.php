@@ -57,7 +57,7 @@ class User extends Authenticatable
     {
         $imagen = $this->uimages()->first();
 
-        $imagen = is_null($imagen) ? "" : srcImgBynary($imagen);
+        $imagen = is_null($imagen) ? asset('img/avatar_none.png') : srcImgBynary($imagen);
 
         return $imagen;
     }
