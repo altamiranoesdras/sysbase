@@ -1,65 +1,51 @@
 <!DOCTYPE html>
-<!--
-This is a starter template page. Use this page to start your new project from
-scratch. This page gets rid of all links and provides the needed markup only.
--->
 <html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-@section('htmlheader')
-    @include('adminlte::layouts.partials.htmlheader')
-@show
+    <title>AdminLTE 3 | Dashboard 3</title>
 
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css')}}">
+    <!-- IonIcons -->
+    <link rel="stylesheet" href="http://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
+    <!-- Google Font: Source Sans Pro -->
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+</head>
 <!--
 BODY TAG OPTIONS:
 =================
-Apply one or more of the following classes to get the
-desired effect
+Apply one or more of the following classes to to the body tag
+to get the desired effect
 |---------------------------------------------------------|
-| SKINS         | skin-blue                               |
-|               | skin-black                              |
-|               | skin-purple                             |
-|               | skin-yellow                             |
-|               | skin-red                                |
-|               | skin-green                              |
-|---------------------------------------------------------|
-|LAYOUT OPTIONS | fixed                                   |
-|               | layout-boxed                            |
-|               | layout-top-nav                          |
-|               | sidebar-collapse                        |
+|LAYOUT OPTIONS | sidebar-collapse                        |
 |               | sidebar-mini                            |
 |---------------------------------------------------------|
 -->
-<body class="skin-{{config('app.color_skin','blue')}} sidebar-mini">
-<div id="app" v-cloak>
-    <div class="wrapper">
+<body class="hold-transition sidebar-mini">
+<div class="wrapper">
+    @include('layouts.partials.mainheader')
 
-    @include('adminlte::layouts.partials.mainheader')
-
-    @include('adminlte::layouts.partials.sidebar')
+    @include('layouts.partials.sidebar')
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-
-        {{--@include('adminlte::layouts.partials.contentheader')--}}
-
-        {{--<!-- Main content -->--}}
-        {{--<section class="content">--}}
-            {{--<!-- Your Page Content Here -->--}}
-            {{--@yield('main-content')--}}
-        {{--</section><!-- /.content -->--}}
-        @yield('content')
-        {{  $slot or ''}}
+        @section('content')
+            @include('layouts.partials.demo_content')
+        @show
     </div>
     <!-- /.content-wrapper -->
 
-    {{--@include('adminlte::layouts.partials.controlsidebar')--}}
+    @include('layouts.partials.controlsidebar')
 
-    @include('adminlte::layouts.partials.footer')
-
-</div><!-- ./wrapper -->
+    @include('layouts.partials.footer')
 </div>
+<!-- ./wrapper -->
 
-@include('adminlte::layouts.partials.scripts')
-
+@include('layouts.partials.scripts')
 </body>
 </html>
