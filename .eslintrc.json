@@ -12,21 +12,21 @@
         "sourceType": "module"
     },
     "rules": {
-        "indent": [
-            "error",
-            "tab"
-        ],
-        "linebreak-style": [
-            "error",
-            "windows"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
+//        "indent": [
+//            "error",
+//            "tab"
+//        ],
+//        "linebreak-style": [
+//            "error",
+//            "windows"
+//        ],
+//        "quotes": [
+//            "error",
+//            "double"
+//        ],
         "semi": [
             "error",
-            "never"
+            "always"
         ]
     }
 }
