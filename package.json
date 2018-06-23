@@ -42,5 +42,8 @@
     "test": "tests"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-fileinput": "^4.4.8"
+  }
 }
