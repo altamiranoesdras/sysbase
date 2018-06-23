@@ -5,7 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>AdminLTE 3 | Dashboard 3</title>
+    <title> @yield('htmlheader_title', config('app.name')) </title>
+
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="{{asset('plugins/font-awesome/css/font-awesome.min.css')}}">
@@ -15,6 +18,14 @@
     <link rel="stylesheet" href="{{asset('dist/css/adminlte.min.css')}}">
     <!-- Google Font: Source Sans Pro -->
     <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
+
+    <link rel="shortcut icon" type="image/x-icon" href="{{asset('img/favicon.png')}}">
+
+    <!--App css-->
+    @yield('css')
+    @stack('css')
+    {{ $css or ''}}
+
 </head>
 <!--
 BODY TAG OPTIONS:
