@@ -10,33 +10,42 @@
 
 @section("content")
 
+	<!-- Content Header (Page header) -->
+	<div class="content-header">
+		<div class="container-fluid">
+			<div class="row mb-2">
+				<div class="col-sm-6">
+					<h1 class="m-0 text-dark">Administración de opciones del menu</h1>
+				</div><!-- /.col -->
+			</div><!-- /.row -->
+		</div><!-- /.container-fluid -->
+	</div>
+	<!-- /.content-header -->
+
 	<div class="content">
-		@include('flash::message')
+		<div class="container-fluid">
+			@include('flash::message')
+			<div class="row">
+				<div class="col-lg-12">
+					<div class="card card-warning">
+						<!-- /.card-header -->
+						<div class="card-body">
+							<!--Contenido-->
+							{!! $menu !!}
 
-		<div class="box">
-			<div class="box-header with-border">
-				<h3 class="box-title"><strong>Administración de opciones del menu</strong></h3>
-				<div class="box-tools pull-right">
-					<button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+							<ul><li><a href="{{url("/admin/option/create/0")}}" class='text-green text-sm' data-toggle="tooltip" title="Nueva opcion"><span class="glyphicon glyphicon-plus"></span></a></li></ul>
 
-					<button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-				</div>
-			</div>
-			<!-- /.box-header -->
-			<div class="box-body">
-				<div class="row">
-					<div class="col-sm-6">
-						<!--Contenido-->
-						{!! $menu !!}
-
-						<ul><li><a href="{{url("/admin/option/create/0")}}" class='text-green text-sm' data-toggle="tooltip" title="Nueva opcion"><span class="glyphicon glyphicon-plus"></span></a></li></ul>
-
-						<!--Fin Contenido-->
+							<!--Fin Contenido-->
+						</div>
+						<!-- /.card-body -->
 					</div>
 				</div>
 			</div>
-		</div><!-- /.row -->
+			<!-- /.row -->
+		</div>
+		<!-- /.container-fluid -->
 	</div>
+
 
 
 	<div class="modal fade" id="modal-delete">
@@ -62,44 +71,43 @@
 	</div><!-- /.modal -->
 
 @stop
-@include('layouts.bootstrap_alert_float')
 @push("scripts")
-	<script>
-		$(function(){
-			$(".btn-delete").click(function () {
-				$("#form-delete").attr("action",$(this).data("action"))
-			})
-			$( ".sortable" ).sortable({
-				update: function( event, ui ) {
+	{{--<script>--}}
+		{{--$(function(){--}}
+			{{--$(".btn-delete").click(function () {--}}
+				{{--$("#form-delete").attr("action",$(this).data("action"))--}}
+			{{--})--}}
+			{{--$( ".sortable" ).sortable({--}}
+				{{--update: function( event, ui ) {--}}
 
-					var  datos=[];
-					$(this).find('li').each(function (index,elemet) {
-						datos.push($(this).attr('id'));
-					})
+					{{--var  datos=[];--}}
+					{{--$(this).find('li').each(function (index,elemet) {--}}
+						{{--datos.push($(this).attr('id'));--}}
+					{{--})--}}
 
 
-					$.ajax({
-						method: 'POST',
-						url: '{{url("admin/option/orden")}}',
-						data: {datos:datos},
-						dataType: 'json',
-						success: function (res) {
-							var det= res.data;
-							console.log('respuesta ajax:',res)
-							if(res.success){
-								bootstrap_alert(res.message,'success',3000);
-							}
+					{{--$.ajax({--}}
+						{{--method: 'POST',--}}
+						{{--url: '{{url("admin/option/orden")}}',--}}
+						{{--data: {datos:datos},--}}
+						{{--dataType: 'json',--}}
+						{{--success: function (res) {--}}
+							{{--var det= res.data;--}}
+							{{--console.log('respuesta ajax:',res)--}}
+							{{--if(res.success){--}}
+								{{--bootstrap_alert(res.message,'success',3000);--}}
+							{{--}--}}
 
-						},
-						error: function (res) {
-							console.log('respuesta ajax:',res.responseJSON);
+						{{--},--}}
+						{{--error: function (res) {--}}
+							{{--console.log('respuesta ajax:',res.responseJSON);--}}
 
-							bootstrap_alert('<strong>Error! </strong>'+res.responseJSON.message,'danger',0);
-						}
-					})
-				}
-			});
-			$( ".sortable" ).disableSelection();
-		});
-	</script>
+							{{--bootstrap_alert('<strong>Error! </strong>'+res.responseJSON.message,'danger',0);--}}
+						{{--}--}}
+					{{--})--}}
+				{{--}--}}
+			{{--});--}}
+			{{--$( ".sortable" ).disableSelection();--}}
+		{{--});--}}
+	{{--</script>--}}
 @endpush
