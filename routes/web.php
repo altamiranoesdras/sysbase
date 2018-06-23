@@ -12,9 +12,9 @@
 */
 
 
-//Route::get('/', function () {
-//    return view('welcome');
-//});
+Route::get('pruebas', function () {
+    return \Illuminate\Support\Facades\Auth::user()->imagen();
+});
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index');

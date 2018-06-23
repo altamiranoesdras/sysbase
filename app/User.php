@@ -53,4 +53,13 @@ class User extends Authenticatable
         return $this->hasMany(\App\Models\Uimage::class);
     }
 
+    public function imagen()
+    {
+        $imagen = $this->uimages()->first();
+
+        $imagen = is_null($imagen) ? "" : srcImgBynary($imagen);
+
+        return $imagen;
+    }
+
 }
