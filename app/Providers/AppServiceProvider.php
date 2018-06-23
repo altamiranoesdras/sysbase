@@ -30,7 +30,7 @@ class AppServiceProvider extends ServiceProvider
         }
 
         //si usuario es admin
-        Blade::if('useradmin', function () {
+        Blade::if('super', function () {
             return in_array(1,array_pluck(Auth::user()->rols->toArray(),"id"));
         });
 
@@ -38,6 +38,8 @@ class AppServiceProvider extends ServiceProvider
         Blade::if('usernoops', function () {
             return Auth::user()->opciones->count()==0 ? true : false;
         });
+
+        Blade::component('components.alert', 'alert');
     }
 
     /**

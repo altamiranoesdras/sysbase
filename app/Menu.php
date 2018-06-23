@@ -33,7 +33,8 @@ class Menu{
      */
     public function render($opciones,$parent=0){
 
-        $result = $parent==0 ? "<ul class=\"sidebar-menu\"><li class=\"header\"></li>" : "<ul class=\"treeview-menu\">";
+        $result = $parent==0 ? "<ul class=\"nav nav-pills nav-sidebar flex-column\" data-widget=\"treeview\" role=\"menu\" data-accordion=\"false\">" : "<ul class=\"nav nav-treeview\">";
+
         foreach ($opciones as $op)
         {
             if ($op->padre == $parent){
@@ -41,11 +42,13 @@ class Menu{
                 $ruta = url($ruta);
                 $has_children= ($this->has_children($opciones,$op->id) || $op->padre=="") ? true : false;
 
-                $result.= $has_children ? "<li class='treeview'>" : "<li>";
-                $result.= "<a href=\"{$ruta}\">";
-                $result.= "<i class=\"fa {$op->icono_l}\"></i>";
-                $result.= $has_children ? "<span>{$op->nombre}</span>" : $op->nombre;
-                $result.= "<i class=\"fa {$op->icono_r} pull-right\"></i>";
+                $result.= $has_children ? "<li class=\"nav-item has-treeview\">" : "<li class=\"nav-item\">";
+                $result.= "<a href=\"{$ruta}\" class=\"nav-link\">";
+                $result.= "<i class=\"fa {$op->icono_l} nav-icon\"></i>";
+                $result.= "<p>";
+                $result.= $op->nombre;
+                $result.= $has_children ? "<i class=\"right  fa {$op->icono_r}\"></i>" : "";
+                $result.= "</p>";
                 $result.= "</a>";
 
                 if ($this->has_children($opciones,$op->id))
