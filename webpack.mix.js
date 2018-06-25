@@ -47,6 +47,6 @@ mix.js('resources/assets/js/app.js', 'public/js')
 // }
 
 mix.browserSync({
-    proxy: 'http://tracking.local',
+    proxy: 'http://sysbase.local',
     open: false
 })

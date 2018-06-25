@@ -34,29 +34,18 @@
     <div id="app" >
 
         <div class="login-box">
-            <div class="box box-info box-solid ">
-                <div class="box-header with-border">
-                    <h3 class="box-title"><a href="{{ url('/home') }}"><b>Admin</b>LTE</a></h3>
+
+            <div class="card">
+                <div class="card-header">
+                    <a href="{{ url('/home') }}"><b>{{config('app.name')}}</b></a>
                 </div>
-                @if (count($errors) > 0)
-                    <div class="alert alert-danger">
-                        <strong>Whoops!</strong> {{ trans('adminlte_lang::message.someproblems') }}<br><br>
-                        <ul>
-                            @foreach ($errors->all() as $error)
-                                <li>{{ $error }}</li>
-                            @endforeach
-                        </ul>
-                    </div>
-            @endif
-            <!-- /.box-header -->
-                <div class="box-body">
+                <div class="card-body">
                     <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
 
-                    <login-form></login-form>
+                    <login-form name="username"
+                                domain="{{ config('auth.defaults.domain','') }}"></login-form>
                 </div>
-                <!-- /.box-body -->
             </div>
-            <!-- /.box -->
             {{--@include('adminlte::auth.partials.social_login')--}}
             {{--<a href="{{ url('/password/reset') }}">{{ trans('adminlte_lang::message.forgotpassword') }}</a><br>--}}
             {{--<a href="{{ url('/register') }}" class="text-center">{{ trans('adminlte_lang::message.registermember') }}</a>--}}
