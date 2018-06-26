@@ -102,7 +102,7 @@
                 <!-- Submit Field -->
                 <div class="form-group col-sm-12">
                     <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
-                    <a href="{!! route('configurations.index') !!}" class="btn btn-default">Cancelar</a>
+                    <a href="{{URL::previous()}}" class="btn btn-default">Cancelar</a>
                 </div>
             </div>
             {!! Form::close() !!}
