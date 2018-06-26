@@ -19,7 +19,7 @@ mix.js('resources/assets/js/app.js', 'public/js')
             'node_modules/ionicons/dist/css/ionicons.min.css',
             'node_modules/admin-lte/dist/css/adminlte.min.css',
             'node_modules/icheck/skins/square/blue.css',
-            'node_modules/glyphicons-halflings/css/glyphicons-halflings.css',
+            'node_modules/toastr/build/toastr.min.css',
         ]
         , 'public/css/all.css'
     )
@@ -48,6 +48,9 @@ mix.js('resources/assets/js/app.js', 'public/js')
     .copy('node_modules/datatables.net-responsive/js','public/plugins/datatables.net-responsive/js')
     .copy('node_modules/datatables.net-responsive-bs4/js','public/plugins/datatables.net-responsive-bs4/js')
     .copy('node_modules/datatables.net-responsive-bs4/css','public/plugins/datatables.net-responsive-bs4/css')
+    //Jquery UI
+    .copy('node_modules/jquery-ui-dist','public/plugins/jquery-ui-dist')
+    .copy('node_modules/toastr/build/toastr.min.js','public/js/toastr.min.js')
 
 // if (mix.config.inProduction) {
 //     mix.version();
