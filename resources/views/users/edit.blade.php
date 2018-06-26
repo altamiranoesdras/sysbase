@@ -1,4 +1,4 @@
-@extends('adminlte::layouts.app')
+@extends('layouts.app')
 @include('layouts.plugins.select2')
 @include('layouts.plugins.bootstrap_fileinput')
 
