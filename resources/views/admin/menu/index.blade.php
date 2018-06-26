@@ -7,6 +7,7 @@
 	}
 </style>
 @endpush
+@include('layouts.plugins.jquery-ui')
 
 @section("content")
 
@@ -72,42 +73,40 @@
 
 @stop
 @push("scripts")
-	{{--<script>--}}
-		{{--$(function(){--}}
-			{{--$(".btn-delete").click(function () {--}}
-				{{--$("#form-delete").attr("action",$(this).data("action"))--}}
-			{{--})--}}
-			{{--$( ".sortable" ).sortable({--}}
-				{{--update: function( event, ui ) {--}}
+	<script>
+		$(function(){
+			$(".btn-delete").click(function () {
+				$("#form-delete").attr("action",$(this).data("action"))
+			})
+			$( ".sortable" ).sortable({
+				update: function( event, ui ) {
 
-					{{--var  datos=[];--}}
-					{{--$(this).find('li').each(function (index,elemet) {--}}
-						{{--datos.push($(this).attr('id'));--}}
-					{{--})--}}
+					var  datos=[];
+					$(this).find('li').each(function (index,elemet) {
+						datos.push($(this).attr('id'));
+					})
 
 
-					{{--$.ajax({--}}
-						{{--method: 'POST',--}}
-						{{--url: '{{url("admin/option/orden")}}',--}}
-						{{--data: {datos:datos},--}}
-						{{--dataType: 'json',--}}
-						{{--success: function (res) {--}}
-							{{--var det= res.data;--}}
-							{{--console.log('respuesta ajax:',res)--}}
-							{{--if(res.success){--}}
-								{{--bootstrap_alert(res.message,'success',3000);--}}
-							{{--}--}}
+					$.ajax({
+						method: 'POST',
+						url: '{{url("admin/option/orden")}}',
+						data: {datos:datos},
+						dataType: 'json',
+						success: function (res) {
+							var det= res.data;
+							console.log('respuesta ajax:',res)
+							toastr.success(res.message);
 
-						{{--},--}}
-						{{--error: function (res) {--}}
-							{{--console.log('respuesta ajax:',res.responseJSON);--}}
+						},
+						error: function (res) {
+							console.log('respuesta ajax:',res.responseJSON);
 
-							{{--bootstrap_alert('<strong>Error! </strong>'+res.responseJSON.message,'danger',0);--}}
-						{{--}--}}
-					{{--})--}}
-				{{--}--}}
-			{{--});--}}
-			{{--$( ".sortable" ).disableSelection();--}}
-		{{--});--}}
-	{{--</script>--}}
+                            toastr.error(res.responseJSON.message);
+						}
+					})
+				}
+			});
+			$( ".sortable" ).disableSelection();
+		});
+	</script>
 @endpush

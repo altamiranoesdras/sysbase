@@ -11,5 +11,6 @@
     "/fonts/ionicons.svg": "/fonts/ionicons.svg",
     "/fonts/ionicons.ttf": "/fonts/ionicons.ttf",
     "/fonts/ionicons.woff": "/fonts/ionicons.woff",
-    "/fonts/ionicons.woff2": "/fonts/ionicons.woff2"
+    "/fonts/ionicons.woff2": "/fonts/ionicons.woff2",
+    "/js/toastr.min.js": "/js/toastr.min.js"
 }
