@@ -1,4 +1,4 @@
-@extends('adminlte::layouts.auth')
+@extends('layouts.auth')
 
 @section('htmlheader_title')
     Log in
@@ -54,9 +54,14 @@
 
 
     </div>
-    @include('adminlte::layouts.partials.scripts_auth')
-
+    @include('layouts.partials.scripts')
+    <script>
+        const app = new Vue({
+            el: '#app'
+        });
+    </script>
     </body>
 
 @endsection
+
 
