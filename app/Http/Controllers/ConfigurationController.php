@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\DataTables\ConfigurationDataTable;
-use App\Http\Requests;
 use App\Http\Requests\CreateConfigurationRequest;
 use App\Http\Requests\UpdateConfigurationRequest;
 use App\Repositories\ConfigurationRepository;
-use Flash;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Http\Request;
+use Flash;
+use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
 
 class ConfigurationController extends AppBaseController
@@ -19,17 +19,22 @@ class ConfigurationController extends AppBaseController
     public function __construct(ConfigurationRepository $configurationRepo)
     {
         $this->configurationRepository = $configurationRepo;
+        $this->middleware('auth');
     }
 
     /**
      * Display a listing of the Configuration.
      *
-     * @param ConfigurationDataTable $configurationDataTable
+     * @param Request $request
      * @return Response
      */
-    public function index(ConfigurationDataTable $configurationDataTable)
+    public function index(Request $request)
     {
-        return $configurationDataTable->render('configurations.index');
+        $this->configurationRepository->pushCriteria(new RequestCriteria($request));
+        $configurations = $this->configurationRepository->all();
+
+        return view('configurations.index')
+            ->with('configurations', $configurations);
     }
 
     /**
@@ -55,7 +60,7 @@ class ConfigurationController extends AppBaseController
 
         $configuration = $this->configurationRepository->create($input);
 
-        Flash::success('Configuration saved successfully.');
+        Flash::success('Configuration guardado exitosamente.');
 
         return redirect(route('configurations.index'));
     }
@@ -72,12 +77,12 @@ class ConfigurationController extends AppBaseController
         $configuration = $this->configurationRepository->findWithoutFail($id);
 
         if (empty($configuration)) {
-            Flash::error('Configuration not found');
+            Flash::error('Configuration no encontrado');
 
             return redirect(route('configurations.index'));
         }
 
-        return view('configurations.show')->with('configuration', $configuration);
+        return view('configurations.show',compact('configuration'));
     }
 
     /**
@@ -92,12 +97,12 @@ class ConfigurationController extends AppBaseController
         $configuration = $this->configurationRepository->findWithoutFail($id);
 
         if (empty($configuration)) {
-            Flash::error('Configuration not found');
+            Flash::error('Configuration no encontrado');
 
             return redirect(route('configurations.index'));
         }
 
-        return view('configurations.edit')->with('configuration', $configuration);
+        return view('configurations.edit',compact('configuration'));
     }
 
     /**
@@ -113,14 +118,14 @@ class ConfigurationController extends AppBaseController
         $configuration = $this->configurationRepository->findWithoutFail($id);
 
         if (empty($configuration)) {
-            Flash::error('Configuration not found');
+            Flash::error('Configuration no encontrado');
 
             return redirect(route('configurations.index'));
         }
 
         $configuration = $this->configurationRepository->update($request->all(), $id);
 
-        Flash::success('Configuration updated successfully.');
+        Flash::success('Configuration actualizado exitosamente.');
 
         return redirect(route('configurations.index'));
     }
@@ -137,14 +142,14 @@ class ConfigurationController extends AppBaseController
         $configuration = $this->configurationRepository->findWithoutFail($id);
 
         if (empty($configuration)) {
-            Flash::error('Configuration not found');
+            Flash::error('Configuration no encontrado');
 
             return redirect(route('configurations.index'));
         }
 
         $this->configurationRepository->delete($id);
 
-        Flash::success('Configuration deleted successfully.');
+        Flash::success('Configuration eliminado exitosamente.');
 
         return redirect(route('configurations.index'));
     }

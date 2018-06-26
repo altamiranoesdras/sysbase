@@ -1,36 +1,30 @@
 <!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $configuration->id !!}</p>
-</div>
+{!! Form::label('id', 'Id:') !!}
+{!! $configuration->id !!}<br>
+
 
 <!-- Key Field -->
-<div class="form-group">
-    {!! Form::label('key', 'Key:') !!}
-    <p>{!! $configuration->key !!}</p>
-</div>
+{!! Form::label('key', 'Key:') !!}
+{!! $configuration->key !!}<br>
+
 
 <!-- Value Field -->
-<div class="form-group">
-    {!! Form::label('value', 'Value:') !!}
-    <p>{!! $configuration->value !!}</p>
-</div>
+{!! Form::label('value', 'Value:') !!}
+{!! $configuration->value !!}<br>
+
 
 <!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $configuration->created_at !!}</p>
-</div>
+{!! Form::label('created_at', 'Created At:') !!}
+{!! $configuration->created_at !!}<br>
+
 
 <!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $configuration->updated_at !!}</p>
-</div>
+{!! Form::label('updated_at', 'Updated At:') !!}
+{!! $configuration->updated_at !!}<br>
+
 
 <!-- Deleted At Field -->
-<div class="form-group">
-    {!! Form::label('deleted_at', 'Deleted At:') !!}
-    <p>{!! $configuration->deleted_at !!}</p>
-</div>
+{!! Form::label('deleted_at', 'Deleted At:') !!}
+{!! $configuration->deleted_at !!}<br>
+
 

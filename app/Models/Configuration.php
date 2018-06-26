@@ -2,16 +2,14 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Configuration
  * @package App\Models
- * @version September 28, 2017, 9:49 am CST
+ * @version June 25, 2018, 9:28 pm CST
  *
- * @property \Illuminate\Database\Eloquent\Collection carreraGrado
- * @property \Illuminate\Database\Eloquent\Collection cursos
  * @property \Illuminate\Database\Eloquent\Collection optionUser
  * @property \Illuminate\Database\Eloquent\Collection rolUser
  * @property string key

@@ -23,8 +23,11 @@ class UpdateConfigurationRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        return Configuration::$rules;
+    public function rules(){
+        $id = $this->configuration;
+        $rules = Configuration::$rules;
+        //$rules['campo'] = $rules['campo'] . ',campo,' . $id;
+
+        return $rules;
     }
 }
