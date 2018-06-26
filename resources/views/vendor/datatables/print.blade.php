@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>Print Table</title>
+        <title> @yield('htmlheader_title', config('app.name')) </title>
         <meta charset="UTF-8">
         <meta name=description content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
-        <link href="{{ mix('/css/all.css') }}" rel="stylesheet" type="text/css" />
+        <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
         <style>
             body {margin: 20px}
         </style>
