@@ -36,7 +36,7 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body p-0">
+                        <div class="card-body">
                            @include('rols.table')
                         </div>
                     </div>

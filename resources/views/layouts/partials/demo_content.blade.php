@@ -72,7 +72,7 @@
                             </a>
                         </div>
                     </div>
-                    <div class="card-body p-0">
+                    <div class="card-body">
                         <table class="table table-striped table-valign-middle">
                             <thead>
                             <tr>
