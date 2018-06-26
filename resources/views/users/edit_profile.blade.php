@@ -101,10 +101,9 @@
             <div class="row">
                 <!-- Submit Field -->
                 <div class="form-group col-sm-12">
-                    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-                    <a href="{!! route('users.index') !!}" class="btn btn-default">Cancel</a>
+                    <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
+                    <a href="{!! route('configurations.index') !!}" class="btn btn-default">Cancelar</a>
                 </div>
-
             </div>
             {!! Form::close() !!}
         </div>
