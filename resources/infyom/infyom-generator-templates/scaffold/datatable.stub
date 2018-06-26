@@ -50,11 +50,11 @@ class $MODEL_NAME$DataTable extends DataTable
                 'scrollX' => false,
                 'responsive' => true,
                 'buttons' => [
-                    'create',
-                    'export',
-                    'print',
-                    'reset',
-                    'reload',
+                    ['extend' => 'create', 'text' => '<i class="fa fa-plus"></i> Crear'],
+                    ['extend' => 'export', 'text' => '<i class="fa fa-download"></i> Exportar'],
+                    ['extend' => 'reload', 'text' => '<i class="fa fa-refresh"></i> Recargar'],
+                    ['extend' => 'print', 'text' => '<i class="fa fa-print"></i> Imprimir'],
+                    ['extend' => 'reset', 'text' => '<i class="fa fa-undo"></i> Reiniciar'],
                 ],
             ]);
     }

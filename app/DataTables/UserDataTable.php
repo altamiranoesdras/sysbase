@@ -49,11 +49,12 @@ class UserDataTable extends DataTable
 //                'responsive'   => true,
                 'language' => ['url' => asset('plugins/DataTables/Spanish.json')],
                 'buttons' => [
-                    'export',
-                    'print',
-                    'reset',
-                    'reload',
-//                    'colvis',
+                    ['extend' => 'create', 'text' => '<i class="fa fa-plus"></i> Crear'],
+                    ['extend' => 'export', 'text' => '<i class="fa fa-download"></i> Exportar'],
+                    ['extend' => 'reload', 'text' => '<i class="fa fa-refresh"></i> Recargar'],
+                    ['extend' => 'print', 'text' => '<i class="fa fa-print"></i> Imprimir'],
+                    ['extend' => 'reset', 'text' => '<i class="fa fa-undo"></i> Reiniciar'],
+                    //'colvis',
                 ],
             ]);
     }
