@@ -35,12 +35,12 @@
 
         <div class="login-box">
 
-            <div class="card">
+            <div class="card card-info card-outline">
                 <div class="card-header">
                     <a href="{{ url('/home') }}"><b>{{config('app.name')}}</b></a>
                 </div>
                 <div class="card-body">
-                    <p class="login-box-msg"> {{ trans('adminlte_lang::message.siginsession') }} </p>
+                    <p class="text-info text-center"> {{ trans('adminlte_lang::message.siginsession') }} </p>
 
                     <login-form name="username"
                                 domain="{{ config('auth.defaults.domain','') }}"></login-form>

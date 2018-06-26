@@ -114,7 +114,9 @@
         </li>
         <li class="nav-item">
             <a href="#"class="nav-link" data-toggle="modal" data-target="#modalLogout">
-                <i class="fa fa-fw fa-sign-out"></i>Logout</a>
+                <i class="fa fa-fw fa-sign-out"></i>
+                <span class="d-none d-sm-inline">Salir</span>
+            </a>
         </li>
         {{--<li class="nav-item">--}}
             {{--<a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#"><i--}}

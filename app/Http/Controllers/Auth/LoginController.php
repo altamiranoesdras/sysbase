@@ -2,11 +2,13 @@
 
 namespace App\Http\Controllers\Auth;
 
+use App\Http\Controllers\AppBaseController;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
+use Auth;
 
-class LoginController extends Controller
+class LoginController extends AppBaseController
 {
     /*
     |--------------------------------------------------------------------------
@@ -21,6 +23,22 @@ class LoginController extends Controller
 
     use AuthenticatesUsers {
         attemptLogin as attemptLoginAtAuthenticatesUsers;
+    }
+
+    public function login(Request $request)
+    {
+
+        $datos = $this->validate($request, [
+            'username' => 'required|string',
+            'password' => 'required|string'
+        ]);
+
+
+        if (Auth::attempt($datos)) {
+            return $this->sendResponse($request->toArray(),'Login correcto');
+        }
+
+        return $this->sendFailedLoginResponse($request);
     }
 
     /**
