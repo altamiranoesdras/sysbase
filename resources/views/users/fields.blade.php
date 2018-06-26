@@ -58,10 +58,11 @@
     </div>
 </div>
 
+@if(!isset($create))
 <!-- Imagen Field -->
-<div class="form-group col-sm-6e">
+<div class="form-group col-sm-6">
     <div class="card" >
-        <img class="card-img-top" src="{{Auth::user()->imagen()}}" alt="Card image cap" id="img-user">
+        <img class="card-img-top" src="{{$user->imagen()}}" alt="Card image cap" id="img-user">
         <div class="card-body" style="padding: 0px">
             <!-- Imagen Field -->
 
@@ -70,16 +71,22 @@
                     <input id="files" name="imagen" type="file">
                 </div>
             </div>
-            <a class="btn btn-outline-info btn-sm btn-block" id="etidarImagen">Editar</a>
+            <a  href="#" class="btn btn-outline-info btn-sm btn-block" id="etidarImagen">Editar</a>
         </div>
     </div>
 </div>
-
+@else
+    <!-- Imagen Field -->
+    <div class="form-group col-sm-6">
+        <input id="files" name="imagen" type="file">
+    </div>
+@endif
 
 @push('scripts')
 <script>
     $(function () {
-        $("#etidarImagen").click(function () {
+        $("#etidarImagen").click(function (e) {
+            e.preventDefault();
             console.log('editar imagen');
             $('#field-img').show();
             $('#img-user').hide();

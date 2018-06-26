@@ -88,4 +88,13 @@ class User extends Model
     {
         return $this->hasMany(\App\Models\Uimage::class);
     }
+
+    public function imagen()
+    {
+        $imagen = $this->uimages()->first();
+
+        $imagen = is_null($imagen) ? asset('img/avatar_none.png') : srcImgBynary($imagen);
+
+        return $imagen;
+    }
 }

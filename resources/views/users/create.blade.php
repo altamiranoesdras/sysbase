@@ -1,5 +1,5 @@
 @extends('layouts.app')
-``
+
 @section('htmlheader_title')
 	Crear User
 @endsection
@@ -29,7 +29,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            {!! Form::open(['route' => 'users.store']) !!}
+                            {!! Form::open(['route' => 'users.store','enctype' => "multipart/form-data"]) !!}
                                 <div class="form-row">
 
                                     @include('users.fields')
