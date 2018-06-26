@@ -16,6 +16,7 @@
             //Cuando dibuja la tabla
             dt.on( 'draw.dt', function () {
                 $(this).addClass('table-sm table-striped table-bordered table-hover');
+                $('[data-toggle="tooltip"]').tooltip();
             });
 
         })
