@@ -1,3 +1,6 @@
+@include('layouts.plugins.select2')
+@include('layouts.plugins.bootstrap_fileinput')
+
 <!-- Username Field -->
 <div class="form-group col-sm-6">
     {!! Form::label('username', 'Username:') !!}
@@ -29,7 +32,6 @@
 
 <div class="form-group col-sm-12" style="padding: 0px; margin: 0px">
 </div>
-
 @if(!isset($create))
     <div class="form-group col-sm-12">
         <a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
@@ -39,8 +41,10 @@
 @endif
 
 
-<div class="{{ !isset($create) ? "collapse" : '' }}" id="collapseExample">
+<div class="col-sm-12 {{ !isset($create) ? "collapse" : '' }}" id="collapseExample">
+    <div class="form-row">
     <!-- Password Field -->
+
     <div class="form-group col-sm-6">
         {!! Form::label('password', 'password:') !!}
         {!! Form::password('password', ['class' => 'form-control']) !!}
@@ -51,23 +55,36 @@
         {!! Form::label('password_confirmation', 'Confirmar password:') !!}
         {!! Form::password('password_confirmation', ['class' => 'form-control']) !!}
     </div>
+    </div>
 </div>
 
 <!-- Imagen Field -->
-<div class="form-group col-sm-12">
-    {!! Form::label('imagen', 'Imagen:') !!}
-    <input id="files" name="imagen" type="file">
+<div class="form-group col-sm-6e">
+    <div class="card" >
+        <img class="card-img-top" src="{{Auth::user()->imagen()}}" alt="Card image cap" id="img-user">
+        <div class="card-body" style="padding: 0px">
+            <!-- Imagen Field -->
+
+            <div class="form-row " id="field-img" style="display: none">
+                <div class="form-group col-sm-12">
+                    <input id="files" name="imagen" type="file">
+                </div>
+            </div>
+            <a class="btn btn-outline-info btn-sm btn-block" id="etidarImagen">Editar</a>
+        </div>
+    </div>
 </div>
 
-<!-- Submit Field -->
-<div class="form-group col-sm-12">
-    {!! Form::submit('Save', ['class' => 'btn btn-primary']) !!}
-    <a href="{!! route('users.index') !!}" class="btn btn-default">Cancel</a>
-</div>
 
 @push('scripts')
 <script>
     $(function () {
+        $("#etidarImagen").click(function () {
+            console.log('editar imagen');
+            $('#field-img').show();
+            $('#img-user').hide();
+
+        });
         $("#rols").select2();
 
         var $input = $("#files");

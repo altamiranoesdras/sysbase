@@ -38,7 +38,7 @@
                                 <input id="files" name="imagen" type="file">
                                 </div>
                             </div>
-                            <a href="#" class="btn btn-outline-info btn-sm btn-block" id="etidarImagen">Editar</a>
+                            <a class="btn btn-outline-info btn-sm btn-block" id="etidarImagen">Editar</a>
                         </div>
                     </div>
                     <!-- /.card -->

@@ -5,35 +5,52 @@
 @endsection
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            User
-        </h1>
-    </section>
-    <div class="content">
-        <div class="box box-primary">
-            <div class="box-body">
-                <div class="row" >
-                    <div class="col-sm-3">
-                        @if($user->uimages->count()>0)
-                            @foreach($user->uimages as $key => $image)
-                                <img src="{{srcImgBynary($image)}}" alt="{{$image->name}}" class="img-responsive">
-                            @endforeach
-                        @else
-                            <img src="{{asset('img/avatar_none.png')}}" alt="" class="img-responsive" width="100%" height="100%">
-                        @endif
-                    </div>
-                    <div class="col-sm-9">
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-12">
+                    <h1 class="m-0 text-dark">User</h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-                        @include('users.show_fields')
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-sm-4">
+                                    <div class="card" >
+                                        <img class="card-img-top" src="{{Auth::user()->imagen()}}" alt="Card image cap" id="img-user">
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    @include('users.show_fields')
+                                </div>
+                            </div>
+
+                        </div>
                     </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+
+            <div class="row">
+                <div class="form-group col-sm-12">
+                <a href="{!! route('users.index') !!}" class="btn btn-default">Regresar</a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <div class="col-sm-12">
-                <a href="{!! route('users.index') !!}" class="btn btn-default">Back</a>
-            </div>
-        </div>
+        <!-- /.container-fluid -->
     </div>
+    <!-- /.content -->
 @endsection

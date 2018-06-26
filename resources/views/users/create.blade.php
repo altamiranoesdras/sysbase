@@ -1,30 +1,56 @@
 @extends('layouts.app')
-@include('layouts.plugins.select2')
-@include('layouts.plugins.bootstrap_fileinput')
-
+``
 @section('htmlheader_title')
 	Crear User
 @endsection
 
 @section('content')
-    <section class="content-header">
-        <h1>
-            User
-        </h1>
-    </section>
-    <div class="content">
-        @include('adminlte-templates::common.errors')
-        <div class="box box-primary">
-
-            <div class="box-body">
-                <div class="row">
-                    {!! Form::open(['route' => 'users.store','enctype' => "multipart/form-data"]) !!}
-
-                        @include('users.fields')
-
-                    {!! Form::close() !!}
-                </div>
-            </div>
-        </div>
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">
+                        Crear User
+                    </h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            @include('flash::message')
+            @include('adminlte-templates::common.errors')
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            {!! Form::open(['route' => 'users.store']) !!}
+                                <div class="form-row">
+
+                                    @include('users.fields')
+                                    <!-- Submit Field -->
+                                    <div class="form-group col-sm-12">
+                                        <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
+                                        <a href="{!! route('users.index') !!}" class="btn btn-outline-default">Cancelar</a>
+                                    </div>
+                                </div>
+                            {!! Form::close() !!}
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+
+
 @endsection
