@@ -34,7 +34,14 @@
 							<!--Contenido-->
 							{!! $menu !!}
 
-							<ul><li><a href="{{url("/admin/option/create/0")}}" class='text-green text-sm' data-toggle="tooltip" title="Nueva opcion"><span class="glyphicon glyphicon-plus"></span></a></li></ul>
+							<ul>
+								<li>
+									<a href="{{url("/admin/option/create/0")}}"
+									   class='text-success text-sm' data-toggle="tooltip" title="Nueva opcion">
+										<span class="fa fa-plus"></span>
+									</a>
+								</li>
+							</ul>
 
 							<!--Fin Contenido-->
 						</div>
@@ -75,6 +82,9 @@
 @push("scripts")
 	<script>
 		$(function(){
+
+            $.widget.bridge('uibutton', $.ui.button);
+
 			$(".btn-delete").click(function () {
 				$("#form-delete").attr("action",$(this).data("action"))
 			})

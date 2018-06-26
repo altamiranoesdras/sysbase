@@ -28,7 +28,7 @@
                             <div class="row">
                                 <div class="col-sm-4">
                                     <div class="card" >
-                                        <img class="card-img-top" src="{{Auth::user()->imagen()}}" alt="Card image cap" id="img-user">
+                                        <img class="card-img-top" src="{{$user->imagen()}}" alt="Card image cap" id="img-user">
                                     </div>
                                 </div>
                                 <div class="col-sm-4">
