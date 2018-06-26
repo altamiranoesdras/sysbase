@@ -42,17 +42,18 @@ class UserDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '15%'])
+            ->addAction(['width' => '17%','printable' => false])
             ->parameters([
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
-                'responsive'   => true,
+//                'responsive'   => true,
                 'language' => ['url' => asset('plugins/DataTables/Spanish.json')],
                 'buttons' => [
                     'export',
                     'print',
                     'reset',
                     'reload',
+//                    'colvis',
                 ],
             ]);
     }

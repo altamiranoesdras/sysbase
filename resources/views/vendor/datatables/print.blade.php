@@ -6,14 +6,13 @@
         <meta name=description content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
-        <link rel="stylesheet" href="{{ asset('bower/bootstrap/dist/css/bootstrap.min.css') }}">
-        <link rel="stylesheet" href="{{ asset('bower/font-awesome/css/font-awesome.min.css') }}">
+        <link href="{{ mix('/css/all.css') }}" rel="stylesheet" type="text/css" />
         <style>
             body {margin: 20px}
         </style>
     </head>
     <body>
-        <table class="table table-bordered table-condensed table-striped">
+        <table class="table table-bordered table-sm table-striped">
             @foreach($data as $row)
                 @if ($row == reset($data)) 
                     <tr>

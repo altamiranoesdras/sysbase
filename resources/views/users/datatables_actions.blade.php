@@ -1,19 +1,19 @@
 
-<a href="{{ route('users.show', $id) }}" class='btn btn-default btn-xs' data-toggle="tooltip" title="Ver">
-    <i class="glyphicon glyphicon-eye-open"></i>
+<a href="{{ route('users.show', $id) }}" class='btn btn-default btn-sm ' data-toggle="tooltip" title="Ver">
+    <i class=" fa fa-eye"></i>
 </a>
 
-<a href="{{ route('users.edit', $id) }}" class='btn btn-info btn-xs' data-toggle="tooltip" title="Editar">
-    <i class="glyphicon glyphicon-edit"></i>
+<a href="{{ route('users.edit', $id) }}" class='btn btn-info btn-sm' data-toggle="tooltip" title="Editar">
+    <i class="fa fa-edit"></i>
 </a>
 
-<a href="{{ route('user.menu',$id) }}" class="btn btn-xs btn-default">
-    <span class="glyphicon glyphicon-list-alt" data-toggle="tooltip" title="Menu"></span>
+<a href="{{ route('user.menu',$id) }}" class="btn btn-sm btn-default">
+    <span class="fa fa-list-alt" data-toggle="tooltip" title="Menu"></span>
 </a>
 
 <span data-toggle="tooltip" title="Eliminar">
-    <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-xs'>
-        <i class="glyphicon glyphicon-remove"></i>
+    <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-sm'>
+        <i class="fa fa-remove"></i>
     </a>
 </span>
 
