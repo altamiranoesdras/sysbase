@@ -42,13 +42,15 @@ class RolDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '15%','printable' => false])
             ->parameters([
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
-                'responsive'   => true,
-                'language' => ['url' => asset('plugins/DataTables/Spanish.json')],
+                'language' => ['url' => asset('js/SpanishDataTables.json')],
+//                'scrollX' => false,
+//                'responsive' => true,
                 'buttons' => [
+                    'create',
                     'export',
                     'print',
                     'reset',

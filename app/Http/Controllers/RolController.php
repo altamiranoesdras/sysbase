@@ -19,6 +19,7 @@ class RolController extends AppBaseController
     public function __construct(RolRepository $rolRepo)
     {
         $this->rolRepository = $rolRepo;
+        $this->middleware('auth');
     }
 
     /**
@@ -55,7 +56,7 @@ class RolController extends AppBaseController
 
         $rol = $this->rolRepository->create($input);
 
-        Flash::success('Rol saved successfully.');
+        Flash::success('Rol guardado exitosamente.');
 
         return redirect(route('rols.index'));
     }
@@ -72,12 +73,12 @@ class RolController extends AppBaseController
         $rol = $this->rolRepository->findWithoutFail($id);
 
         if (empty($rol)) {
-            Flash::error('Rol not found');
+            Flash::error('Rol no encontrado');
 
             return redirect(route('rols.index'));
         }
 
-        return view('rols.show')->with('rol', $rol);
+        return view('rols.show',compact('rol'));
     }
 
     /**
@@ -92,12 +93,12 @@ class RolController extends AppBaseController
         $rol = $this->rolRepository->findWithoutFail($id);
 
         if (empty($rol)) {
-            Flash::error('Rol not found');
+            Flash::error('Rol no encontrado');
 
             return redirect(route('rols.index'));
         }
 
-        return view('rols.edit')->with('rol', $rol);
+        return view('rols.edit',compact('rol'));
     }
 
     /**
@@ -113,14 +114,14 @@ class RolController extends AppBaseController
         $rol = $this->rolRepository->findWithoutFail($id);
 
         if (empty($rol)) {
-            Flash::error('Rol not found');
+            Flash::error('Rol no encontrado');
 
             return redirect(route('rols.index'));
         }
 
         $rol = $this->rolRepository->update($request->all(), $id);
 
-        Flash::success('Rol updated successfully.');
+        Flash::success('Rol actualizado exitosamente.');
 
         return redirect(route('rols.index'));
     }
@@ -137,14 +138,14 @@ class RolController extends AppBaseController
         $rol = $this->rolRepository->findWithoutFail($id);
 
         if (empty($rol)) {
-            Flash::error('Rol not found');
+            Flash::error('Rol no encontrado');
 
             return redirect(route('rols.index'));
         }
 
         $this->rolRepository->delete($id);
 
-        Flash::success('Rol deleted successfully.');
+        Flash::success('Rol eliminado exitosamente.');
 
         return redirect(route('rols.index'));
     }

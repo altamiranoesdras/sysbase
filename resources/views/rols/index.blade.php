@@ -1,23 +1,53 @@
 @extends('layouts.app')
 
+@section('htmlheader_title')
+	Rols
+@endsection
+
 @section('content')
-    <section class="content-header">
-        <h1 class="pull-left">Rols</h1>
-        <h1 class="pull-right">
-           <a class="btn btn-success pull-right" style="margin-top: -10px;margin-bottom: 5px" href="{!! route('rols.create') !!}">Agregar Nuev@</a>
-        </h1>
-    </section>
-    <div class="content">
-        <div class="clearfix"></div>
-
-        @include('flash::message')
-
-        <div class="clearfix"></div>
-        <div class="box box-primary">
-            <div class="box-body">
-                    @include('rols.table')
-            </div>
-        </div>
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">Rols</h1>
+                </div><!-- /.col -->
+                <div class="col-sm-6">
+                        <ol class="breadcrumb float-sm-right">
+                            <li class="breadcrumb-item">
+                                <a class="btn btn-outline-success"
+                                    href="{!! route('rols.create') !!}">
+                                    <i class="fa fa-plus"></i>
+                                    <span class="d-none d-sm-inline">Agregar Nuev@</span>
+                                </a>
+                            </li>
+                        </ol>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
     </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            @include('flash::message')
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body p-0">
+                           @include('rols.table')
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
 @endsection
 

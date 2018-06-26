@@ -1,30 +1,25 @@
 <!-- Id Field -->
-<div class="form-group">
-    {!! Form::label('id', 'Id:') !!}
-    <p>{!! $rol->id !!}</p>
-</div>
+{!! Form::label('id', 'Id:') !!}
+{!! $rol->id !!}<br>
+
 
 <!-- Descripcion Field -->
-<div class="form-group">
-    {!! Form::label('descripcion', 'Descripcion:') !!}
-    <p>{!! $rol->descripcion !!}</p>
-</div>
+{!! Form::label('descripcion', 'Descripcion:') !!}
+{!! $rol->descripcion !!}<br>
+
 
 <!-- Created At Field -->
-<div class="form-group">
-    {!! Form::label('created_at', 'Created At:') !!}
-    <p>{!! $rol->created_at !!}</p>
-</div>
+{!! Form::label('created_at', 'Created At:') !!}
+{!! $rol->created_at !!}<br>
+
 
 <!-- Updated At Field -->
-<div class="form-group">
-    {!! Form::label('updated_at', 'Updated At:') !!}
-    <p>{!! $rol->updated_at !!}</p>
-</div>
+{!! Form::label('updated_at', 'Updated At:') !!}
+{!! $rol->updated_at !!}<br>
+
 
 <!-- Deleted At Field -->
-<div class="form-group">
-    {!! Form::label('deleted_at', 'Deleted At:') !!}
-    <p>{!! $rol->deleted_at !!}</p>
-</div>
+{!! Form::label('deleted_at', 'Deleted At:') !!}
+{!! $rol->deleted_at !!}<br>
+
 

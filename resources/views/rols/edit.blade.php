@@ -1,23 +1,59 @@
 @extends('layouts.app')
 
+@section('htmlheader_title')
+	Editar Rol
+@endsection
+
 @section('content')
-    <section class="content-header">
-        <h1>
-            Rol
-        </h1>
-   </section>
-   <div class="content">
-       @include('adminlte-templates::common.errors')
-       <div class="box box-primary">
-           <div class="box-body">
-               <div class="row">
-                   {!! Form::model($rol, ['route' => ['rols.update', $rol->id], 'method' => 'patch']) !!}
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row mb-2">
+                <div class="col-sm-6">
+                    <h1 class="m-0 text-dark">
+                        Editar Rol
+                    </h1>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
 
-                        @include('rols.fields')
+    <!-- Main content -->
+    <div class="content">
+        <div class="container-fluid">
+            @include('flash::message')
+            @include('adminlte-templates::common.errors')
 
-                   {!! Form::close() !!}
-               </div>
-           </div>
-       </div>
-   </div>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+
+                           {!! Form::model($rol, ['route' => ['rols.update', $rol->id], 'method' => 'patch']) !!}
+                                <div class="form-row">
+
+                                    @include('rols.fields')
+                                    <!-- Submit Field -->
+                                    <div class="form-group col-sm-12">
+                                        <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
+                                        <a href="{!! route('rols.index') !!}" class="btn btn-outline-default">Cancelar</a>
+                                    </div>
+                                </div>
+
+                           {!! Form::close() !!}
+
+                        </div>
+                    </div>
+                    <!-- /.card -->
+                </div>
+                <!-- /.col-md-6 -->
+            </div>
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+    </div>
+    <!-- /.content -->
+
+
 @endsection
