@@ -12,13 +12,7 @@
         <!-- Sidebar user panel (optional) -->
         <div class="user-panel mt-3 pb-3 mb-3 d-flex">
             <div class="image">
-                @if($user->uimages->count()>0)
-                    @foreach($user->uimages as $key => $image)
-                        <img src="{{srcImgBynary($image)}}" alt="{{$image->name}}" class="img-circle elevation-2" alt="User Image">
-                    @endforeach
-                @else
-                    <img src="{{ $user->email ? Gravatar::get($user->email) : asset('img/avatar_none.png') }}" class="img-circle elevation-2" alt="User Image" />
-                @endif
+                <img src="{{Auth::user()->imagen()}}" alt="" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
                 <a href="{{ route('user.edit.profile',Auth::user()->id) }}" class="d-block">{{ Auth::user()->name }}</a>
