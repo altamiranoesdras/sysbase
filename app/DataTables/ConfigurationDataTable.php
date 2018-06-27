@@ -42,17 +42,19 @@ class ConfigurationDataTable extends DataTable
         return $this->builder()
             ->columns($this->getColumns())
             ->minifiedAjax()
-            ->addAction(['width' => '80px'])
+            ->addAction(['width' => '15%','printable' => false])
             ->parameters([
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
-                'responsive'   => true,
-                'language' => ['url' => asset('plugins/DataTables/Spanish.json')],
+                'language' => ['url' => asset('js/SpanishDataTables.json')],
+                //'scrollX' => false,
+                //'responsive' => true,
                 'buttons' => [
-                    'export',
-                    'print',
-                    'reset',
-                    'reload',
+                    ['extend' => 'create', 'text' => '<i class="fa fa-plus"></i> Crear'],
+                    ['extend' => 'export', 'text' => '<i class="fa fa-download"></i> Exportar'],
+                    ['extend' => 'reload', 'text' => '<i class="fa fa-refresh"></i> Recargar'],
+                    ['extend' => 'print', 'text' => '<i class="fa fa-print"></i> Imprimir'],
+                    ['extend' => 'reset', 'text' => '<i class="fa fa-undo"></i> Reiniciar'],
                 ],
             ]);
     }

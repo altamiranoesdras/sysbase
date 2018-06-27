@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\DataTables\ConfigurationDataTable;
+use App\Http\Requests;
 use App\Http\Requests\CreateConfigurationRequest;
 use App\Http\Requests\UpdateConfigurationRequest;
 use App\Repositories\ConfigurationRepository;
-use App\Http\Controllers\AppBaseController;
-use Illuminate\Http\Request;
 use Flash;
-use Prettus\Repository\Criteria\RequestCriteria;
+use App\Http\Controllers\AppBaseController;
 use Response;
 
 class ConfigurationController extends AppBaseController
@@ -25,16 +25,12 @@ class ConfigurationController extends AppBaseController
     /**
      * Display a listing of the Configuration.
      *
-     * @param Request $request
+     * @param ConfigurationDataTable $configurationDataTable
      * @return Response
      */
-    public function index(Request $request)
+    public function index(ConfigurationDataTable $configurationDataTable)
     {
-        $this->configurationRepository->pushCriteria(new RequestCriteria($request));
-        $configurations = $this->configurationRepository->all();
-
-        return view('configurations.index')
-            ->with('configurations', $configurations);
+        return $configurationDataTable->render('configurations.index');
     }
 
     /**

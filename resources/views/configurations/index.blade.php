@@ -13,15 +13,15 @@
                     <h1 class="m-0 text-dark">Configurations</h1>
                 </div><!-- /.col -->
                 <div class="col">
-                        <ol class="breadcrumb float-right">
-                            <li class="breadcrumb-item">
-                                <a class="btn btn-outline-success"
-                                    href="{!! route('configurations.create') !!}">
-                                    <i class="fa fa-plus"></i>
-                                    <span class="d-none d-sm-inline">Agregar Nuev@</span>
-                                </a>
-                            </li>
-                        </ol>
+                    <ol class="breadcrumb float-right">
+                        <li class="breadcrumb-item">
+                            <a class="btn btn-outline-success"
+                                href="{!! route('configurations.create') !!}">
+                                <i class="fa fa-plus"></i>
+                                <span class="d-none d-sm-inline">Agregar Nuev@</span>
+                            </a>
+                        </li>
+                    </ol>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
