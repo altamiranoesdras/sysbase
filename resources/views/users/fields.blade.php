@@ -2,13 +2,13 @@
 @include('layouts.plugins.bootstrap_fileinput')
 
 <!-- Username Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('username', 'Username:') !!}
     {!! Form::text('username', null, ['class' => 'form-control']) !!}
 </div>
 
 <!-- Name Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('name', 'Name:') !!}
     {!! Form::text('name', null, ['class' => 'form-control']) !!}
 </div>
@@ -20,7 +20,7 @@
 </div>
 
 <!-- Rols Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-3">
     {!! Form::label('rols', 'Roles:') !!}
     <select name="rols[]" id="rols" class="form-control" multiple="multiple">
         <option value=""> -- Select One -- </option>
@@ -35,7 +35,7 @@
 @if(!isset($create))
     <div class="form-group col-sm-12">
         <a class="" role="button" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-            Editar también contraseña
+            <span class=" btn btn-outline-primary">Editar también contraseña</span>
         </a>
     </div>
 @endif
@@ -43,8 +43,8 @@
 
 <div class="col-sm-12 {{ !isset($create) ? "collapse" : '' }}" id="collapseExample">
     <div class="form-row">
-    <!-- Password Field -->
 
+    <!-- Password Field -->
     <div class="form-group col-sm-6">
         {!! Form::label('password', 'password:') !!}
         {!! Form::password('password', ['class' => 'form-control']) !!}
@@ -60,7 +60,7 @@
 
 @if(!isset($create))
 <!-- Imagen Field -->
-<div class="form-group col-sm-6">
+<div class="form-group col-sm-4">
     <div class="card" >
         <img class="card-img-top" src="{{$user->imagen()}}" alt="Card image cap" id="img-user">
         <div class="card-body" style="padding: 0px">
@@ -77,7 +77,7 @@
 </div>
 @else
     <!-- Imagen Field -->
-    <div class="form-group col-sm-6">
+    <div class="form-group col-sm-4">
         <input id="files" name="imagen" type="file">
     </div>
 @endif
