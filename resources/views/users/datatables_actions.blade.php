@@ -17,22 +17,26 @@
     </a>
 </span>
 
-<div class="modal fade modal-warning" id="modal-delete-{{$id}}" tabindex='-1'>
-    <div class="modal-dialog">
-        <div class="modal-content">
-            {!! Form::open(['route' => ['users.destroy', $id], 'method' => 'delete']) !!}
+<!-- Modal-->
+<div class="modal fade" id="modal-delete-{{$id}}" tabindex="-1" role="dialog" aria-labelledby="modalLogoutLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content ">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                <h4 class="modal-title">Eliminar!</h4>
+                <h5 class="modal-title" id="modalLogoutLabel">
+                    <i class="fa fa-warning text-warning fa-2x" aria-hidden="true"></i> &nbsp;¿Eliminar?
+                </h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
             </div>
-            <div class="modal-body">
-                Seguro desea eliminar el registro?
-            </div>
+            <div class="modal-body">Seleccione "SI" a continuación si está seguro de eliminar el registro.</div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-default" data-dismiss="modal">No</button>
-                <button type="submit" class="btn btn-danger">SI</button>
+                {!! Form::open(['route' => ['users.destroy', $id], 'method' => 'delete']) !!}
+                    <button type="submit" class="btn btn-danger">SI</button>
+                {!! Form::close() !!}
             </div>
-            {!! Form::close() !!}
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div><!-- /.modal -->
+        </div>
+    </div>
+</div>
+<!-- /.modal -->
