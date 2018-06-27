@@ -47,8 +47,8 @@ class $MODEL_NAME$DataTable extends DataTable
                 'dom'     => 'Bfrtip',
                 'order'   => [[0, 'desc']],
                 'language' => ['url' => asset('js/SpanishDataTables.json')],
-                'scrollX' => false,
-                'responsive' => true,
+                //'scrollX' => false,
+                //'responsive' => true,
                 'buttons' => [
                     ['extend' => 'create', 'text' => '<i class="fa fa-plus"></i> Crear'],
                     ['extend' => 'export', 'text' => '<i class="fa fa-download"></i> Exportar'],
