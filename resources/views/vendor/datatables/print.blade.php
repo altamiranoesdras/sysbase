@@ -11,7 +11,7 @@
             body {margin: 20px}
         </style>
     </head>
-    <body>
+    <body onload="window.print()">
         <table class="table table-bordered table-sm table-striped">
             @foreach($data as $row)
                 @if ($row == reset($data)) 
@@ -32,5 +32,6 @@
                 </tr>
             @endforeach
         </table>
+
     </body>
 </html>
