@@ -7,20 +7,40 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Uimage
+ *
  * @package App\Models
  * @version October 6, 2017, 11:40 am CST
- *
  * @property \App\Models\User user
  * @property \Illuminate\Database\Eloquent\Collection cursoGrado
  * @property \Illuminate\Database\Eloquent\Collection grados
  * @property \Illuminate\Database\Eloquent\Collection optionUser
  * @property \Illuminate\Database\Eloquent\Collection rolUser
- * @property integer user_id
- * @property string data
- * @property string name
- * @property string type
- * @property integer size
- * @property string extension
+ * @property int $id
+ * @property int $user_id
+ * @property string $data
+ * @property string $name
+ * @property string $type
+ * @property int $size
+ * @property string $extension
+ * @property \Carbon\Carbon|null $created_at
+ * @property \Carbon\Carbon|null $updated_at
+ * @property \Carbon\Carbon|null $deleted_at
+ * @method static bool|null forceDelete()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Uimage onlyTrashed()
+ * @method static bool|null restore()
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereCreatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereData($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereDeletedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereExtension($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereId($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereName($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereSize($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereType($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereUpdatedAt($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Uimage whereUserId($value)
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Uimage withTrashed()
+ * @method static \Illuminate\Database\Query\Builder|\App\Models\Uimage withoutTrashed()
+ * @mixin \Eloquent
  */
 class Uimage extends Model
 {
