@@ -1,16 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/all.css": "/css/all.css",
-    "/fonts/fontawesome-webfont.eot": "/fonts/fontawesome-webfont.eot",
-    "/fonts/fontawesome-webfont.svg": "/fonts/fontawesome-webfont.svg",
-    "/fonts/fontawesome-webfont.ttf": "/fonts/fontawesome-webfont.ttf",
-    "/fonts/fontawesome-webfont.woff": "/fonts/fontawesome-webfont.woff",
-    "/fonts/fontawesome-webfont.woff2": "/fonts/fontawesome-webfont.woff2",
-    "/fonts/FontAwesome.otf": "/fonts/FontAwesome.otf",
-    "/fonts/ionicons.eot": "/fonts/ionicons.eot",
-    "/fonts/ionicons.svg": "/fonts/ionicons.svg",
-    "/fonts/ionicons.ttf": "/fonts/ionicons.ttf",
-    "/fonts/ionicons.woff": "/fonts/ionicons.woff",
-    "/fonts/ionicons.woff2": "/fonts/ionicons.woff2",
-    "/js/toastr.min.js": "/js/toastr.min.js"
+    "/css/app.css": "/css/app.css"
 }

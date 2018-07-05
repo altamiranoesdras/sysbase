@@ -1,15 +1,12 @@
-
 // Fonts
-@import url(https://fonts.googleapis.com/css?family=Raleway:300,400,600);
+@import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
 // Variables
-@import "variables";
+//@import "variables";
 
 // Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import '~font-awesome/scss/font-awesome.scss';
+@import '~ionicons/dist/scss/ionicons.scss';
+@import 'AdminLTE.scss';
+@import '~toastr/toastr.scss';
 
-//Ionicons
-@import "node_modules/ionicons/dist/scss/ionicons.scss";
-
-//Font awesome
-@import "node_modules/font-awesome/scss/font-awesome.scss";

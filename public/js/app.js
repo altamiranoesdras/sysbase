@@ -25503,7 +25503,8 @@ module.exports = Cancel;
 /* 19 */
 /***/ (function(module, exports, __webpack_require__) {
 
-module.exports = __webpack_require__(20);
+__webpack_require__(20);
+module.exports = __webpack_require__(78);
 
 
 /***/ }),
@@ -48442,7 +48443,7 @@ exports = module.exports = __webpack_require__(51)(false);
 
 
 // module
-exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
+exports.push([module.i, "\n.fade-enter-active, .fade-leave-active {\r\n    -webkit-transition: opacity 1s ease;\r\n    transition: opacity 1s ease;\n}\n.fade-enter, .fade-leave-to {\r\n    opacity: 0;\n}", ""]);
 
 // exports
 
@@ -63229,6 +63230,12 @@ if (false) {
     require("vue-hot-reload-api")      .rerender("data-v-0d45a252", module.exports)
   }
 }
+
+/***/ }),
+/* 78 */
+/***/ (function(module, exports) {
+
+// removed by extract-text-webpack-plugin
 
 /***/ })
 /******/ ]);

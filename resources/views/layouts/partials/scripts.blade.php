@@ -1,6 +1,6 @@
 <!-- REQUIRED JS SCRIPTS -->
 <script src="{{ url (mix('/js/app.js')) }}" type="text/javascript"></script>
-<script src="{{ url (mix('/js/toastr.min.js')) }}" type="text/javascript"></script>
+<script src="{{ asset('/js/toastr.min.js') }}" type="text/javascript"></script>
 
 
 <script>
