@@ -26,7 +26,7 @@ class Menu{
     }
 
     /**
-     * Genera el menu que se muestra en la seccion sidebar
+     * Nuevo menu que se muestra en la seccion sidebar
      * @param $opciones
      * @param int $parent
      * @return string
@@ -38,16 +38,23 @@ class Menu{
         foreach ($opciones as $op)
         {
             if ($op->padre == $parent){
-                $ruta= $op->ruta."";
-                $ruta = url($ruta);
+
+                try{
+                    $rout =route($op->ruta.'');
+                }catch (\Exception $e){
+                    $rout = '';
+                };
+
                 $has_children= ($this->has_children($opciones,$op->id) || $op->padre=="") ? true : false;
 
                 $result.= $has_children ? "<li class=\"nav-item has-treeview\">" : "<li class=\"nav-item\">";
-                $result.= "<a href=\"{$ruta}\" class=\"nav-link\">";
+                $result.= "<a href=\"{$rout}\" class=\"nav-link\">";
                 $result.= "<i class=\"fa {$op->icono_l} nav-icon\"></i>";
                 $result.= "<p>";
                 $result.= $op->nombre;
-                $result.= $has_children ? "<i class=\"right  fa {$op->icono_r}\"></i>" : "";
+                if ($op->icono_r){
+                    $result.= $has_children ? "<i class=\"right  fa {$op->icono_r}\"></i>" : "";
+                }
                 $result.= "</p>";
                 $result.= "</a>";
 
@@ -77,12 +84,13 @@ class Menu{
 
                 $actionEdit = action('OptionMenuController@edit',$op->id);
                 $actionDelet = action('OptionMenuController@destroy',["id" => $op->id]);
-                $rutaNew= url("/admin/option/create/{$op->id}");
+//                $rutaNew= url("/admin/option/create/{$op->id}");
+                $rutaNew= route('admin.option.create',$op->id);
 
                 $result.= "<li class='list-group-item' id='{$op->id}' ><span class='fa fa-arrows-alt'></span>&nbsp;&nbsp;<b>{$op->nombre}</b>";
                 $result.= " &nbsp;<a href=\"{$rutaNew}\" class='text-success text-sm' data-toggle=\"tooltip\" title=\"Nueva opcion\"><span class=\"fa fa-plus\"></span></a>";
                 $result.= " &nbsp;<a href=\"{$actionEdit}\" data-toggle=\"tooltip\" title=\"Editar\"><span class='fa fa-edit'></span></a>";
-                $result.= " &nbsp;<a data-toggle='modal' href='#modal-delete' data-action=\"{$actionDelet}\" class='text-danger btn-delete' ><span class=\"fa fa-remove\"  data-toggle=\"tooltip\" title=\"Eliminar\"></span></a>";
+                $result.= " &nbsp;<a data-toggle='modal' href='#modal-delete' data-action=\"{$actionDelet}\" class='text-danger btn-delete' ><span class=\"fa fa-trash-alt\"  data-toggle=\"tooltip\" title=\"Eliminar\"></span></a>";
 
                 if ($this->has_children($opciones,$op->id))
                     $result.=  $this->renderAdmin($opciones,$op->id);
