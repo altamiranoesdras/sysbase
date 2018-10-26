@@ -11,7 +11,7 @@ use App\Option;
 use Illuminate\Http\Response;
 use Laracasts\Flash\Flash;
 
-class OptionMenuController extends Controller{
+class OptionMenuController extends AppBaseController {
 
 
     private $iconos=[
@@ -204,14 +204,15 @@ class OptionMenuController extends Controller{
     }
 
     public function updateOrden(Request $request){
-        $datos= $request->datos ? $request->datos : [];
+
+        $opciones= $request->opciones ? $request->opciones : [];
 
         $colecion=collect();
 
-        if(count($datos)>0){
+        if(count($opciones)>0){
 
 
-            foreach ($datos as $orden => $id){
+            foreach ($opciones as $orden => $id){
                 $opcion = Option::findOrFail($id);
                 $opcion->orden= $orden;
                 $opcion->save();
@@ -219,18 +220,10 @@ class OptionMenuController extends Controller{
                 $colecion->push($opcion);
             }
 
-            return response()->json([
-                'success' => true,
-                'data' => $colecion->toArray(),
-                'message' => 'Orden Acutalizado'
-            ]);
+            return $this->sendResponse($colecion,'Oren Actualizado!');
 
         }else{
-            return response()->json([
-                'success' => false,
-                'data' => $colecion->toArray(),
-                'message' => 'No se enviaron opciones'
-            ]);
+            return $this->sendError('Error al actualizar el orden!');
         }
     }
 }

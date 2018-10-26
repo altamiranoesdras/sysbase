@@ -36,7 +36,7 @@
 
 							<ul>
 								<li>
-									<a href="{{url("/admin/option/create/0")}}"
+									<a href="{{route('admin.option.create',0)}}"
 									   class='text-success text-sm' data-toggle="tooltip" title="Nueva opcion">
 										<span class="fa fa-plus"></span>
 									</a>
@@ -80,6 +80,7 @@
 
 @stop
 @push("scripts")
+    <script src="{{asset("js/axios.min.js")}}"></script>
 	<script>
 		$(function(){
 
@@ -87,36 +88,31 @@
 
 			$(".btn-delete").click(function () {
 				$("#form-delete").attr("action",$(this).data("action"))
-			})
+			});
+
 			$( ".sortable" ).sortable({
 				update: function( event, ui ) {
 
-					var  datos=[];
+					var  opciones=[];
 					$(this).find('li').each(function (index,elemet) {
-						datos.push($(this).attr('id'));
+						opciones.push($(this).attr('id'));
+					});
+
+					var url = "{{route("option.order.store")}}";
+					var params= { params: {opciones: opciones} };
+
+					axios.get(url,params).then(response => {
+					    console.log(response.data);
+					    toastr.success(response.data.message);
+					    //this.models = response.data;
 					})
+					.catch(error => {
+					    console.log(error.response.data);
+					    toastr.error(error.response.message);
+					});
 
-
-					$.ajax({
-						method: 'POST',
-						url: '{{url("admin/option/orden")}}',
-						data: {datos:datos},
-						dataType: 'json',
-						success: function (res) {
-							var det= res.data;
-							console.log('respuesta ajax:',res)
-							toastr.success(res.message);
-
-						},
-						error: function (res) {
-							console.log('respuesta ajax:',res.responseJSON);
-
-                            toastr.error(res.responseJSON.message);
-						}
-					})
 				}
-			});
-			$( ".sortable" ).disableSelection();
+			}).disableSelection();
 		});
 	</script>
 @endpush

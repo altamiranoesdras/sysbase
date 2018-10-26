@@ -19,7 +19,7 @@ Route::patch('user/menu/{user}', 'UserController@menuStore')->name('users.menuSt
 
 Route::get('option/create/{padre}', 'OptionMenuController@create')->name('admin.option.create');
 //    Route::get('option/orden', 'OptionMenuController@updateOrden')->name('option.order');
-Route::post('option/orden', 'OptionMenuController@updateOrden')->name('option.order');
+Route::get('option/orden', 'OptionMenuController@updateOrden')->name('option.order.store');
 Route::resource('options',"OptionMenuController");
 
 
@@ -29,4 +29,4 @@ Route::get('prueba/pdf', function (\App\Extensiones\Fpdf $fpdf) {
     $fpdf->Cell(50, 25, 'Hello World!');
     $fpdf->Output();
     exit();
-});
+})->name('prueba.pdf');
