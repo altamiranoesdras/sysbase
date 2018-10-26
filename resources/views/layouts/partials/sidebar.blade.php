@@ -1,10 +1,10 @@
 <!-- Main Sidebar Container -->
-<aside class="main-sidebar elevation-4 sidebar-light-success">
+<aside class="main-sidebar elevation-4 sidebar-dark-success">
     <!-- Brand Logo -->
     <a href="{{ url('/home') }}" class="brand-link bg-success">
         <img src="{{asset('dist/img/AdminLTELogo.png')}}" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light"><b>{{config('app.name')}}</b></span>
+        <span class="brand-text font-weight-dark"><b>{{config('app.name')}}</b></span>
     </a>
 
     <!-- Sidebar -->
@@ -26,7 +26,7 @@
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
                     <a href="{{ url('dashboard') }}" class="nav-link active">
-                        <i class="nav-icon fa fa-dashboard"></i>
+                        <i class="nav-icon fa fa-tachometer-alt"></i>
                         <p>
                             Dashboard
                         </p>

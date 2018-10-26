@@ -4,9 +4,25 @@
 // Variables
 //@import "variables";
 
-// Bootstrap
-@import '~font-awesome/scss/font-awesome.scss';
+//---// Font Awesome
+//@import '~font-awesome/scss/font-awesome.scss';
+@import '~@fortawesome/fontawesome-free/css/all.css';
+
+//---// IONICONS
 @import '~ionicons/dist/scss/ionicons.scss';
+
+//---// AdminLTE
 @import 'AdminLTE.scss';
+
+//---// TOASTR
 @import '~toastr/toastr.scss';
+
+//---// BOOTSTRAP TOGGLE BUTTONS
+@import '~bootstrap-toggle/css/bootstrap-toggle.min.css';
+
+//---// V-TOOLTIPS
+@import 'v-tooltip';
+
+//---// Main
+@import 'main';
 

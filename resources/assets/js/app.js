@@ -8,3 +8,14 @@
 require('./bootstrap');
 
 window.Vue = require('vue');
+
+// import 'bootstrap-toggle/js/bootstrap-toggle.js';
+window.toastr = require('toastr');
+require('bootstrap-toggle/js/bootstrap-toggle.js');
+
+// Validamos y activamos el Permiso para Notificar
+if(Notification.permission!=="granted") {
+    Notification.requestPermission();
+}
+
+require('@fortawesome/fontawesome-free/js/all.js');

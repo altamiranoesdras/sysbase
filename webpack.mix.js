@@ -1,54 +1,44 @@
-const { mix } = require('laravel-mix')
-
-/*
- |--------------------------------------------------------------------------
- | Mix Asset Management
- |--------------------------------------------------------------------------
- |
- | Mix provides a clean, fluent API for defining some Webpack build steps
- | for your Laravel application. By default, we are compiling the Sass
- | file for the application as well as bundling up all the JS files.
- |
- */
+const { mix } = require('laravel-mix');
 
 mix.js('resources/assets/js/app.js', 'public/js')
     .sass('resources/assets/sass/app.scss', 'public/css')
-// .combine(['',''], 'public/css/all.css')
-//Plugin bootstrap-fileinput
-// .copy('node_modules/bootstrap-fileinput/css','public/plugins/bootstrap-fileinput/css/')
-// .copy('node_modules/bootstrap-fileinput/js','public/plugins/bootstrap-fileinput/js/')
-// .copy('node_modules/bootstrap-fileinput/img','public/plugins/bootstrap-fileinput/img/')
-// //Plugin Select2
-// .copy('node_modules/select2/dist','public/plugins/select2/dist/')
-// //FONTS
-// .copy('node_modules/font-awesome/fonts/*.*','public/fonts/')
-// .copy('node_modules/ionicons/dist/fonts/*.*','public/fonts/')
-// .copy('node_modules/ionicons/dist/fonts/*.*','public/fonts/')
-// //AdminLTE DIST Y PLUGINS
-// // .copy('node_modules/admin-lte/dist','public/dist')
-// // .copy('node_modules/admin-lte/plugins','public/plugins')
-// //Datatables bs4
-// .copy('node_modules/datatables.net/js','public/plugins/datatables.net/js')
-// .copy('node_modules/datatables.net-bs4/js','public/plugins/datatables.net-bs4/js')
-// .copy('node_modules/datatables.net-bs4/css','public/plugins/datatables.net-bs4/css')
-// //Datatables buttons
-// .copy('node_modules/datatables.net-buttons/js','public/plugins/datatables.net-buttons/js')
-// .copy('node_modules/datatables.net-buttons-bs4/js','public/plugins/datatables.net-buttons-bs4/js')
-// .copy('node_modules/datatables.net-buttons-bs4/css','public/plugins/datatables.net-buttons-bs4/css')
-// //Datatables Responsive
-// .copy('node_modules/datatables.net-responsive/js','public/plugins/datatables.net-responsive/js')
-// .copy('node_modules/datatables.net-responsive-bs4/js','public/plugins/datatables.net-responsive-bs4/js')
-// .copy('node_modules/datatables.net-responsive-bs4/css','public/plugins/datatables.net-responsive-bs4/css')
-// //Jquery UI
-// .copy('node_modules/jquery-ui-dist','public/plugins/jquery-ui-dist')
-// .copy('node_modules/toastr/build/toastr.min.js','public/js/toastr.min.js')
+    //asios
+    .copy('node_modules/axios/dist/axios.min.js','public/js')
+    //vuejs
+    .copy('node_modules/vue/dist/vue.js','public/js')
+    //input mask
+    .copy('node_modules/inputmask/dist/jquery.inputmask.bundle.js','public/js')
+    .copy('node_modules/inputmask/dist/inputmask/bindings/inputmask.binding.js','public/js')
+    //sweet allert
+    .copy('node_modules/sweetalert2/dist/sweetalert2.min.js','public/js')
+    .copy('node_modules/sweetalert2/dist/sweetalert2.min.css','public/css')
+    //Export buttons datatables
+    .copy('node_modules/jzip/jzip.js','public/js')
+    .copy('node_modules/pdfmake/build/pdfmake.min.js','public/js')
+    .copy('node_modules/pdfmake/build/vfs_fonts.js','public/js')
+    //toastr
+    .copy('node_modules/toastr/build/toastr.min.css','public/css')
+    .copy('node_modules/toastr/build/toastr.min.js','public/js')
+    //Datatables bs4
+    .copy('node_modules/datatables.net/js','public/plugins/datatables.net/js')
+    .copy('node_modules/datatables.net-bs4/js','public/plugins/datatables.net-bs4/js')
+    .copy('node_modules/datatables.net-bs4/css','public/plugins/datatables.net-bs4/css')
+    //Datatables buttons
+    .copy('node_modules/datatables.net-buttons/js','public/plugins/datatables.net-buttons/js')
+    .copy('node_modules/datatables.net-buttons-bs4/js','public/plugins/datatables.net-buttons-bs4/js')
+    .copy('node_modules/datatables.net-buttons-bs4/css','public/plugins/datatables.net-buttons-bs4/css')
+    //Datatables Responsive
+    .copy('node_modules/datatables.net-responsive/js','public/plugins/datatables.net-responsive/js')
+    .copy('node_modules/datatables.net-responsive-bs4/js','public/plugins/datatables.net-responsive-bs4/js')
+    .copy('node_modules/datatables.net-responsive-bs4/css','public/plugins/datatables.net-responsive-bs4/css')
+    //datetimepicker
+    .copy('node_modules/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css','public/css')
+    .copy('node_modules/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js','public/js')
+    //moment
+    .copy('node_modules/moment/min/moment.min.js','public/js/moment')
+    .copy('node_modules/moment/locale/es.js','public/js/moment')
 
-// if (mix.config.inProduction) {
-//     mix.version();
-//     mix.minify();
-// }
-
-mix.browserSync({
-    proxy: 'http://sysbase.local',
-    open: false
-})
+// mix.browserSync({
+//     proxy: 'http://negocios.local',
+//     open: false
+// });

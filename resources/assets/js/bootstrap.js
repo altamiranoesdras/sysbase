@@ -10,9 +10,9 @@ window.Popper = require('popper.js').default;
  */
 
 try {
-  window.$ = window.jQuery = require('jquery');
+    window.$ = window.jQuery = require('jquery');
 
-  require('bootstrap');
+    require('bootstrap');
 } catch (e) {}
 
 require('admin-lte')
@@ -37,9 +37,9 @@ window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let token = document.head.querySelector('meta[name="csrf-token"]');
 
 if (token) {
-  window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
+    window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
-  console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
+    console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
 }
 
 /**
@@ -52,13 +52,13 @@ window.Vue = require('vue')
 
 // Use trans function in Vue (equivalent to trans() Laravel Translations helper). See htmlheader.balde.php partial.
 Vue.prototype.trans = (key) => {
-  return _.get(window.trans, key, key)
+    return _.get(window.trans, key, key)
 }
 
 // Laravel AdminLTE vue components
 // Vue.component('register-form', require('./components/auth/RegisterForm.vue'))
 // Vue.component('login-form', require('./components/auth/LoginForm.vue'))
-Vue.component('login-form', require('./components/auth/LoginForm2.vue'))
+// Vue.component('login-form', require('./components/auth/LoginForm2.vue'))
 // Vue.component('email-reset-password-form', require('./components/auth/EmailResetPasswordForm.vue'))
 // Vue.component('reset-password-form', require('./components/auth/ResetPasswordForm.vue'))
 
@@ -76,3 +76,16 @@ Vue.component('login-form', require('./components/auth/LoginForm2.vue'))
 //     broadcaster: 'pusher',
 //     key: 'your-pusher-key'
 // });
+
+import { VTooltip, VPopover, VClosePopover } from 'v-tooltip';
+
+Vue.directive('tooltip', VTooltip);
+Vue.directive('close-popover', VClosePopover);
+Vue.component('v-popover', VPopover);
+
+
+import vSelect from 'vue-select';
+Vue.component('v-select', vSelect);
+
+import ToggleButton from 'vue-js-toggle-button';
+Vue.use(ToggleButton);
