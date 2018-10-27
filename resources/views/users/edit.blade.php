@@ -8,11 +8,17 @@
     <!-- Content Header (Page header) -->
     <div class="content-header">
         <div class="container-fluid">
-            <div class="row mb-2">
-                <div class="col-sm-6">
+            <div class="row">
+                <div class="col">
                     <h1 class="m-0 text-dark">
                         Editar User
                     </h1>
+                </div><!-- /.col -->
+                <div class="col">
+                    <a class="btn btn-outline-info float-right"
+                       href="{{route('users.index')}}">
+                        <i class="fa fa-list" aria-hidden="true"></i>&nbsp;<span class="d-none d-sm-inline">Listado</span>
+                    </a>
                 </div><!-- /.col -->
             </div><!-- /.row -->
         </div><!-- /.container-fluid -->
@@ -30,7 +36,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                           {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch','enctype' => "multipart/form-data"]) !!}
+                            {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch','enctype' => "multipart/form-data"]) !!}
                                 <div class="form-row">
 
                                     @include('users.fields')

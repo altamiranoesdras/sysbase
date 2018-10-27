@@ -23,12 +23,10 @@ class UpdateUserRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
+    public function rules(){
         $id = $this->user;
         $rules = User::$rules;
-        $rules['username'] = $rules['username'] . ',username,' . $id;
-        unset($rules['password']);
+        //$rules['campo'] = $rules['campo'] . ',campo,' . $id;
 
         return $rules;
     }

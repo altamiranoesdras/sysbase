@@ -1,15 +1,15 @@
 
-<a href="{{ route('configurations.show', $id) }}" class='btn btn-default btn-sm' data-toggle="tooltip" title="Ver">
+<a href="{{ route('configurations.show', $id) }}" class='btn btn-default btn-xs' data-toggle="tooltip" title="Ver">
     <i class="fa fa-eye"></i>
 </a>
 
-<a href="{{ route('configurations.edit', $id) }}" class='btn btn-info btn-sm' data-toggle="tooltip" title="Editar">
+<a href="{{ route('configurations.edit', $id) }}" class='btn btn-info btn-xs' data-toggle="tooltip" title="Editar">
     <i class="fa fa-edit"></i>
 </a>
 
 <span data-toggle="tooltip" title="Eliminar">
-    <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-sm'>
-        <i class="fa fa-remove"></i>
+    <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-xs'>
+        <i class="fa fa-trash-alt"></i>
     </a>
 </span>
 

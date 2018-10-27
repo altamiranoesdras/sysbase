@@ -16,9 +16,9 @@
                     <ol class="breadcrumb float-right">
                         <li class="breadcrumb-item">
                             <a class="btn btn-outline-success"
-                               href="{!! route('users.create') !!}">
+                                href="{!! route('users.create') !!}">
                                 <i class="fa fa-plus"></i>
-                                <span class="d-none d-sm-inline">Agregar Nuev@</span>
+                                <span class="d-none d-sm-inline">Agregar Nuevo</span>
                             </a>
                         </li>
                     </ol>
@@ -36,8 +36,8 @@
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card">
-                        <div class="card-body p-3">
-                            @include('users.table')
+                        <div class="card-body">
+                           @include('users.table')
                         </div>
                     </div>
                     <!-- /.card -->

@@ -1,9 +1,9 @@
 
-<a href="{{ route('users.show', $id) }}" class='btn btn-default btn-sm ' data-toggle="tooltip" title="Ver">
-    <i class=" fa fa-eye"></i>
+<a href="{{ route('users.show', $id) }}" class='btn btn-default btn-xs' data-toggle="tooltip" title="Ver">
+    <i class="fa fa-eye"></i>
 </a>
 
-<a href="{{ route('users.edit', $id) }}" class='btn btn-info btn-sm' data-toggle="tooltip" title="Editar">
+<a href="{{ route('users.edit', $id) }}" class='btn btn-info btn-xs' data-toggle="tooltip" title="Editar">
     <i class="fa fa-edit"></i>
 </a>
 
@@ -12,8 +12,8 @@
 </a>
 
 <span data-toggle="tooltip" title="Eliminar">
-    <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-sm'>
-        <i class="fa fa-remove"></i>
+    <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-xs'>
+        <i class="fa fa-trash-alt"></i>
     </a>
 </span>
 
@@ -22,7 +22,7 @@
     <div class="modal-dialog" role="document">
         <div class="modal-content ">
             <div class="modal-header">
-                <h5 class="modal-title" id="modalLogoutLabel">
+                <h5 class="modal-title" >
                     <i class="fa fa-warning text-warning fa-2x" aria-hidden="true"></i> &nbsp;¿Eliminar?
                 </h5>
                 <button class="close" type="button" data-dismiss="modal" aria-label="Close">
