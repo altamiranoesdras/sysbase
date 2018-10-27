@@ -9,7 +9,7 @@
 
 <span data-toggle="tooltip" title="Eliminar">
     <a href="#modal-delete-{{$id}}" data-toggle="modal" data-keyboard="true" class='btn btn-danger btn-xs'>
-        <i class="fa fa-remove"></i>
+        <i class="fa fa-trash-alt"></i>
     </a>
 </span>
 
