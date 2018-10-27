@@ -6,13 +6,13 @@
         <meta name=description content="">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <!-- Bootstrap CSS -->
-        <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />
-        <style>
-            body {margin: 20px}
-        </style>
+        <link href="{{ asset('plugins/bootstrap/css/bootstrap.min.css') }}" rel="stylesheet" type="text/css" />.css">
     </head>
     <body onload="window.print()">
-        <table class="table table-bordered table-sm table-striped">
+
+        <h1>{{$titulo or "Reporte"}} <small>{{$subTitulo or \Carbon\Carbon::now()}}</small></h1>
+        <br>
+        <table class="table table-bordered table-condensed table-striped">
             @foreach($data as $row)
                 @if ($row == reset($data)) 
                     <tr>
@@ -32,6 +32,5 @@
                 </tr>
             @endforeach
         </table>
-
     </body>
 </html>
