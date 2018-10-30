@@ -15,7 +15,7 @@ class OptionMenuController extends AppBaseController {
 
 
     private $iconos=[
-        'fa fa-circle-o',
+        'far fa-circle',
         'fa-th',
         'fa-shopping-cart',
         'fa-folder',
@@ -62,10 +62,6 @@ class OptionMenuController extends AppBaseController {
         'fa-bar-chart',
         'fa-barcode',
         'fa-bars',
-        'fa-book',
-        'fa-bookmark',
-        'fa-bookmark-o',
-        'fa-file-pdf-o'
 
     ];
 
@@ -97,7 +93,6 @@ class OptionMenuController extends AppBaseController {
      */
     public function create($idPadre){
 
-        $ops=Option::all();
         $iconos=$this->iconos;
         if($idPadre!=0){
             $padre= Option::findOrFail($idPadre);
@@ -105,7 +100,7 @@ class OptionMenuController extends AppBaseController {
             $padre=null;
         }
 
-        return view("admin.menu.create",compact('ops','iconos','padre'));
+        return view("admin.menu.create",compact('iconos','padre'));
     }
 
     /**
@@ -128,7 +123,7 @@ class OptionMenuController extends AppBaseController {
 
         Flash::success('Opción creada!')->important();
 
-        return redirect('admin/option');
+        return redirect(route('option.index'));
     }
 
     /**
@@ -150,14 +145,14 @@ class OptionMenuController extends AppBaseController {
      */
     public function edit($id)
     {
+
         $opcion= Option::findOrFail($id);
 
-        if ($opcion->padre){
-            $padre= Option::findOrFail($opcion->padre);
-        }
+        $padre = $opcion->parent;
+
         $iconos=$this->iconos;
 
-        return view('admin.menu.edit',compact('opcion','padre','iconos'));
+        return view('admin.menu.edit',compact('opcion','iconos','padre'));
     }
 
     /**
@@ -183,7 +178,7 @@ class OptionMenuController extends AppBaseController {
 
         Flash::success('Opción actualizada!')->important();
 
-        return redirect('admin/option');
+        return redirect(route('option.edit',$id));
     }
 
     /**

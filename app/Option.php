@@ -47,10 +47,17 @@ class Option extends Model
         'padre','nombre','descripcion','ruta','icono_r','icono_l'
     ];
 
+    protected $with=['parent'];
+
     /**
      * Devuelve los usuarios que tengan asignada la opcion
      */
     public function usuarios(){
         return $this->belongsToMany('App\User');
+    }
+
+    public function parent()
+    {
+        return $this->belongsTo(Option::class,'padre','id');
     }
 }

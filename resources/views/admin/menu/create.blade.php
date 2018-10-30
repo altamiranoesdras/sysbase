@@ -15,12 +15,23 @@
 
     <div class="content">
         <div class="container-fluid">
+
+            @include('adminlte-templates::common.errors')
+
             <div class="row">
                 <div class="col-lg-12">
                     <div class="card card-warning">
                         <!-- /.card-header -->
                         <div class="card-body">
-                            @include("admin.menu.form")
+                            {!! Form::open(['route' => 'options.store']) !!}
+                                @include("admin.menu.fields")
+
+                                <!-- Submit Field -->
+                                <div class="form-group col-sm-12">
+                                    <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
+                                    <a href="{!! route('options.index') !!}" class="btn btn-outline-default">Cancelar</a>
+                                </div>
+                            {!! Form::close() !!}
                         </div>
                         <!-- /.card-body -->
                     </div>
