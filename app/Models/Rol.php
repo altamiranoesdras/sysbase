@@ -2,35 +2,17 @@
 
 namespace App\Models;
 
-use Eloquent as Model;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
  * Class Rol
- *
  * @package App\Models
- * @version September 28, 2017, 5:40 pm CST
- * @property \Illuminate\Database\Eloquent\Collection carreraGrado
- * @property \Illuminate\Database\Eloquent\Collection cursos
+ * @version November 1, 2018, 10:21 pm CST
+ *
  * @property \Illuminate\Database\Eloquent\Collection optionUser
  * @property \Illuminate\Database\Eloquent\Collection rolUser
- * @property int $id
- * @property string $descripcion
- * @property \Carbon\Carbon|null $created_at
- * @property \Carbon\Carbon|null $updated_at
- * @property \Carbon\Carbon|null $deleted_at
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\User[] $users
- * @method static bool|null forceDelete()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Rol onlyTrashed()
- * @method static bool|null restore()
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rol whereCreatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rol whereDeletedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rol whereDescripcion($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rol whereId($value)
- * @method static \Illuminate\Database\Eloquent\Builder|\App\Models\Rol whereUpdatedAt($value)
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Rol withTrashed()
- * @method static \Illuminate\Database\Query\Builder|\App\Models\Rol withoutTrashed()
- * @mixin \Eloquent
+ * @property string descripcion
  */
 class Rol extends Model
 {

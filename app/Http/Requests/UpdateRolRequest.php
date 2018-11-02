@@ -23,9 +23,8 @@ class UpdateRolRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
-    {
-        $id= $this->rol;
+    public function rules(){
+        $id = $this->rol;
         $rules = Rol::$rules;
         $rules['descripcion'] = $rules['descripcion'] . ',descripcion,' . $id;
 
