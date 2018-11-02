@@ -123,7 +123,7 @@ class OptionMenuController extends AppBaseController {
 
         Flash::success('Opción creada!')->important();
 
-        return redirect(route('option.index'));
+        return redirect(route('options.index'));
     }
 
     /**
@@ -178,7 +178,7 @@ class OptionMenuController extends AppBaseController {
 
         Flash::success('Opción actualizada!')->important();
 
-        return redirect(route('option.edit',$id));
+        return redirect(route('options.edit',$id));
     }
 
     /**
