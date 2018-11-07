@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="manifest" href="{{asset('manifest.json')}}">
-    <meta name="theme-color" content="#000000">
+    <meta name="theme-color" content="#28A745">
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css" />
 
