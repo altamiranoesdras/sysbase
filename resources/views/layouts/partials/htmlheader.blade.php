@@ -6,6 +6,9 @@
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <link rel="manifest" href="{{asset('manifest.json')}}">
+    <meta name="theme-color" content="#000000">
+
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css" />
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -22,7 +25,7 @@
     @yield('css')
     @stack('css')
 
-    
+
     <!-- Script para comvertir en json los archivos de lenguaje del paquete adminlte -->
     <script>
         //See https://laracasts.com/discuss/channels/vue/use-trans-in-vuejs
