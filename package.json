@@ -36,6 +36,7 @@
     "laravel-mix": "^2.1.11",
     "lodash": "^4.17.10",
     "popper.js": "^1.12",
+    "sw-precache-webpack-plugin": "^0.11.5",
     "vue": "^2.5.16"
   },
   "name": "sysbase",
