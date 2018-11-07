@@ -30,7 +30,7 @@ class ConfigurationsTableSeeder extends Seeder
             array (
                 'id' => 2,
                 'key' => 'app.tiempo_oculta_alerta',
-                'value' => 'SYSBASE',
+                'value' => '3000',
                 'created_at' => '2017-05-21 08:41:01',
                 'updated_at' => '2017-05-30 08:49:42',
                 'deleted_at' => NULL,

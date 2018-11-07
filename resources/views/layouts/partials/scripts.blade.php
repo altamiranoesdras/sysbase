@@ -13,4 +13,3 @@
 <!-- Scripts inyectados-->
 @stack('scripts')
 @yield('scripts')
-{{$scripts or ''}}
