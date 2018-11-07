@@ -49019,6 +49019,12 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 //
 //
 //
+//
+//
+//
+//
+//
+//
 
 
 
@@ -63147,7 +63153,7 @@ var render = function() {
               _vm._s(_vm.trans("adminlte_lang_message.loggedin")) +
               "\n        "
           ),
-          _c("i", { staticClass: "fa fa-refresh fa-spin" }),
+          _c("i", { staticClass: "fa fa-sync-alt fa-spin" }),
           _vm._v(
             "\n        " +
               _vm._s(_vm.trans("adminlte_lang_message.entering")) +
@@ -63254,21 +63260,49 @@ var render = function() {
         "button",
         {
           staticClass: "btn btn-outline-primary btn-block",
-          attrs: { type: "submit", disabled: _vm.form.errors.any() },
-          domProps: {
-            textContent: _vm._s(_vm.trans("adminlte_lang_message.buttonsign"))
-          }
+          attrs: { type: "submit", disabled: _vm.form.errors.any() }
         },
         [
-          _vm.form.submitting
-            ? _c("i", { staticClass: "fa fa-refresh fa-spin" })
-            : _vm._e()
+          _c("span", {
+            domProps: {
+              textContent: _vm._s(_vm.trans("adminlte_lang_message.buttonsign"))
+            }
+          }),
+          _vm._v(" "),
+          _c(
+            "span",
+            {
+              directives: [
+                {
+                  name: "show",
+                  rawName: "v-show",
+                  value: _vm.form.submitting,
+                  expression: "form.submitting"
+                }
+              ]
+            },
+            [_c("i", { staticClass: "fa fa-sync-alt fa-spin" })]
+          )
         ]
-      )
+      ),
+      _vm._v(" "),
+      _vm._m(0)
     ]
   )
 }
-var staticRenderFns = []
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "text-center" }, [
+      _vm._v("\n        Usuario: "),
+      _c("b", { staticClass: "text-info" }, [_vm._v("admin")]),
+      _vm._v(" Contraseña: "),
+      _c("b", { staticClass: "text-info" }, [_vm._v("admin")])
+    ])
+  }
+]
 render._withStripped = true
 module.exports = { render: render, staticRenderFns: staticRenderFns }
 if (false) {

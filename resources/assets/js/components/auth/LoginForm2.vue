@@ -4,7 +4,7 @@
         <!--Mensaje inicio sesión exitoso-->
         <div class="alert alert-success text-center" v-show="form.succeeded" id="result">
             {{ trans('adminlte_lang_message.loggedin') }}
-            <i class="fa fa-refresh fa-spin"></i>
+            <i class="fa fa-sync-alt fa-spin"></i>
             {{ trans('adminlte_lang_message.entering') }}
         </div>
 
@@ -50,11 +50,17 @@
         </div>
 
         <!--Botón submit-->
-        <button type="submit" class="btn btn-outline-primary btn-block"
-                v-text="trans('adminlte_lang_message.buttonsign')"
-                :disabled="form.errors.any()">
-            <i v-if="form.submitting" class="fa fa-refresh fa-spin"></i>
+        <button type="submit" class="btn btn-outline-primary btn-block" :disabled="form.errors.any()">
+            <span v-text="trans('adminlte_lang_message.buttonsign')"></span>
+            <span v-show="form.submitting">
+                <i  class="fa fa-sync-alt fa-spin"></i>
+            </span>
+
         </button>
+
+        <div class="text-center">
+            Usuario: <b class="text-info">admin</b> Contraseña: <b class="text-info">admin</b>
+        </div>
     </form>
 </template>
 
