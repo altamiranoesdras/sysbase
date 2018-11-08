@@ -10,37 +10,14 @@
     })
 
 
-    {{--if ('serviceWorker' in navigator ) {--}}
-        {{--window.addEventListener('load', function() {--}}
-            {{--navigator.serviceWorker.register('{{asset('service-worker.js')}}').then(function(registration) {--}}
-                {{--// Registration was successful--}}
-                {{--console.log('ServiceWorker registration successful with scope: ', registration.scope);--}}
-            {{--}, function(err) {--}}
-                {{--// registration failed :(--}}
-                {{--console.log('ServiceWorker registration failed: ', err);--}}
-            {{--});--}}
-        {{--});--}}
-    {{--}--}}
-
     if ('serviceWorker' in navigator) {
-
-
-        navigator.serviceWorker.getRegistrations().then(function(registrations) {
-
-            console.log('Service Worker des-registrado');
-
-            for(let registration of registrations) {
-
-                registration.unregister();
-
-
-            }
-        }).catch(function(err) {
-
-                console.log('Service Worker registration failed: ', err);
-
-            });
-
+        console.log("¿Se registrará el trabajador de servicio?");
+        navigator.serviceWorker.register('{{asset('sw.js')}}')
+            .then(function(reg){
+                console.log("Sí lo hizo.");
+            }).catch(function(err) {
+            console.log("No, no fue así. Esto sucedió:", err)
+        });
     }
 </script>
 
