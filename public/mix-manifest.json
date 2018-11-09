@@ -1,19 +1,4 @@
 {
     "/js/app.js": "/js/app.js",
-    "/css/app.css": "/css/app.css",
-    "/js/axios.min.js": "/js/axios.min.js",
-    "/js/vue.js": "/js/vue.js",
-    "/js/jquery.inputmask.bundle.js": "/js/jquery.inputmask.bundle.js",
-    "/js/inputmask.binding.js": "/js/inputmask.binding.js",
-    "/js/sweetalert2.min.js": "/js/sweetalert2.min.js",
-    "/css/sweetalert2.min.css": "/css/sweetalert2.min.css",
-    "/js/jzip.js": "/js/jzip.js",
-    "/js/pdfmake.min.js": "/js/pdfmake.min.js",
-    "/js/vfs_fonts.js": "/js/vfs_fonts.js",
-    "/css/toastr.min.css": "/css/toastr.min.css",
-    "/js/toastr.min.js": "/js/toastr.min.js",
-    "/css/bootstrap-datetimepicker.min.css": "/css/bootstrap-datetimepicker.min.css",
-    "/js/bootstrap-datetimepicker.min.js": "/js/bootstrap-datetimepicker.min.js",
-    "/js/moment/moment.min.js": "/js/moment/moment.min.js",
-    "/js/moment/es.js": "/js/moment/es.js"
+    "/css/app.css": "/css/app.css"
 }
