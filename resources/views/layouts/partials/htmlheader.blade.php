@@ -7,7 +7,7 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="manifest" href="{{asset('manifest.json')}}">
-    <link rel="apple-touch-icon" sizes="180x180" href="{{asset('icons/180.png')}}">
+    <link rel="apple-touch-icon-precomposed" href="{{asset('icons/180.png')}}" />
     <meta name="theme-color" content="#28A745">
 
     <link href="{{ mix('/css/app.css') }}" rel="stylesheet" type="text/css" />
