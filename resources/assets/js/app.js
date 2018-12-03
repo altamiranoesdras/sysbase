@@ -19,3 +19,5 @@ if(Notification.permission!=="granted") {
 }
 
 require('@fortawesome/fontawesome-free/js/all.js');
+
+require('mdbootstrap/js/mdb');
