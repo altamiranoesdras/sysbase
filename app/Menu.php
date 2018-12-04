@@ -77,7 +77,7 @@ class Menu{
      */
     public function renderAdmin($opciones,$parent=0){
 
-        $result = "<ul class=\"sortable list-group\">";
+        $result = "<ul class=\"sortable list-group-flush\">";
 
         foreach ($opciones as $op) {
             if ($op->padre == $parent){
@@ -88,9 +88,9 @@ class Menu{
                 $rutaNew= route('admin.option.create',$op->id);
 
                 $result.= "<li class='list-group-item' id='{$op->id}' ><span class='fa fa-arrows-alt'></span>&nbsp;&nbsp;<b>{$op->nombre}</b>";
-                $result.= " &nbsp;<a href=\"{$rutaNew}\" class='text-success text-sm' data-toggle=\"tooltip\" title=\"Nueva opcion\"><span class=\"fa fa-plus\"></span></a>";
-                $result.= " &nbsp;<a href=\"{$actionEdit}\" data-toggle=\"tooltip\" title=\"Editar\"><span class='fa fa-edit'></span></a>";
-                $result.= " &nbsp;<a data-toggle='modal' href='#modal-delete' data-action=\"{$actionDelet}\" class='text-danger btn-delete' ><span class=\"fa fa-trash-alt\"  data-toggle=\"tooltip\" title=\"Eliminar\"></span></a>";
+                $result.= " &nbsp;<a href=\"{$rutaNew}\" class='btn btn-success btn-xs' data-toggle=\"tooltip\" title=\"Nueva opcion\"><span class=\"fa fa-plus\"></span></a>";
+                $result.= " &nbsp;<a href=\"{$actionEdit}\" class='btn btn-info btn-xs' data-toggle=\"tooltip\" title=\"Editar\"><span class='fa fa-edit'></span></a>";
+                $result.= " &nbsp;<a data-toggle='modal href=' class='btn btn-danger btn-xs btn-delete' #modal-delete' data-action=\"{$actionDelet}\" ><span class=\"fa fa-trash-alt\"  data-toggle=\"tooltip\" title=\"Eliminar\"></span></a>";
 
                 if ($this->has_children($opciones,$op->id))
                     $result.=  $this->renderAdmin($opciones,$op->id);
