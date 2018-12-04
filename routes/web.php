@@ -6,6 +6,7 @@ Route::get('pruebas', function () {
 
 Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('user/profile/{user}', 'UserController@editProfile')->name('user.edit.profile');;
 Route::patch('user/profile/{user}', 'UserController@updateProfile')->name('user.update.profile');;
