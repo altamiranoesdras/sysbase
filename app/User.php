@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Rol;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -20,7 +21,7 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
  * @property string|null $deleted_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Option[] $opciones
- * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Rol[] $rols
+ * @property-read \Illuminate\Database\Eloquent\Collection|Rol[] $rols
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Uimage[] $uimages
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
@@ -74,7 +75,7 @@ class User extends Authenticatable
      **/
     public function rols()
     {
-        return $this->belongsToMany(\App\Models\Rol::class, 'rol_user');
+        return $this->belongsToMany(Rol::class, 'rol_user');
     }
 
     /**
@@ -92,6 +93,11 @@ class User extends Authenticatable
         $imagen = is_null($imagen) ? asset('img/avatar_none.png') : srcImgBynary($imagen);
 
         return $imagen;
+    }
+
+    public function isAdmin(){
+
+        return $this->rols->contains('id', Rol::ADMIN);
     }
 
 }

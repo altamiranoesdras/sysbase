@@ -102,4 +102,9 @@ class User extends Model
 
         return $imagen;
     }
+
+    public function isAdmin(){
+
+        return $this->rols->contains('id',Rol::ADMIN);
+    }
 }

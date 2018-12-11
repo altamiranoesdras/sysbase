@@ -1,51 +1,72 @@
 @extends('layouts.app')
 
+@section('htmlheader_title')
+    Menu del usuario: {{$user->name}}
+@endsection
 
 @section('content')
+    <!-- Content Header (Page header) -->
+    <div class="content-header">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col">
+                    <h1 class="m-0 text-dark">Menu del usuario: {{$user->name}}</h1>
+                </div><!-- /.col -->
+                <div class="col">
+                    <a class="btn btn-outline-info float-right" href="{!! route('users.index') !!}">
+                        <i class="fa fa-list"></i>
+                        <span class="d-none d-sm-inline">Listado</span>
+                    </a>
+                </div><!-- /.col -->
+            </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+    </div>
+    <!-- /.content-header -->
+
+    <!-- Main content -->
     <div class="content">
-        @include('flash::message')
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title"><strong>Menu del usuario: {{$user->name}}</strong></h3>
-                <div class="box-tools pull-right">
-                    <button class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i></button>
+        <div class="container-fluid">
+            @include('flash::message')
 
-                    <button class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
-                </div>
-            </div>
-            <!-- /.box-header -->
-            <div class="box-body">
-                <div class="row">
-                    <div class="col-md-12">
-                        <!--Contenido-->
-                        {!! Form::model($user, ['route' => ['users.menuStore', $user->id], 'method' => 'patch']) !!}
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col">
+                                    {!! Form::model($user, ['route' => ['users.menuStore', $user->id], 'method' => 'patch']) !!}
 
-                            {!! $menu !!}
+                                    {!! $menu !!}
 
-                            <div class="form-group">
-                                <div class="col-md-6 col-md-offset-2">
-                                    <button type="submit" class="btn btn-primary">
-                                        Guardar
-                                    </button>
+                                    <div class="form-group">
+                                        <div class="col-md-6 col-md-offset-2">
+                                            <button type="submit" class="btn btn-primary">
+                                                Guardar
+                                            </button>
 
-                                    <a href="{{ action("UserController@index") }}">
+                                            <a href="{{ action("UserController@index") }}">
 
-                                        <button type="button" class="btn btn-default">
-                                            Regresar
-                                        </button>
-                                    </a>
+                                                <button type="button" class="btn btn-default">
+                                                    Regresar
+                                                </button>
+                                            </a>
 
+                                        </div>
+                                    </div>
+                                    {!! Form::close() !!}
                                 </div>
                             </div>
-                        {!! Form::close() !!}
-                        <!--Fin Contenido-->
+                        </div>
                     </div>
+                    <!-- /.card -->
                 </div>
-
+                <!-- /.col-md-6 -->
             </div>
-        </div><!-- /.row -->
+            <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
     </div>
-
+    <!-- /.content -->
 @endsection
 @push('scripts')
     <script>
@@ -65,7 +86,7 @@
 
                 })
 
-               var chkPadre= ul.prev('div').find("input");
+                var chkPadre= ul.prev('div').find("input");
 
                 if(i>0){
                     chkPadre.prop("checked",true);

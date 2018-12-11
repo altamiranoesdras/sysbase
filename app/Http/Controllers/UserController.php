@@ -217,7 +217,7 @@ class UserController extends AppBaseController
 
         Flash::success('Menu del usuario actualizado!')->important();
 
-        return redirect("admin/user/{$user->id}/menu");
+        return redirect(route('users.index'));
     }
 
     public function saveImage(User $user,Request $request)
