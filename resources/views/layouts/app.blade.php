@@ -20,7 +20,7 @@ to get the desired effect
 
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
-        @if(Gate::allows('access-option'))
+        @can('access-option')
             
             @section('content')
                 @include('layouts.partials.demo_content')
@@ -49,7 +49,7 @@ to get the desired effect
                 </div><!-- /.container-fluid -->
             </section>
             <!-- /.content -->
-        @endif
+        @endcan
     </div>
     <!-- /.content-wrapper -->
 
