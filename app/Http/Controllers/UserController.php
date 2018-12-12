@@ -209,11 +209,27 @@ class UserController extends AppBaseController
      * @param $id usuario
      * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
      */
-    public function menuStore(User $user){
+    public function menuStore(User $user,Request $request){
 
-        $opciones = is_null(request()->opciones) ? array() : request()->opciones;
 
-        $user->opciones()->sync($opciones);
+        $opciones = [];
+
+//        dd($request->opciones);
+
+        foreach ($request->opciones as $id => $recursos){
+
+
+            if (is_array($recursos)){
+
+                $opciones[$id] = ['resources' => implode(',',$recursos)];
+            }else{
+                $opciones[$id] = $id ;
+            }
+
+        }
+
+
+        $user->opciones()->sync(array_values($opciones));
 
         Flash::success('Menu del usuario actualizado!')->important();
 

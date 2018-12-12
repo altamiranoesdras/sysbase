@@ -22,6 +22,7 @@ class CreateTableOptions extends Migration
             $table->string('icono_l')->default('fa-circle-o');
             $table->string('icono_r')->nullable()->default('fa-angle-left');
             $table->smallInteger('orden')->default(0);
+            $table->boolean('is_resource')->default(0);
             $table->timestamps();
             $table->softDeletes();
 

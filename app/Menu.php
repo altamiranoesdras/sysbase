@@ -121,13 +121,50 @@ class Menu{
 
                 $checked = in_array($op->id,$opcionesUsuario) ? 'checked' : '';
 
-                $result.= "<li>";
-                $result.= "<div class=\"checkbox\">
+                $classPadreOhijo= ($this->has_children($opciones,$op->id) || $op->padre=="" || $op->is_resource) ? 'padre' : 'hijo';
+
+                $tienHijos = $this->has_children($opciones,$op->id) || $op->is_resource;
+
+                $result.= "<li class='{$classPadreOhijo}'>";
+
+                $result.= "<div class=\"checkbox\" data-id='{$op->id}'>
                                 	<label>
-                                		<input type=\"checkbox\" value=\"{$op->id}\" name=\"opciones[]\" { $checked }>
+                                		<input type='checkbox' 
+                                		    class='{$classPadreOhijo}' 
+                                		    data-tiene-padre='{$op->padre}' 
+                                		    data-tiene-hijos='{$tienHijos}' 
+                                		    value='{$op->id}' 
+                                		    name='opciones[{$op->id}]' { $checked }>
                                 		{$op->nombre}
                                 	</label>
                                 </div>";
+
+                if($op->is_resource){
+//                    $result.= "
+//                        <ul>
+//                            <li>
+//                            <div class='form-check form-check-inline'>
+//                              <input class='form-check-input' data-tiene-padre='{$op->padre}' name='opciones[{$op->id}][]' type='checkbox' value='index'>
+//                              <label class='form-check-label'>Lista</label>
+//                            </div>
+//                            <div class='form-check form-check-inline'>
+//                              <input class='form-check-input' data-tiene-padre='{$op->padre}' name='opciones[{$op->id}][]' type='checkbox' value='create'>
+//                              <label class='form-check-label'>Nuevo</label>
+//                            </div>
+//                            <div class='form-check form-check-inline'>
+//                              <input class='form-check-input' data-tiene-padre='{$op->padre}' name='opciones[{$op->id}][]' type='checkbox' value='edit'>
+//                              <label class='form-check-label'>Editar</label>
+//                            </div>
+//                            <div class='form-check form-check-inline'>
+//                              <input class='form-check-input' data-tiene-padre='{$op->padre}' name='opciones[{$op->id}][]' type='checkbox' value='show'>
+//                              <label class='form-check-label'>Detalles</label>
+//                            </div>
+//
+//                            </li>
+//                        </ul>
+//					";
+                }
+
 
                 if ($this->has_children($opciones,$op->id))
                     $result.= $this->renderUser($opciones,$op->id,$usuario);

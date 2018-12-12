@@ -74,26 +74,63 @@
 
             $("input:checkbox").change(function (data) {
 
-                var ul = $(this).closest('ul');
+                var item_list = $(this).closest('li');
+
+                var tienHijos = $(this).data('tiene-hijos');
+                var tienPadre = $(this).data('tiene-padre');
+
+                var checked = $(this).is(':checked');
+
+                console.log('cambio en opcion: ');
                 var i=0;
 
-                ul.find("li").each(function (index,element) {
 
-                    console.log($(this).text().trim())
+                if (tienHijos){
+
+                    item_list.find('input:checkbox').prop("checked",checked);
+                }
+                if (tienPadre){
+
+                    checkParent(item_list,checked)
+
+                }
+                //
+            })
+
+
+            function checkParent(elemento) {
+                var padre= elemento.closest('ul').prev('div');
+
+                while (padre.data('id') != null){
+
+                    if(haveChildrenChecked(padre)){
+
+                        padre.find('input.padre:first').prop("checked",true);
+                    }else {
+                        padre.find('input.padre:first').prop("checked",false);
+                    }
+
+                    padre= padre.closest('ul').prev('div');
+
+                }
+            }
+
+            function haveChildrenChecked(padre) {
+
+                console.log(padre.next('ul'));
+                var i=0;
+
+                padre.next('ul').find("li").each(function (index,element) {
+
                     if( $(this).find('input').is(':checked')  ){
                         i++;
                     }
 
-                })
+                });
 
-                var chkPadre= ul.prev('div').find("input");
+                return (i>0) ? true : false;
+            }
 
-                if(i>0){
-                    chkPadre.prop("checked",true);
-                }else{
-                    chkPadre.prop("checked",false);
-                }
-            })
         })
     </script>
 @endpush
