@@ -1,11 +1,11 @@
 <?php
 
 Route::get('pruebas', function () {
-    return \Illuminate\Support\Facades\Auth::user()->imagen();
+
 });
 
-Route::get('/', 'HomeController@index');
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/', 'DashboardController@index');
 Route::get('/dashboard', 'DashboardController@index')->name('dashboard');
 
 Route::get('user/profile/{user}', 'UserController@editProfile')->name('user.edit.profile');;

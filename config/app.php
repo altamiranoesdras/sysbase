@@ -2,6 +2,11 @@
 
 return [
 
+    /**
+     * Name of route
+     */
+    'redirect_if_authenticated' => 'dashboard',
+
     /*
     |--------------------------------------------------------------------------
     | Application Name
