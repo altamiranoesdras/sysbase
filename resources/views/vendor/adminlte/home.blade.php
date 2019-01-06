@@ -6,7 +6,7 @@
 
 
 @section('content')
-	<div class="content">
+	<div class="content"  id="app">
 		<div class="container-fluid">
 			<!-- Content Header (Page header) -->
 			<div class="content-header">

@@ -13,7 +13,7 @@ to get the desired effect
 |---------------------------------------------------------|
 -->
 <body class="hold-transition sidebar-mini">
-<div class="wrapper">
+<div class="wrapper mb-5">
     @include('layouts.partials.mainheader')
 
     @include('layouts.partials.sidebar')
