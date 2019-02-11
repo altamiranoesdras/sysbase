@@ -23,6 +23,8 @@ Route::get('option/create/{padre}', 'OptionMenuController@create')->name('admin.
 Route::get('option/orden', 'OptionMenuController@updateOrden')->name('option.order.store');
 Route::resource('options',"OptionMenuController");
 
+Route::get('oauth/client',"UserController@adminOauthClient")->name('oauth.clients');
+
 
 Route::get('prueba/pdf', function (\App\Extensiones\Fpdf $fpdf) {
     $fpdf->AddPage();

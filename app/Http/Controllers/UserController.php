@@ -308,4 +308,10 @@ class UserController extends AppBaseController
 
         return redirect()->back()->with('user',$user);
     }
+
+
+    public function adminOauthClient()
+    {
+        return view('admin.admin_oauth_client');
+    }
 }

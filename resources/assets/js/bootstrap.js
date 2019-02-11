@@ -89,3 +89,18 @@ Vue.component('v-select', vSelect);
 
 import ToggleButton from 'vue-js-toggle-button';
 Vue.use(ToggleButton);
+
+Vue.component(
+    'passport-clients',
+    require('../../js/components/passport/Clients')
+);
+
+Vue.component(
+    'passport-authorized-clients',
+    require('../../js/components/passport/AuthorizedClients')
+);
+
+Vue.component(
+    'passport-personal-access-tokens',
+    require('../../js/components/passport/PersonalAccessTokens')
+);
