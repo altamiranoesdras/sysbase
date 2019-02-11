@@ -18,6 +18,7 @@
         "jenssegers/date": "^3.4",
         "jlapp/swaggervel": "dev-master",
         "laravel/framework": "5.7.*",
+        "laravel/passport": "^7.1",
         "laravel/tinker": "~1.0",
         "laravelcollective/html": "^5.7.0",
         "laraveles/spanish": "^1.1",
