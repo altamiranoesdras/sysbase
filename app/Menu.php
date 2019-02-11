@@ -33,7 +33,7 @@ class Menu{
      */
     public function render($opciones,$parent=0){
 
-        $result = $parent==0 ? "<ul class=\"nav nav-pills nav-sidebar flex-column\" data-widget=\"treeview\" role=\"menu\" data-accordion=\"false\">" : "<ul class=\"nav nav-treeview\">";
+        $result = $parent==0 ? "<ul class=\"nav nav-pills nav-sidebar flex-column\" data-widget=\"treeview\" role=\"menu\" data-accordion=\"true\">" : "<ul class=\"nav nav-treeview\">";
 
         foreach ($opciones as $op)
         {
