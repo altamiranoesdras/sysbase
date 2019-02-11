@@ -3,6 +3,8 @@
 namespace App\Providers;
 
 use App\Models\Configuration;
+use App\Models\Role;
+use Gate;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Blade;
@@ -35,6 +37,13 @@ class AppServiceProvider extends ServiceProvider
         });
 
         Blade::component('components.alert', 'alert');
+
+        Gate::before(function ($user, $ability) {
+            if ($user->hasRole(Role::SUPERADMIN) || $user->hasRole(Role::DEVELOPER)) {
+                return true;
+            }
+        });
+
     }
 
     /**
