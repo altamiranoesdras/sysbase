@@ -2,7 +2,7 @@
 
 namespace App\DataTables;
 
-use App\Models\Rol;
+use App\Models\Role;
 use Yajra\DataTables\Services\DataTable;
 use Yajra\DataTables\EloquentDataTable;
 
@@ -27,7 +27,7 @@ class RolDataTable extends DataTable
      * @param \App\Models\Post $model
      * @return \Illuminate\Database\Eloquent\Builder
      */
-    public function query(Rol $model)
+    public function query(Role $model)
     {
         return $model->newQuery();
     }
@@ -67,7 +67,8 @@ class RolDataTable extends DataTable
     protected function getColumns()
     {
         return [
-            'descripcion'
+            'id',
+            'name'
         ];
     }
 

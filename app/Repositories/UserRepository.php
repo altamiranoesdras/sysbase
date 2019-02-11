@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\User;
+use App\User;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**

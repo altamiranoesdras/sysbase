@@ -21,7 +21,7 @@
 
         <!-- Sidebar Menu -->
         <nav class="mt-2">
-            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="true">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
                 <li class="nav-item has-treeview menu-open">
@@ -33,11 +33,11 @@
                     </a>
                 </li>
             </ul>
-            @super
+            @if(Auth::user()->hasRole('developer'))
                 {!! Menu::render(OptionMenu::orderBy('orden')->get()) !!}
             @else
                 {!! Menu::render(Auth::user()->opciones()->orderBy('orden')->get()) !!}
-            @endsuper
+            @endif
         </nav>
         <!-- /.sidebar-menu -->
     </div>

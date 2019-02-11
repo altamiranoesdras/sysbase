@@ -10,7 +10,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  *
  * @package App\Models
  * @version October 6, 2017, 11:40 am CST
- * @property \App\Models\User user
+ * @property \App\User user
  * @property \Illuminate\Database\Eloquent\Collection cursoGrado
  * @property \Illuminate\Database\Eloquent\Collection grados
  * @property \Illuminate\Database\Eloquent\Collection optionUser
@@ -93,6 +93,6 @@ class Uimage extends Model
      **/
     public function user()
     {
-        return $this->belongsTo(\App\Models\User::class);
+        return $this->belongsTo(\App\User::class);
     }
 }

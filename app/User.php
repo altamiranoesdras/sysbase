@@ -2,7 +2,7 @@
 
 namespace App;
 
-use App\Models\Rol;
+use App\Models\Role;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
@@ -22,7 +22,7 @@ use Spatie\Permission\Traits\HasRoles;
  * @property string|null $deleted_at
  * @property-read \Illuminate\Notifications\DatabaseNotificationCollection|\Illuminate\Notifications\DatabaseNotification[] $notifications
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Option[] $opciones
- * @property-read \Illuminate\Database\Eloquent\Collection|Rol[] $rols
+ * @property-read \Illuminate\Database\Eloquent\Collection|Role[] $rols
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Uimage[] $uimages
  * @method static bool|null forceDelete()
  * @method static \Illuminate\Database\Query\Builder|\App\User onlyTrashed()
@@ -65,9 +65,21 @@ class User extends Authenticatable
     ];
 
     /**
+     * Validation rules
+     *
+     * @var array
+     */
+    public static $rules = [
+        'name'     => 'required|max:255',
+        'username' => 'sometimes|required|max:255|unique:users',
+        'email'    => 'required|email|max:255',
+        'password' => 'required|min:6|confirmed',
+    ];
+
+    /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
-    public function opciones()
+    public function options()
     {
         return $this->belongsToMany(\App\Option::class, 'option_user');
     }
@@ -75,9 +87,9 @@ class User extends Authenticatable
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
      **/
-    public function rols()
+    public function opciones()
     {
-        return $this->belongsToMany(Rol::class, 'rol_user');
+        return $this->belongsToMany(\App\Option::class, 'option_user');
     }
 
     /**
@@ -99,7 +111,7 @@ class User extends Authenticatable
 
     public function isAdmin(){
 
-        return $this->rols->contains('id', Rol::ADMIN);
+        return $this->hasRole('admin');
     }
 
 }

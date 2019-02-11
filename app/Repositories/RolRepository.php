@@ -2,7 +2,7 @@
 
 namespace App\Repositories;
 
-use App\Models\Rol;
+use App\Models\Role;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
@@ -10,9 +10,9 @@ use InfyOm\Generator\Common\BaseRepository;
  * @package App\Repositories
  * @version November 1, 2018, 10:21 pm CST
  *
- * @method Rol findWithoutFail($id, $columns = ['*'])
- * @method Rol find($id, $columns = ['*'])
- * @method Rol first($columns = ['*'])
+ * @method Role findWithoutFail($id, $columns = ['*'])
+ * @method Role find($id, $columns = ['*'])
+ * @method Role first($columns = ['*'])
 */
 class RolRepository extends BaseRepository
 {
@@ -20,7 +20,7 @@ class RolRepository extends BaseRepository
      * @var array
      */
     protected $fieldSearchable = [
-        'descripcion'
+        'name'
     ];
 
     /**
@@ -28,6 +28,6 @@ class RolRepository extends BaseRepository
      **/
     public function model()
     {
-        return Rol::class;
+        return Role::class;
     }
 }
