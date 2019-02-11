@@ -167,6 +167,21 @@ class OptionsTableSeeder extends Seeder
                 'updated_at' => '2019-02-11 14:35:11',
                 'deleted_at' => NULL,
             ),
+            10 => 
+            array (
+                'id' => 11,
+                'padre' => 1,
+                'nombre' => 'Permisos',
+                'ruta' => 'permissions.index',
+                'descripcion' => NULL,
+                'icono_l' => 'far fa-circle',
+                'icono_r' => NULL,
+                'orden' => 0,
+                'is_resource' => 0,
+                'created_at' => '2019-02-11 16:01:25',
+                'updated_at' => '2019-02-11 16:01:25',
+                'deleted_at' => NULL,
+            ),
         ));
         
         

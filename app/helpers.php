@@ -195,3 +195,45 @@ function licenciaEsPrueba(){
 
     return is_null($licencia) ? false : $licencia->prueba;
 }
+
+function slc($model,$label='nombre',$id='id',$defaultValue='Seleccione uno...',$defaultKey=''){
+
+    $options = $model::pluck($label,$id)->toArray();
+
+    if (!is_null($defaultValue)){
+        $options = array_prepend($options,$defaultValue,$defaultKey);
+    }
+    return $options;
+}
+
+/**
+ * Devuelve el símbolo de la moneda que esta guardada en las variables de configuración en la tabla configurations
+ * @return \Illuminate\Config\Repository|mixed
+ */
+function dvs(){
+    return config('app.divisa');
+}
+
+/**
+ * Formatea los números de cantidades con separador de miles, separador decimales y cantidad de decimales mediante llaves de configuración
+ */
+function nf($numero,$cantidad_decimales=null,$separador_decimal=null,$separador_miles=null){
+
+    $cantidad_decimales = is_null($cantidad_decimales) ? config('app.cantidad_decimales') : $cantidad_decimales;
+    $separador_decimal = !$separador_decimal ? config('app.separador_decimal') : $separador_decimal;
+    $separador_miles = !$separador_miles ? config('app.separador_miles') : $separador_miles;
+
+    return number_format($numero,$cantidad_decimales,$separador_decimal,$separador_miles);
+}
+
+/**
+ * Formatea los números de precios con separador de miles, separador decimales y cantidad de decimales mediante llaves de configuración
+ */
+function nfp($numero,$cantidad_decimales=null,$separador_decimal=null,$separador_miles=null){
+
+    $cantidad_decimales = is_null($cantidad_decimales) ? config('app.cantidad_decimales_precio') : $cantidad_decimales;
+    $separador_decimal = !$separador_decimal ? config('app.separador_decimal') : $separador_decimal;
+    $separador_miles = !$separador_miles ? config('app.separador_miles') : $separador_miles;
+
+    return number_format($numero,$cantidad_decimales,$separador_decimal,$separador_miles);
+}

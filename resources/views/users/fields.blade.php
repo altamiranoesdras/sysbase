@@ -1,6 +1,3 @@
-@include('layouts.plugins.select2')
-@include('layouts.plugins.bootstrap_fileinput')
-
 <!-- Username Field -->
 <div class="form-group col-sm-3">
     {!! Form::label('username', 'Username:') !!}
@@ -20,14 +17,34 @@
 </div>
 
 <!-- Rols Field -->
-<div class="form-group col-sm-3">
+<div class="form-group col-sm-6">
     {!! Form::label('rols', 'Roles:') !!}
-    <select name="rols[]" id="rols" class="form-control" multiple="multiple">
-        <option value=""> -- Select One -- </option>
-        @foreach($rols as $rol)
-            <option value="{{$rol->id}}" {{ in_array($rol->id,$rolsUser) ? "selected" : ""}}>{{$rol->descripcion}}</option>
-        @endforeach
-    </select>
+    {!!
+        Form::select(
+            'rols[]',
+            slc(\App\Models\Role::class,'name','name',null),
+            isset($userEdit) ? $userEdit->getRoleNames() : null,
+            ['id'=>'rols','class' => 'form-control', 'multiple' => 'multiple','style'=>'width: 100%']
+        )
+    !!}
+</div>
+
+<!-- Permisos Field -->
+<div class="form-group col-sm-6">
+    {!! Form::label('permisos', 'Permisos Directos:') !!}
+
+    @can('crear permiso')
+        <a class="success" data-toggle="modal" href="#modal-form-permissions" tabindex="1000">nuevo</a>
+    @endcan
+
+    {!!
+        Form::select(
+            'permisos[]',
+            slc(\App\Models\Permission::class,'name','name',null),
+            isset($userEdit) ? $userEdit->getDirectPermissions()->pluck('name','name') : null,
+            ['id'=>'permisos','class' => 'form-control', 'multiple' => 'multiple','style'=>'width: 100%']
+        )
+    !!}
 </div>
 
 <div class="form-group col-sm-12" style="padding: 0px; margin: 0px">
@@ -62,7 +79,7 @@
 <!-- Imagen Field -->
 <div class="form-group col-sm-4">
     <div class="card" >
-        <img class="card-img-top" src="{{$user->imagen()}}" alt="Card image cap" id="img-user">
+        <img class="card-img-top" src="{{$userEdit->imagen()}}" alt="Card image cap" id="img-user">
         <div class="card-body" style="padding: 0px">
             <!-- Imagen Field -->
 
@@ -92,7 +109,7 @@
             $('#img-user').hide();
 
         });
-        $("#rols").select2();
+        $("#rols,#permisos").select2();
 
         var $input = $("#files");
         $input.fileinput({

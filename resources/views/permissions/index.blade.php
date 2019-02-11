@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	Permissions
+	Lista de permisos
 @endsection
 
 @section('content')
@@ -10,7 +10,7 @@
         <div class="container-fluid">
             <div class="row">
                 <div class="col">
-                    <h1 class="m-0 text-dark">Permissions</h1>
+                    <h1 class="m-0 text-dark">Lista de permisos</h1>
                 </div><!-- /.col -->
                 <div class="col">
                     <ol class="breadcrumb float-right">

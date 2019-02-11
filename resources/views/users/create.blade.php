@@ -4,6 +4,9 @@
 	Crear User
 @endsection
 
+@include('layouts.plugins.select2')
+@include('layouts.plugins.bootstrap_fileinput')
+
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -57,6 +60,9 @@
         <!-- /.container-fluid -->
     </div>
     <!-- /.content -->
+
+    @include('permissions.modal_form')
+    @include('rols.modal_form_create')
 
 
 @endsection

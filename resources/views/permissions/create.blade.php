@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('htmlheader_title')
-	Crear Permission
+	Crear Permiso
 @endsection
 
 @section('content')
@@ -11,7 +11,7 @@
             <div class="row">
                 <div class="col">
                     <h1 class="m-0 text-dark">
-                        Crear Permission
+                        Crear Permiso
                     </h1>
                 </div><!-- /.col -->
                 <div class="col ">

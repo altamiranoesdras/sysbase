@@ -9,6 +9,7 @@ use App\Models\Role;
 use App\Models\Uimage;
 use App\User;
 use App\Repositories\UserRepository;
+use DB;
 use Facades\App\Menu;
 use App\Option;
 use Flash;
@@ -63,15 +64,36 @@ class UserController extends AppBaseController
         $input = $request->all();
         $input['password'] = bcrypt($input['password']);
 
-        $user = $this->userRepository->create($input);
 
-        if($user && $request->rols){
-            $user->rols()->sync($request->rols);
+        try {
+            DB::beginTransaction();
+
+            $user = $this->userRepository->create($input);
+
+            if($user && $request->rols){
+                $user->syncRoles($request->rols);
+            }
+
+            if($user && $request->permisos){
+                $user->syncRoles($request->permisos);
+            }
+
+
+            if ($user && $request->imagen){
+                $this->saveImage($user,$request);
+            }
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            $msg = $exception->getMessage();
+
+            flash('Error: '.$msg)->error()->important();
+            return redirect()->back();
         }
 
-        if ($user && $request->imagen){
-            $this->saveImage($user,$request);
-        }
+
+        DB::commit();
+
 
         Flash::success('User guardado exitosamente.');
 
@@ -107,18 +129,16 @@ class UserController extends AppBaseController
      */
     public function edit($id)
     {
-        $user = $this->userRepository->findWithoutFail($id);
+        $userEdit = $this->userRepository->findWithoutFail($id);
 
-        if (empty($user)) {
+        if (empty($userEdit)) {
             Flash::error('User no encontrado');
 
             return redirect(route('users.index'));
         }
 
-        $rols = Role::all();
-        $rolsUser = array_pluck($user->rols->toArray(),"id");
 
-        return view('users.edit',compact('user','rolsUser','rols'));
+        return view('users.edit',compact('userEdit'));
     }
 
     /**
@@ -150,14 +170,31 @@ class UserController extends AppBaseController
             $user->password = bcrypt($request->password);
         }
 
-        $user->save();
+        try {
+            DB::beginTransaction();
 
-        $rols = $request->rols ? $request->rols : [];
-        $user->rols()->sync($rols);
+            $user->save();
 
-        if ($user && $request->imagen){
-            $this->saveImage($user,$request);
+            $rols = $request->rols ? $request->rols : [];
+            $user->syncRoles($rols);
+
+            $permisos = $request->permisos ? $request->permisos : [];
+            $user->syncPermissions($permisos);
+
+            if ($user && $request->imagen){
+                $this->saveImage($user,$request);
+            }
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+            $msg = $exception->getMessage();
+
+            flash('Error: '.$msg)->error()->important();
+            return redirect()->back();
         }
+
+
+        DB::commit();
 
         Flash::success('User actualizado exitosamente.');
 

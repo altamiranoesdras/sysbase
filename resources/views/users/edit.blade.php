@@ -4,6 +4,9 @@
 	Editar User
 @endsection
 
+@include('layouts.plugins.select2')
+@include('layouts.plugins.bootstrap_fileinput')
+
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -36,7 +39,7 @@
                     <div class="card">
                         <div class="card-body">
 
-                            {!! Form::model($user, ['route' => ['users.update', $user->id], 'method' => 'patch','enctype' => "multipart/form-data"]) !!}
+                            {!! Form::model($userEdit, ['route' => ['users.update', $userEdit->id], 'method' => 'patch','enctype' => "multipart/form-data"]) !!}
                                 <div class="form-row">
 
                                     @include('users.fields')
@@ -60,5 +63,7 @@
     </div>
     <!-- /.content -->
 
+    @include('permissions.modal_form')
+    @include('rols.modal_form_create')
 
 @endsection

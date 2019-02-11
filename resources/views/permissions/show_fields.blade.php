@@ -4,7 +4,7 @@
 
 
 <!-- Name Field -->
-{!! Form::label('name', 'Name:') !!}
+{!! Form::label('name', 'Nombre:') !!}
 {!! $permission->name !!}<br>
 
 

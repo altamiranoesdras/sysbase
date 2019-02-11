@@ -6,15 +6,15 @@ use App\Models\Role;
 use InfyOm\Generator\Common\BaseRepository;
 
 /**
- * Class RolRepository
+ * Class RoleRepository
  * @package App\Repositories
  * @version February 11, 2019, 5:08 pm CST
  *
- * @method Rol findWithoutFail($id, $columns = ['*'])
- * @method Rol find($id, $columns = ['*'])
- * @method Rol first($columns = ['*'])
+ * @method Role findWithoutFail($id, $columns = ['*'])
+ * @method Role find($id, $columns = ['*'])
+ * @method Role first($columns = ['*'])
 */
-class RolRepository extends BaseRepository
+class RoleRepository extends BaseRepository
 {
     /**
      * @var array

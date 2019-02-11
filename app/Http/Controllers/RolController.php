@@ -6,6 +6,7 @@ use App\DataTables\RolDataTable;
 use App\Http\Requests;
 use App\Http\Requests\CreateRolRequest;
 use App\Http\Requests\UpdateRolRequest;
+use App\Models\Role;
 use App\Repositories\RolRepository;
 use Flash;
 use App\Http\Controllers\AppBaseController;
@@ -54,7 +55,14 @@ class RolController extends AppBaseController
     {
         $input = $request->all();
 
-        $rol = $this->rolRepository->create($input);
+        $permisos = $request->permisos;
+
+        $rol = Role::create($input);
+
+        if ($permisos){
+            $rol->syncPermissions($permisos);
+        }
+
 
         Flash::success('Rol guardado exitosamente.');
 
@@ -119,7 +127,14 @@ class RolController extends AppBaseController
             return redirect(route('rols.index'));
         }
 
+
+        $permisos = $request->permisos ? $request->permisos : [];
+
         $rol = $this->rolRepository->update($request->all(), $id);
+
+        if ($permisos){
+            $rol->syncPermissions($permisos);
+        }
 
         Flash::success('Rol actualizado exitosamente.');
 

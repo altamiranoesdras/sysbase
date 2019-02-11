@@ -4,6 +4,8 @@
 	Editar Rol
 @endsection
 
+@include('layouts.plugins.select2')
+
 @section('content')
     <!-- Content Header (Page header) -->
     <div class="content-header">
@@ -61,5 +63,6 @@
     </div>
     <!-- /.content -->
 
+    @include('permissions.modal_form')
 
 @endsection
