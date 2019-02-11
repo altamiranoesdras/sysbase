@@ -33,3 +33,5 @@ Route::get('prueba/pdf', function (\App\Extensiones\Fpdf $fpdf) {
     $fpdf->Output();
     exit();
 })->name('prueba.pdf');
+
+Route::resource('permissions', 'PermissionController');
