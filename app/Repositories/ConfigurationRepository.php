@@ -8,7 +8,7 @@ use InfyOm\Generator\Common\BaseRepository;
 /**
  * Class ConfigurationRepository
  * @package App\Repositories
- * @version October 26, 2018, 6:46 pm CST
+ * @version February 12, 2019, 8:37 am CST
  *
  * @method Configuration findWithoutFail($id, $columns = ['*'])
  * @method Configuration find($id, $columns = ['*'])
@@ -21,7 +21,8 @@ class ConfigurationRepository extends BaseRepository
      */
     protected $fieldSearchable = [
         'key',
-        'value'
+        'value',
+        'descripcion'
     ];
 
     /**

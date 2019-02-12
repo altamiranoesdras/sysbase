@@ -27,7 +27,7 @@ class AppServiceProvider extends ServiceProvider
             $configurations = Configuration::pluck('value','key')->toArray();
 
             foreach ($configurations as $key => $value){
-                config([$key => $value]);
+                config(['app.'.$key => $value]);
             }
         }
 

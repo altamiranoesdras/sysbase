@@ -8,12 +8,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 /**
  * Class Configuration
  * @package App\Models
- * @version October 26, 2018, 6:46 pm CST
+ * @version February 12, 2019, 8:37 am CST
  *
  * @property \Illuminate\Database\Eloquent\Collection optionUser
- * @property \Illuminate\Database\Eloquent\Collection rolUser
+ * @property \Illuminate\Database\Eloquent\Collection roleHasPermissions
  * @property string key
  * @property string value
+ * @property string descripcion
  */
 class Configuration extends Model
 {
@@ -30,7 +31,8 @@ class Configuration extends Model
 
     public $fillable = [
         'key',
-        'value'
+        'value',
+        'descripcion'
     ];
 
     /**
@@ -41,7 +43,8 @@ class Configuration extends Model
     protected $casts = [
         'id' => 'integer',
         'key' => 'string',
-        'value' => 'string'
+        'value' => 'string',
+        'descripcion' => 'string'
     ];
 
     /**
@@ -50,7 +53,8 @@ class Configuration extends Model
      * @var array
      */
     public static $rules = [
-        
+        'key' => 'required|max:255|unique:configurations',
+        'value' => 'required|max:255',
     ];
 
     

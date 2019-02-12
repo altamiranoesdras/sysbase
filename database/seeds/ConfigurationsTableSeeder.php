@@ -1,5 +1,6 @@
 <?php
 
+use App\Models\Configuration;
 use Illuminate\Database\Seeder;
 
 class ConfigurationsTableSeeder extends Seeder
@@ -12,31 +13,16 @@ class ConfigurationsTableSeeder extends Seeder
      */
     public function run()
     {
-        
 
-        \DB::table('configurations')->delete();
-        
-        \DB::table('configurations')->insert(array (
-            0 => 
-            array (
-                'id' => 1,
-                'key' => 'app.name',
-                'value' => 'SYSBASE',
-                'created_at' => '2017-05-21 08:41:01',
-                'updated_at' => '2017-05-30 08:49:42',
-                'deleted_at' => NULL,
-            ),
-            1 =>
-            array (
-                'id' => 2,
-                'key' => 'app.tiempo_oculta_alerta',
-                'value' => '3000',
-                'created_at' => '2017-05-21 08:41:01',
-                'updated_at' => '2017-05-30 08:49:42',
-                'deleted_at' => NULL,
-            )
-        ));
-        
-        
+
+        factory(Configuration::class,1)->create(['key' => 'name','value' => 'ASISTENCIA']);
+        factory(Configuration::class,1)->create(['key' => 'tiempo_oculta_alerta','value' => '3000']);
+        factory(Configuration::class,1)->create(['key' => 'divisa','value' => 'Q']);
+        factory(Configuration::class,1)->create(['key' => 'cantidad_decimales','value' => '2']);
+        factory(Configuration::class,1)->create(['key' => 'separador_miles','value' => ',']);
+        factory(Configuration::class,1)->create(['key' => 'separador_decimal','value' => '.']);
+        factory(Configuration::class,1)->create(['key' => 'cantidad_decimales_precio','value' => '2']);
+        factory(Configuration::class,1)->create(['key' => 'mail_pruebas','value' => 'altamiranoesdras@gmail.com']);
+
     }
 }

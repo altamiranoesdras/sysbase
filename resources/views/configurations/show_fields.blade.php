@@ -13,6 +13,11 @@
 {!! $configuration->value !!}<br>
 
 
+<!-- Descripcion Field -->
+{!! Form::label('descripcion', 'Descripcion:') !!}
+{!! $configuration->descripcion !!}<br>
+
+
 <!-- Created At Field -->
 {!! Form::label('created_at', 'Created At:') !!}
 {!! $configuration->created_at !!}<br>
@@ -22,9 +27,9 @@
 {!! Form::label('updated_at', 'Updated At:') !!}
 {!! $configuration->updated_at !!}<br>
 
-
+@if($configuration->deleted_at)
 <!-- Deleted At Field -->
 {!! Form::label('deleted_at', 'Deleted At:') !!}
 {!! $configuration->deleted_at !!}<br>
-
+@endif
 

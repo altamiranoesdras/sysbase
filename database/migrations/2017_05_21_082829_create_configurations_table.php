@@ -17,6 +17,7 @@ class CreateConfigurationsTable extends Migration
             $table->increments('id');
             $table->string('key')->unique('key_UNIQUE');
             $table->string('value');
+            $table->text('descripcion');
             $table->timestamps();
             $table->softDeletes();
         });

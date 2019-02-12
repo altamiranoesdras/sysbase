@@ -68,7 +68,8 @@ class ConfigurationDataTable extends DataTable
     {
         return [
             'key',
-            'value'
+            'value',
+            'descripcion'
         ];
     }
 
