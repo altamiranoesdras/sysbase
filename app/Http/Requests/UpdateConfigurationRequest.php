@@ -26,7 +26,7 @@ class UpdateConfigurationRequest extends FormRequest
     public function rules(){
         $id = $this->configuration;
         $rules = Configuration::$rules;
-        //$rules['campo'] = $rules['campo'] . ',campo,' . $id;
+        $rules['key'] = $rules['key'] . ',key,' . $id;
 
         return $rules;
     }
