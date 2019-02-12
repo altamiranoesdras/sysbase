@@ -22,8 +22,8 @@ class ConfigurationsTableSeeder extends Seeder
         ]);
         factory(Configuration::class,1)->create([
             'key' => 'tiempo_oculta_alerta',
-            'value' => '3000',
-            'descripcion' => 'Tiempo en milisegundos para ocultar las alertas de exito o error'
+            'value' => '5',
+            'descripcion' => 'Tiempo en segundos para ocultar las alertas de exito o error'
         ]);
         factory(Configuration::class,1)->create([
             'key' => 'divisa',

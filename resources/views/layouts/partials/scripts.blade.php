@@ -4,7 +4,7 @@
 
 
 <script>
-    $('div.alert').not('.alert-important').delay({{config('app.tiempo_oculta_alerta',3000)}}).fadeOut(350);
+    $('div.alert').not('.alert-important').delay({{config('app.tiempo_oculta_alerta',3) * 1000}}).fadeOut(350);
     $(function(){
         $('[data-toggle="tooltip"]').tooltip();
     })
