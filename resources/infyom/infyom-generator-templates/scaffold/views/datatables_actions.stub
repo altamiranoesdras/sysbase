@@ -1,7 +1,9 @@
 
-<a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.show', $id) }}" class='btn btn-default btn-xs' data-toggle="tooltip" title="Ver">
-    <i class="fa fa-eye"></i>
-</a>
+<span data-toggle="tooltip" title="Ver" >
+    <button class='btn btn-default btn-xs' data-toggle="modal" data-target="#modalShow$MODEL_NAME_PLURAL_CAMEL${{$id}}">
+        <i class="fa fa-eye"></i>
+    </button>
+</span>
 
 <a href="{{ route('$ROUTE_NAMED_PREFIX$$MODEL_NAME_PLURAL_CAMEL$.edit', $id) }}" class='btn btn-info btn-xs' data-toggle="tooltip" title="Editar">
     <i class="fa fa-edit"></i>
@@ -36,3 +38,24 @@
     </div>
 </div>
 <!-- /.modal -->
+
+
+
+<!-- Modal Show -->
+<div class="modal fade" id="modalShow$MODEL_NAME_PLURAL_CAMEL${{$id}}" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h4 class="modal-title" id="modelTitleId">
+                    $MODEL_NAME_HUMAN$
+                </h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                @include('$VIEW_PREFIX$$MODEL_NAME_PLURAL_SNAKE$.show_fields',['$MODEL_NAME_CAMEL$' => \App\Models\$MODEL_NAME$::find($id)])
+            </div>
+        </div>
+    </div>
+</div>
