@@ -6,9 +6,8 @@
     cd sysbase
     
   ### Descargar dependencias 
-    npm install -g bower (si no tienes instalado bower)
+    npm install 
     composer install 		
-    bower install
     
   ### Copiar archivo de entornos y editar 
     cp .env.example .env 
@@ -26,7 +25,7 @@
   
  Listo
  
-   ### Puedes probar el generador de formularios con el siguiente comando
+   ### Puedes probar el generador de formularios y/o API con el siguiente comando
     php artisan infyom:api_scaffold --fromTable --tableName=notas Nota
  
  ## Programas recomendados
