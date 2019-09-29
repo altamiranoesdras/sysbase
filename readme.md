@@ -11,7 +11,7 @@
     
   ### Copiar archivo de entornos y editar 
     cp .env.example .env 
-      (Colocar base de datos en archivo .env)
+    (nombre y credenciales de la base de datos en nevo archivo .env)
     
   ### Generar clave de encryptacio para la app
     php artisan key:generate
