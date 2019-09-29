@@ -19,6 +19,9 @@
   ### Crear tablas y datos
     php artisan migrate --seed
     
+  ### Instalar clientes por defecto de Laravel Passport 
+     php artisan passport:install
+     
   ### Credenciales de acceso
     Usuario : admin
     Password : admin
