@@ -1,42 +1,63 @@
 ## Instalación
-  ### Clonar repositorio
+ 
+ ### Programas necesarios
+
+  #### Laragon
+    https://sourceforge.net/projects/laragon/files/releases/4.0/laragon-full.exe
+        
+  #### Visual studio code      
+    https://code.visualstudio.com/Download
+ 
+ ### Crear una base de datos llamada sysbase
+   
+     (Esto en cualquier administrador de base de datos como heidi)
+     
+ ### Configuraciones para laragon
+ 
+ #### Cambiara {name}.test por {name}.local
+  ![](preferencias_larago1.png)   
+  
+ #### Desmarcar casilla de apache, marcar casilla de Nginx y cambiar el puerto del mismo a 80
+ 
+ ![](preferencias_larago2.png)
+     
+  ### Ejecutar los siguientes comando en la terminal que incluye laragon 
+  
+  ![](terminal_laragon.png)
+    
+  ##### clonar repo
     git clone https://github.com/altamiranoesdras/sysbase.git
 
-  ### Acceder a la carpeta del repositorio clonado
+  ##### Acceder a la carpeta  
     cd sysbase
     
-  ### Descargar dependencias 
-    npm install 
+  ##### instalar dependencias
+   
     composer install 		
+    npm install 
     
-  ### Copiar archivo de entornos y editar 
-    cp .env.example .env 
-    (nombre y credenciales de la base de datos en nevo archivo .env)
-    
-  ### Generar clave de encryptacio para la app
-    php artisan key:generate
+  #### crear archivo de entornos
   
-  ### Crear tablas y datos
+    cp .env.example .env   
+    
+  ##### generar clave de encryptacio para seguridad de la aplicación
+    php artisan key:generate  
+  
+  ##### crear tablas y datos
     php artisan migrate --seed
     
-  ### Instalar clientes por defecto de Laravel Passport 
+  ##### Instalar clientes por defecto de Laravel Passport (Autenticación para apis) 
      php artisan passport:install
+  
+  ### Recargar servidor web de laragon para que se genere el virtual host
+  
+  ![](recargar_webserver_laragon.png)
      
-  ### Credenciales de acceso
+  ### Puedes ingresar por el navegador con  http://turismo.local/   
+     
+  #### Credenciales de acceso
     Usuario : admin
     Password : admin
-  
- Listo
  
-   ### Puedes probar el generador de formularios y/o API con el siguiente comando
-    php artisan infyom:api_scaffold --fromTable --tableName=notas Nota
- 
- ## Programas recomendados
-
-  ### Laragon
-    https://sourceforge.net/projects/laragon/files/releases/3.1/laragon-wamp.exe
-      
-  ### Sublime text
-    https://www.sublimetext.com/3
 
 
