@@ -2,11 +2,9 @@
  
  ### Programas necesarios
 
-  #### Laragon
-    https://sourceforge.net/projects/laragon/files/releases/4.0/laragon-full.exe
+  #### Laragon https://sourceforge.net/projects/laragon/files/releases/4.0/laragon-full.exe
         
-  #### Visual studio code      
-    https://code.visualstudio.com/Download
+  #### Visual studio code  https://code.visualstudio.com/Download    
  
  ### Crear una base de datos llamada sysbase
    
