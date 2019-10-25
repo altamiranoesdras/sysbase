@@ -36,7 +36,7 @@
 
 							<ul>
 								<li>
-									<a href="{{route('admin.option.create',0)}}"
+									<a href="{{route('option.create',0)}}"
 									   class='text-success text-sm' data-toggle="tooltip" title="Nueva opcion">
 										<span class="fa fa-plus"></span>
 									</a>
@@ -63,8 +63,8 @@
 			<div class="modal-dialog">
 				<div class="modal-content">
 					<div class="modal-header">
-						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 						<h4 class="modal-title">Eliminar opcion</h4>
+						<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
 					</div>
 					<div class="modal-body">
 						Seguro que desea eliminar?
@@ -101,13 +101,14 @@
 					var url = "{{route("option.order.store")}}";
 					var params= { params: {opciones: opciones} };
 
+					consolaJs(opciones,url);
+
 					axios.get(url,params).then(response => {
-					    console.log(response.data);
-					    toastr.success(response.data.message);
-					    //this.models = response.data;
+						consolaJs(response.data);
+						toastr.success(response.data.message);
 					})
 					.catch(error => {
-					    console.log(error.response.data);
+						consolaJs(error);
 					    toastr.error(error.response.message);
 					});
 

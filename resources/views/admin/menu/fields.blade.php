@@ -3,7 +3,8 @@
     <div class="col-sm-6">
         {{$padre->nombre ?? "Ninguna"}}
 
-        <input type="hidden" name="padre" value="{{$padre->id ?? ''}}">
+        <input type="hidden" name="padre" value="{{$padre->id ?? ""}}">
+
     </div>
 </div>
 
@@ -31,10 +32,10 @@
             <label class="radio-inline">
                 @isset($opcion)
                     <input type="radio" name="x" id="inputID" value="{{$icono}}" class="radio-iconos" {{$icono==$opcion->icono_l ? "checked" : ''}}>
-                    @else
-                        <input type="radio" name="x" id="inputID" value="{{$icono}}" class="radio-iconos">
-                        @endisset
-                        <i class="fa {{$icono}}"></i>
+                @else
+                    <input type="radio" name="x" id="inputID" value="{{$icono}}" class="radio-iconos">
+                @endisset
+                <i class="fa {{$icono}}"></i>
             </label>
         @endforeach
 
@@ -53,10 +54,10 @@
             <label class="radio-inline">
                 @isset($opcion)
                     <input type="radio" name="y" id="inputID" value="{{$icono}}" class="radio-iconos" {{$icono==$opcion->icono_r ? "checked" : ''}}>
-                    @else
-                        <input type="radio" name="y" id="inputID" value="{{$icono}}" class="radio-iconos" >
-                        @endisset
-                        <i class="fa {{$icono}}"></i>
+                @else
+                    <input type="radio" name="y" id="inputID" value="{{$icono}}" class="radio-iconos" >
+                @endisset
+                <i class="fa {{$icono}}"></i>
             </label>
         @endforeach
     </div>

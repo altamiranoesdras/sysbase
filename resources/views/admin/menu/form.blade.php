@@ -10,9 +10,9 @@
                         {{--<option value="{{$op->id}}" {{ $op->id==$padre->id ? 'selected' : '' }}> {{$op->nombre}}</option>--}}
                     {{--@endforeach--}}
                 {{--</select>--}}
-                {{$padre->nombre or "Ninguna"}}
+                {{$padre->nombre ?? "Ninguna"}}
 
-                <input type="hidden" name="padre" value="{{$padre->id or ""}}">
+                <input type="hidden" name="padre" value="{{$padre->id ?? ""}}">
 
             </div>
         </div>

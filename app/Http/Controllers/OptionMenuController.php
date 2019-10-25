@@ -195,7 +195,7 @@ class OptionMenuController extends AppBaseController {
 
         Flash::success('Opción eliminada!')->important();
 
-        return redirect('admin/option');
+        return redirect(route('options.index'));
     }
 
     public function updateOrden(Request $request){

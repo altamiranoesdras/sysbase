@@ -62,6 +62,42 @@
             }
         };
     }(jQuery));
+
+    /**
+     * Formatea los datos de los inputs de un formulario
+     * solo se utiliza en archivos de servicio DataTable ej: VentaDataTable.php
+     * en el método html
+     * ->ajax([
+     *      'data' => "function(data) { formatDataDatatables($('#form-filter-ventas').serializeArray(), data);   }"
+     *  ])
+     * @param source
+     * @param target
+     */
+    function formatDataDataTables(source, target) {
+        $(source).each(function (i, v) {
+
+            // consola(i, v);
+            target[v['name']] = v['value'];
+        })
+
+    }
+
+
+    var globalDebug = "{{(Int) env('APP_DEBUG') }}";
+
+    globalDebug = Boolean(parseInt(globalDebug));
+
+    console.log('Estado depuración ',globalDebug);
+
+    /**
+     * Imprime en consola del navegador la data si el entorno debug de laravel esta activo
+     * @param data
+     */
+    function consolaJs(data,...otherData) {
+        if (globalDebug){
+            console.log(data,otherData);
+        }
+    }
 </script>
 
 <!-- Scripts inyectados-->

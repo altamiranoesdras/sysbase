@@ -18,7 +18,8 @@ Route::resource('users', 'UserController');
 Route::get('user/{user}/menu', 'UserController@menu')->name('user.menu');;
 Route::patch('user/menu/{user}', 'UserController@menuStore')->name('users.menuStore');
 
-Route::get('option/create/{padre}', 'OptionMenuController@create')->name('admin.option.create');
+
+Route::get('option/create/{padre}', 'OptionMenuController@create')->name('option.create');
 //    Route::get('option/orden', 'OptionMenuController@updateOrden')->name('option.order');
 Route::get('option/orden', 'OptionMenuController@updateOrden')->name('option.order.store');
 Route::resource('options',"OptionMenuController");
