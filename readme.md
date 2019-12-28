@@ -51,7 +51,7 @@
   
   ![](recargar_webserver_laragon.png)
      
-  ### Puedes ingresar por el navegador con  http://turismo.local/   
+  ### Puedes ingresar por el navegador con  http://sysbase.local/   
      
   #### Credenciales de acceso
     Usuario : admin
