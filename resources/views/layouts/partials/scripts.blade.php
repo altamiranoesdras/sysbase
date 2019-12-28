@@ -1,6 +1,7 @@
 <!-- REQUIRED JS SCRIPTS -->
 <script src="{{ url (mix('/js/app.js')) }}" type="text/javascript"></script>
 <script src="{{ asset('/js/toastr.min.js') }}" type="text/javascript"></script>
+<script src="{{ asset('/js/sweetalert2.min.js') }}" type="text/javascript"></script>
 
 
 <script>
@@ -97,6 +98,25 @@
         if (globalDebug){
             console.log(data,otherData);
         }
+    }
+
+    /**
+     * Funcion para confirmar la eliminacion de los registros de cualquier datatable
+     * @param data
+     */
+    function deleteThis(data){
+        Swal.fire({
+            title: '¿Estás seguro?',
+            text: "¡No podrás revertir esto!",
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Si, elimínalo\n!'
+        }).then((result) => {
+            if (result.value) {
+                $("#delete-form"+id).submit();
+            }
+        });
     }
 </script>
 
