@@ -44,7 +44,7 @@
                                     @include('rols.fields')
                                     <!-- Submit Field -->
                                     <div class="form-group col-sm-12">
-                                        <button type="submit" onClick="this.form.submit(); this.disabled=true;" class="btn btn-outline-success">Guardar</button>
+                                        <button type="submit" class="btn btn-outline-success">Guardar</button>
                                         <a href="{!! route('rols.index') !!}" class="btn btn-outline-default">Cancelar</a>
                                     </div>
                                 </div>

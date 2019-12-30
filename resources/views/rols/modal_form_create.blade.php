@@ -45,6 +45,8 @@
         $("#form-modal-roles").submit(function (e) {
             e.preventDefault();
 
+            $("#multiselect_to").find('option').prop('selected','selected');
+
             var data= $(this).serializeObject();
 
             console.log('enviar formulario select2target: '+select2target.attr('id'),data);

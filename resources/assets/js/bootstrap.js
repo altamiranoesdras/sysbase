@@ -13,6 +13,7 @@ try {
     window.$ = window.jQuery = require('jquery');
 
     require('bootstrap');
+    require('multiselect-two-sides');
 } catch (e) {}
 
 require('admin-lte')

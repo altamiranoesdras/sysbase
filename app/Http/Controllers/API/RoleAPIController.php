@@ -6,8 +6,10 @@ use App\Http\Requests\API\CreateRoleAPIRequest;
 use App\Http\Requests\API\UpdateRoleAPIRequest;
 use App\Models\Role;
 use App\Repositories\RoleRepository;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\AppBaseController;
+use Illuminate\Support\Facades\Auth;
 use InfyOm\Generator\Criteria\LimitOffsetCriteria;
 use Prettus\Repository\Criteria\RequestCriteria;
 use Response;
@@ -55,9 +57,28 @@ class RoleAPIController extends AppBaseController
     {
         $input = $request->all();
 
-        $roles = $this->roleRepository->create($input);
+        $permisos = $input['permission_to[]'] ?? [];
 
-        return $this->sendResponse($roles->toArray(), 'Role guardado exitosamente');
+        try {
+            DB::beginTransaction();
+
+            $role = $this->roleRepository->create($input);
+
+            $role->syncPermissions($permisos);
+
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            $msg = Auth::user()->isDev() ? $exception->getMessage() : "Hubo un error intente de nuevo";
+
+            return $this->sendError($msg);
+        }
+
+        DB::commit();
+
+
+        return $this->sendResponse($role->toArray(), 'Role guardado exitosamente');
     }
 
     /**

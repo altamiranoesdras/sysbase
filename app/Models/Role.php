@@ -23,7 +23,7 @@ class Role extends RoleBase
     const ADMIN =       'admin';
     const EMPLEADO =       'empleado';
 
-    protected $fillable = ['name'];
+    protected $fillable = ['name','guard_name'];
 
     /**
      * Validation rules

@@ -38,7 +38,8 @@
     //Cuando el modal se abre
     $('#modal-form-permissions').on('shown.bs.modal', function (event) {
         var button = $(event.relatedTarget) // Boton que abrió el modal
-        var select2target = button.closest('div').find('select');
+        // var select2target = button.closest('div').find('select');
+        var select2target = $('#multiselect');
 
 
         //Envío del formulario del modal
@@ -62,18 +63,15 @@
                 var option = new Option(data.name, data.name);
                 option.selected = true;
 
-                //quita la opción seleccionada del select objetivo
-                select2target.find('option:selected').attr("selected", false);
-                //Cambia la opción del select objetivo por la creada
-                select2target.append(option).trigger("change");
+                //Agregar el nuevo permiso
+                select2target.append(option);
 
-                
-                $('#modal-form-permissions').modal('hide'); 
+                $('#modal-form-permissions').modal('hide');
 
-                toastr.success(msg); 
+                toastr.success(msg);
 
                 $('#btnSubmitFormPermissions').button('reset');
-                 
+
                 $("#form-modal-permissions")[0].reset();
             })
             .catch(error => {

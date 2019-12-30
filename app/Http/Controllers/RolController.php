@@ -8,6 +8,9 @@ use App\Http\Requests\CreateRolRequest;
 use App\Http\Requests\UpdateRolRequest;
 use App\Models\Role;
 use App\Repositories\RolRepository;
+use Auth;
+use DB;
+use Exception;
 use Flash;
 use App\Http\Controllers\AppBaseController;
 use Response;
@@ -55,13 +58,29 @@ class RolController extends AppBaseController
     {
         $input = $request->all();
 
-        $permisos = $request->permisos;
+        try {
+            DB::beginTransaction();
 
-        $rol = Role::create($input);
+            $rol = Role::create($input);
 
-        if ($permisos){
+            $permisos = $request->permission_to ?? [];
+
             $rol->syncPermissions($permisos);
+
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            if(Auth::user()->isDev()){
+                throw new Exception($exception);
+            }
+
+            flash("Hubo un error, intente de nuevo")->error()->important();
+
+            return redirect(route('rols.edit',$rol->id));
         }
+
+        DB::commit();
 
 
         Flash::success('Rol guardado exitosamente.');
@@ -128,13 +147,30 @@ class RolController extends AppBaseController
         }
 
 
-        $permisos = $request->permisos ? $request->permisos : [];
+        try {
+            DB::beginTransaction();
 
-        $rol = $this->rolRepository->update($request->all(), $id);
+            $rol = $this->rolRepository->update(['name' => $request->name], $id);
 
-        if ($permisos){
+            $permisos = $request->permission_to ?? [];
+
             $rol->syncPermissions($permisos);
+
+
+        } catch (\Exception $exception) {
+            DB::rollBack();
+
+            if(Auth::user()->isDev()){
+                throw new Exception($exception);
+            }
+
+            flash("Hubo un error, intente de nuevo")->error()->important();
+
+            return redirect(route('rols.edit',$rol->id));
         }
+
+        DB::commit();
+
 
         Flash::success('Rol actualizado exitosamente.');
 
