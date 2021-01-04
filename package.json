@@ -17,7 +17,7 @@
     "@fortawesome/fontawesome-free-solid": "^5.0.13",
     "acacha-forms": "^1.0.10",
     "admin-lte": "^3.0.0-alpha.2",
-    "axios": "^0.18",
+    "axios": "^0.21",
     "babel-eslint": "^7.1.1",
     "bootstrap": "^4.1.3",
     "browser-sync": "^2.24.5",
