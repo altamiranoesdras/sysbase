@@ -10,7 +10,7 @@
         "barryvdh/laravel-snappy": "^0.4.0",
         "codedge/laravel-fpdf": "^1.2",
         "doctrine/dbal": "~2.3",
-        "dompdf/dompdf": "^0.8.0",
+        "dompdf/dompdf": "^2.0.0",
         "fideloper/proxy": "~4.0",
         "infyomlabs/adminlte-templates": "5.7.x-dev",
         "infyomlabs/laravel-generator": "5.7.x-dev",
